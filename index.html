@@ -125,31 +125,33 @@
   .ref-link:hover { opacity:.85; }
   .ref-link-arrow { font-size:15px; }
 
-  /* 右侧：截图轮播容器 — 高度跟随图片自适应 */
+  /* 右侧：截图轮播容器 — 高度自动撑满对齐左侧文案 */
   .ref-shots {
     position:relative; border-radius:16px; overflow:hidden;
-    border:1px solid var(--border-l); background:#111;
+    border:1px solid var(--border-l); background:#000;
+    /* 高度跟左侧 .ref-info 对齐，由 grid align-items:stretch 控制 */
+    min-height:400px;
   }
 
-  /* 轮播主体 — 普通文档流，高度由图片决定 */
+  /* 轮播主体 — 占满整个容器，overflow:hidden 防止箭头溢出 */
   .shots-track {
-    position:relative; overflow:hidden;
+    position:absolute; inset:0; overflow:hidden;
   }
   .shot-slide {
-    display:none;
-    background:#111;
-    pointer-events:none;
+    position:absolute; inset:0; opacity:0; transition:opacity .3s ease;
+    display:flex; align-items:center; justify-content:center; background:#111;
+    pointer-events:none;  /* 非激活 slide 完全不接受点击 */
   }
-  .shot-slide.active { display:block; pointer-events:auto; }
+  .shot-slide.active { opacity:1; pointer-events:auto; }
 
   .shot-slide img {
-    width:100%; height:auto; display:block; cursor:zoom-in;
-    object-fit:unset;
+    width:100%; height:100%; object-fit:cover; object-position:top center;
+    display:block; cursor:zoom-in;
   }
 
   /* 占位符 */
   .shot-placeholder {
-    width:100%; min-height:300px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;
     gap:10px; background:var(--bg2);
   }
   .sp-icon { font-size:36px; opacity:.3; }
@@ -679,11 +681,11 @@
             </div>
           <div class="shots-track">
             <div class="shot-slide active">
-              <img data-src="images/motographe-home.jpg" src="images/motographe-home.jpg" alt="Motographe 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <img data-src="images-hd/motographe-home.jpg" src="images/motographe-home.jpg" alt="Motographe 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
               <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">待截图</div><div class="sp-hint">motographe-home.jpg</div></div>
             </div>
             <div class="shot-slide">
-              <img data-src="images/motographe-shop.jpg" src="images/motographe-shop.jpg" alt="Motographe 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <img data-src="images-hd/motographe-shop.jpg" src="images/motographe-shop.jpg" alt="Motographe 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
               <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">待截图</div><div class="sp-hint">motographe-shop.jpg</div></div>
             </div>
             <div class="shots-arrows">
@@ -717,11 +719,11 @@
             </div>
           <div class="shots-track">
             <div class="shot-slide active">
-              <img data-src="images/benchmade-home.jpg" src="images/benchmade-home.jpg" alt="Benchmade 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <img data-src="images-hd/benchmade-home.jpg" src="images/benchmade-home.jpg" alt="Benchmade 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
               <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
             </div>
             <div class="shot-slide">
-              <img data-src="images/benchmade-shop.jpg" src="images/benchmade-shop.jpg" alt="Benchmade 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <img data-src="images-hd/benchmade-shop.jpg" src="images/benchmade-shop.jpg" alt="Benchmade 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
               <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
             </div>
             <div class="shots-arrows">
@@ -755,11 +757,11 @@
             </div>
           <div class="shots-track">
             <div class="shot-slide active">
-              <img data-src="images/tesla-home.jpg" src="images/tesla-home.jpg" alt="Tesla 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <img data-src="images-hd/tesla-home.jpg" src="images/tesla-home.jpg" alt="Tesla 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
               <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
             </div>
             <div class="shot-slide">
-              <img data-src="images/tesla-shop.jpg" src="images/tesla-shop.jpg" alt="Tesla 产品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <img data-src="images-hd/tesla-shop.jpg" src="images/tesla-shop.jpg" alt="Tesla 产品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
               <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
             </div>
             <div class="shots-arrows">
@@ -793,11 +795,11 @@
             </div>
           <div class="shots-track">
             <div class="shot-slide active">
-              <img data-src="images/dyson-home.jpg" src="images/dyson-home.jpg" alt="Dyson 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <img data-src="images-hd/dyson-home.jpg" src="images/dyson-home.jpg" alt="Dyson 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
               <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
             </div>
             <div class="shot-slide">
-              <img data-src="images/dyson-shop.jpg" src="images/dyson-shop.jpg" alt="Dyson 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <img data-src="images-hd/dyson-shop.jpg" src="images/dyson-shop.jpg" alt="Dyson 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
               <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
             </div>
             <div class="shots-arrows">
@@ -831,11 +833,11 @@
             </div>
           <div class="shots-track">
             <div class="shot-slide active">
-              <img data-src="images/leatherman-home.jpg" src="images/leatherman-home.jpg" alt="Leatherman 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <img data-src="images-hd/leatherman-home.jpg" src="images/leatherman-home.jpg" alt="Leatherman 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
               <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
             </div>
             <div class="shot-slide">
-              <img data-src="images/leatherman-shop.jpg" src="images/leatherman-shop.jpg" alt="Leatherman 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <img data-src="images-hd/leatherman-shop.jpg" src="images/leatherman-shop.jpg" alt="Leatherman 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
               <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
             </div>
             <div class="shots-arrows">
@@ -869,11 +871,11 @@
             </div>
           <div class="shots-track">
             <div class="shot-slide active">
-              <img data-src="images/byd-home.jpg" src="images/byd-home.jpg" alt="BYD 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <img data-src="images-hd/byd-home.jpg" src="images/byd-home.jpg" alt="BYD 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
               <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
             </div>
             <div class="shot-slide">
-              <img data-src="images/byd-shop.jpg" src="images/byd-shop.jpg" alt="BYD 产品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <img data-src="images-hd/byd-shop.jpg" src="images/byd-shop.jpg" alt="BYD 产品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
               <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
             </div>
             <div class="shots-arrows">
