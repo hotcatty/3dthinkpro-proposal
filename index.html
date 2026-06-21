@@ -125,33 +125,31 @@
   .ref-link:hover { opacity:.85; }
   .ref-link-arrow { font-size:15px; }
 
-  /* 右侧：截图轮播容器 — 高度自动撑满对齐左侧文案 */
+  /* 右侧：截图轮播容器 — 高度跟随图片自适应 */
   .ref-shots {
     position:relative; border-radius:16px; overflow:hidden;
-    border:1px solid var(--border-l); background:#000;
-    /* 高度跟左侧 .ref-info 对齐，由 grid align-items:stretch 控制 */
-    min-height:400px;
+    border:1px solid var(--border-l); background:#111;
   }
 
-  /* 轮播主体 — 占满整个容器，overflow:hidden 防止箭头溢出 */
+  /* 轮播主体 — 普通文档流，高度由图片决定 */
   .shots-track {
-    position:absolute; inset:0; overflow:hidden;
+    position:relative; overflow:hidden;
   }
   .shot-slide {
-    position:absolute; inset:0; opacity:0; transition:opacity .3s ease;
-    display:flex; align-items:center; justify-content:center; background:#111;
-    pointer-events:none;  /* 非激活 slide 完全不接受点击 */
+    display:none;
+    background:#111;
+    pointer-events:none;
   }
-  .shot-slide.active { opacity:1; pointer-events:auto; }
+  .shot-slide.active { display:block; pointer-events:auto; }
 
   .shot-slide img {
-    width:100%; height:100%; object-fit:cover; object-position:top center;
-    display:block; cursor:zoom-in;
+    width:100%; height:auto; display:block; cursor:zoom-in;
+    object-fit:unset;
   }
 
   /* 占位符 */
   .shot-placeholder {
-    width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    width:100%; min-height:300px; display:flex; flex-direction:column; align-items:center; justify-content:center;
     gap:10px; background:var(--bg2);
   }
   .sp-icon { font-size:36px; opacity:.3; }
