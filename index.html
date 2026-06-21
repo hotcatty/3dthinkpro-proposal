@@ -620,11 +620,11 @@
   <!-- 路径：/Users/hotcat/WorkBuddy/2026-06-19-14-06-34/yinghao-ecommerce/03-design-references/screenshots/
        文件命名规则：
          motographe-home.jpg / motographe-shop.jpg
-         benchmade-home.jpg  / benchmade-shop.jpg
          tesla-home.jpg      / tesla-shop.jpg
+         spacex-home.jpg     / spacex-shop.jpg
          dyson-home.jpg      / dyson-shop.jpg
-         leatherman-home.jpg / leatherman-shop.jpg
-         byd-home.jpg        / byd-shop.jpg
+         alpinestars-home.jpg / alpinestars-shop.jpg
+         ohlins-home.jpg     / ohlins-shop.jpg
   -->
 
   <div class="ref-carousel">
@@ -635,24 +635,24 @@
         <span class="rtn-cat">法国 · 摩托配件</span>
       </button>
       <button class="ref-tab-btn" data-index="1">
-        <span class="rtn-name">Benchmade</span>
-        <span class="rtn-cat">美国 · 工业工具</span>
-      </button>
-      <button class="ref-tab-btn" data-index="2">
         <span class="rtn-name">Tesla</span>
         <span class="rtn-cat">美国 · 科技汽车</span>
       </button>
+      <button class="ref-tab-btn" data-index="2">
+        <span class="rtn-name">SpaceX</span>
+        <span class="rtn-cat">美国 · 航天科技</span>
+      </button>
       <button class="ref-tab-btn" data-index="3">
         <span class="rtn-name">Dyson</span>
-        <span class="rtn-cat">英国 · 工程美学</span>
+        <span class="rtn-cat">英国 · 电商独立站</span>
       </button>
       <button class="ref-tab-btn" data-index="4">
-        <span class="rtn-name">Leatherman</span>
-        <span class="rtn-cat">美国 · 多工具品牌</span>
+        <span class="rtn-name">Alpinestars</span>
+        <span class="rtn-cat">意大利 · 摩托装备</span>
       </button>
       <button class="ref-tab-btn" data-index="5">
-        <span class="rtn-name">BYD</span>
-        <span class="rtn-cat">中国 · 电动汽车</span>
+        <span class="rtn-name">Öhlins</span>
+        <span class="rtn-cat">瑞典 · 精密悬挂</span>
       </button>
     </div>
 
@@ -696,55 +696,17 @@
         </div>
       </div>
 
-      <!-- Panel 1: Benchmade -->
-      <div class="ref-panel">
-        <div class="ref-info">
-          <span class="ref-cat-tag">美国 · 工业工具</span>
-          <h3 class="ref-brand">Benchmade</h3>
-          <p class="ref-desc">美国高端工具品牌，在线可视化配置器和工艺叙事是重点学习对象。展示如何将定制化与品质结合。</p>
-          <ul class="ref-highlights">
-            <li><b>在线配置器</b>提升用户参与度和转化率</li>
-            <li>工业工艺细节展示，信任度建立有方法</li>
-            <li>产品系列分层清晰，导航逻辑易懂</li>
-            <li>品牌故事穿插于产品页，叙事融洽自然</li>
-          </ul>
-          <a href="https://www.benchmade.com" target="_blank" class="ref-link">
-            访问网站 <span class="ref-link-arrow">→</span>
-          </a>
-        </div>
-        <div class="ref-shots">
-          <div class="shots-tabs">
-              <button class="shots-tab active" onclick="switchShot(this,0)">首页</button>
-              <button class="shots-tab" onclick="switchShot(this,1)">商品页</button>
-            </div>
-          <div class="shots-track">
-            <div class="shot-slide active">
-              <img data-src="images-hd/benchmade-home.jpg" src="images/benchmade-home.jpg" alt="Benchmade 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
-              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
-            </div>
-            <div class="shot-slide">
-              <img data-src="images-hd/benchmade-shop.jpg" src="images/benchmade-shop.jpg" alt="Benchmade 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
-              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
-            </div>
-            <div class="shots-arrows">
-              <button class="shots-arrow" onclick="prevShot(this)">‹</button>
-              <button class="shots-arrow" onclick="nextShot(this)">›</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Panel 2: Tesla -->
+      <!-- Panel 1: Tesla -->
       <div class="ref-panel">
         <div class="ref-info">
           <span class="ref-cat-tag">美国 · 科技汽车</span>
           <h3 class="ref-brand">Tesla</h3>
-          <p class="ref-desc">科技品牌官方站的天花板。极简、配置器、多品牌矩阵展示都是表率。<b>科技工程感方向的重点参考</b>。</p>
+          <p class="ref-desc">品牌官网与电商购物结合的典范。首要任务是传递品牌主张，其次才是卖车——Shop 模块以嵌入式的方式融入官网，而非独立的购物站。</p>
           <ul class="ref-highlights">
-            <li><b>极简美学</b>配合工程精密感，科技感十足</li>
-            <li>产品配置器交互设计一流，转化漏斗优化到位</li>
-            <li>视频、3D 渲染与平面设计融洽结合</li>
-            <li>导航结构清晰，多车型矩阵展示得体专业</li>
+            <li>官网优先：品牌故事与产品讲解占主要篇幅，Shop 入口克制自然</li>
+            <li>每款车型独占一整页进行详尽讲解，配置器是核心交互</li>
+            <li>视频、3D 渲染与极简排版融合，信息密度恰到好处</li>
+            <li>导航结构清晰，多车型矩阵展示，品类管理教科书级别</li>
           </ul>
           <a href="https://www.tesla.com" target="_blank" class="ref-link">
             访问网站 <span class="ref-link-arrow">→</span>
@@ -772,17 +734,55 @@
         </div>
       </div>
 
+      <!-- Panel 2: SpaceX -->
+      <div class="ref-panel">
+        <div class="ref-info">
+          <span class="ref-cat-tag">美国 · 航天科技</span>
+          <h3 class="ref-brand">SpaceX</h3>
+          <p class="ref-desc">集团业务官网的极致形态。全页面服务于"使命叙事"，用宏大的愿景统领所有内容，Starlink 购买入口低调嵌入其中。</p>
+          <ul class="ref-highlights">
+            <li>使命先行：每个版块都在强调"改变人类命运"的叙事框架</li>
+            <li>视觉极其克制，大量暗黑全幅画面 + 精准的单句标题</li>
+            <li>业务线平铺展示（Falcon / Starship / Starlink），品牌矩阵清晰</li>
+            <li>商业转化（Rideshare 预约、Starlink 购买）用 CTA 按钮低调植入</li>
+          </ul>
+          <a href="https://www.spacex.com" target="_blank" class="ref-link">
+            访问网站 <span class="ref-link-arrow">→</span>
+          </a>
+        </div>
+        <div class="ref-shots">
+          <div class="shots-tabs">
+              <button class="shots-tab active" onclick="switchShot(this,0)">首页</button>
+              <button class="shots-tab" onclick="switchShot(this,1)">业务页</button>
+            </div>
+          <div class="shots-track">
+            <div class="shot-slide active">
+              <img data-src="images-hd/spacex-home.jpg" src="images/spacex-home.jpg" alt="SpaceX 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">待截图</div><div class="sp-hint">spacex-home.jpg</div></div>
+            </div>
+            <div class="shot-slide">
+              <img data-src="images-hd/spacex-shop.jpg" src="images/spacex-shop.jpg" alt="SpaceX 业务页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">待截图</div><div class="sp-hint">spacex-shop.jpg</div></div>
+            </div>
+            <div class="shots-arrows">
+              <button class="shots-arrow" onclick="prevShot(this)">‹</button>
+              <button class="shots-arrow" onclick="nextShot(this)">›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Panel 3: Dyson -->
       <div class="ref-panel">
         <div class="ref-info">
-          <span class="ref-cat-tag">英国 · 工程美学</span>
+          <span class="ref-cat-tag">英国 · 电商独立站</span>
           <h3 class="ref-brand">Dyson</h3>
-          <p class="ref-desc">工业工程与简约设计的完美结合。产品展示方式、动画演示、品牌叙事都值得深入研究。</p>
+          <p class="ref-desc">以商品购买为核心的电商独立站标杆。首页主推当季活动，每款产品独占整页深度讲解——这是复杂机械产品的最佳承载方式。</p>
           <ul class="ref-highlights">
-            <li><b>工业美学</b>与科技感的完美融合</li>
-            <li>动画演示和 3D 展示让复杂产品易懂</li>
-            <li>价格定位明确，溢价能力强的品牌塑造</li>
-            <li>产品细节展示专业，信任度建立有数</li>
+            <li>首页 Tab 导航直接呈现产品分类，购买路径极短</li>
+            <li>每款产品用独立长页详述技术原理、功能细节与使用场景</li>
+            <li>因产品机械结构复杂，选择重展示而非轻展示——值得借鉴</li>
+            <li>动画、剖面图与实拍结合，让复杂产品变得易懂易买</li>
           </ul>
           <a href="https://www.dyson.com" target="_blank" class="ref-link">
             访问网站 <span class="ref-link-arrow">→</span>
@@ -810,19 +810,19 @@
         </div>
       </div>
 
-      <!-- Panel 4: Leatherman -->
+      <!-- Panel 4: Alpinestars -->
       <div class="ref-panel">
         <div class="ref-info">
-          <span class="ref-cat-tag">美国 · 多工具品牌</span>
-          <h3 class="ref-brand">Leatherman</h3>
-          <p class="ref-desc">多工具品类的领航者。品牌故事与社区文化融合，产品线分层清晰，可定制化参考。</p>
+          <span class="ref-cat-tag">意大利 · 摩托装备</span>
+          <h3 class="ref-brand">Alpinestars</h3>
+          <p class="ref-desc">摩托骑行装备领域的设计标杆。深色工业美学 + 赛事背书 + 直接购买，三者高度整合。与英皓同属摩托周边品类，参考价值极高。</p>
           <ul class="ref-highlights">
-            <li><b>社区文化</b>运营与 UGC 融合做得最好</li>
-            <li>产品线分类逻辑清晰，用户找到目标产品快</li>
-            <li>品牌故事穿插自然，不显得突兀</li>
-            <li>高端定位通过工艺细节和品质故事体现</li>
+            <li>以骑行场景（Racing / Adventure / MX）为导航逻辑，而非产品品类</li>
+            <li>黑色主调搭配高对比度荧光点缀，工业极简黑的最佳范本</li>
+            <li>赛事战报（MotoGP / F1 / 勒芒）直接嵌入首页，品牌专业感即时建立</li>
+            <li>产品缩略图直接展示多色变体，降低用户决策摩擦</li>
           </ul>
-          <a href="https://www.leatherman.com" target="_blank" class="ref-link">
+          <a href="https://www.alpinestars.com" target="_blank" class="ref-link">
             访问网站 <span class="ref-link-arrow">→</span>
           </a>
         </div>
@@ -833,12 +833,12 @@
             </div>
           <div class="shots-track">
             <div class="shot-slide active">
-              <img data-src="images-hd/leatherman-home.jpg" src="images/leatherman-home.jpg" alt="Leatherman 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
-              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
+              <img data-src="images-hd/alpinestars-home.jpg" src="images/alpinestars-home.jpg" alt="Alpinestars 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">待截图</div><div class="sp-hint">alpinestars-home.jpg</div></div>
             </div>
             <div class="shot-slide">
-              <img data-src="images-hd/leatherman-shop.jpg" src="images/leatherman-shop.jpg" alt="Leatherman 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
-              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
+              <img data-src="images-hd/alpinestars-shop.jpg" src="images/alpinestars-shop.jpg" alt="Alpinestars 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">待截图</div><div class="sp-hint">alpinestars-shop.jpg</div></div>
             </div>
             <div class="shots-arrows">
               <button class="shots-arrow" onclick="prevShot(this)">‹</button>
@@ -848,19 +848,19 @@
         </div>
       </div>
 
-      <!-- Panel 5: BYD -->
+      <!-- Panel 5: Öhlins -->
       <div class="ref-panel">
         <div class="ref-info">
-          <span class="ref-cat-tag">中国 · 电动汽车</span>
-          <h3 class="ref-brand">BYD</h3>
-          <p class="ref-desc">国内标杆。多品牌矩阵展示、多产品线管理、技术展示等都堪称教科书级别。</p>
+          <span class="ref-cat-tag">瑞典 · 精密悬挂</span>
+          <h3 class="ref-brand">Öhlins</h3>
+          <p class="ref-desc">与英皓最接近的参考品牌——同属摩托精密机械零部件，有鲜明品牌色，赛道技术背书贯穿全站。展示了小众高端零部件品牌如何在官网建立权威感。</p>
           <ul class="ref-highlights">
-            <li><b>多品牌矩阵</b>展示的最佳实践案例</li>
-            <li>产品线分层和品牌分层协调得当</li>
-            <li>技术与功能展示清晰，信息架构优化到位</li>
-            <li>国际化审美与中国品牌特色融洽平衡</li>
+            <li>品牌黄（Öhlins Yellow）贯穿全站，高辨识度的视觉锚点</li>
+            <li>MotoGP 赛事故事作为首屏内容，技术权威感即时建立</li>
+            <li>技术文档（TTX / STX / DFV / NIX）独立成模块，强调工程深度</li>
+            <li>按车型精准匹配产品（Ducati / Harley / GR Corolla），导购逻辑清晰</li>
           </ul>
-          <a href="https://www.byd.com" target="_blank" class="ref-link">
+          <a href="https://www.ohlins.com" target="_blank" class="ref-link">
             访问网站 <span class="ref-link-arrow">→</span>
           </a>
         </div>
@@ -871,12 +871,12 @@
             </div>
           <div class="shots-track">
             <div class="shot-slide active">
-              <img data-src="images-hd/byd-home.jpg" src="images/byd-home.jpg" alt="BYD 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
-              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
+              <img data-src="images-hd/ohlins-home.jpg" src="images/ohlins-home.jpg" alt="Öhlins 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">待截图</div><div class="sp-hint">ohlins-home.jpg</div></div>
             </div>
             <div class="shot-slide">
-              <img data-src="images-hd/byd-shop.jpg" src="images/byd-shop.jpg" alt="BYD 产品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
-              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
+              <img data-src="images-hd/ohlins-shop.jpg" src="images/ohlins-shop.jpg" alt="Öhlins 产品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">待截图</div><div class="sp-hint">ohlins-shop.jpg</div></div>
             </div>
             <div class="shots-arrows">
               <button class="shots-arrow" onclick="prevShot(this)">‹</button>
@@ -889,7 +889,7 @@
   </div>
 
   <!-- 延伸参考（9个站点简表） -->
-  <p style="font-size:14px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--text-3); margin-top:80px; margin-bottom:20px;">延伸参考（9个站点速查表）</p>
+  <p style="font-size:14px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--text-3); margin-top:80px; margin-bottom:20px;">延伸参考（速查表）</p>
   <table class="ref-table">
     <thead>
       <tr>
@@ -902,6 +902,34 @@
     </thead>
     <tbody>
       <tr>
+        <td>Benchmade</td>
+        <td>美国 · 工业工具</td>
+        <td>在线配置器 · 工艺叙事</td>
+        <td>商品页细节交互、配置器设计思路</td>
+        <td><a href="https://www.benchmade.com" target="_blank">访问</a></td>
+      </tr>
+      <tr>
+        <td>Leatherman</td>
+        <td>美国 · 多工具品牌</td>
+        <td>UGC 图墙 · 场景故事</td>
+        <td>用户使用场景呈现、UGC 与商品绑定</td>
+        <td><a href="https://www.leatherman.com" target="_blank">访问</a></td>
+      </tr>
+      <tr>
+        <td>BYD</td>
+        <td>中国 · 电动汽车</td>
+        <td>多品牌矩阵 · 技术展示</td>
+        <td>多产品线管理、国际化品牌架构</td>
+        <td><a href="https://www.byd.com" target="_blank">访问</a></td>
+      </tr>
+      <tr>
+        <td>AGV Helmets</td>
+        <td>意大利 · 摩托头盔</td>
+        <td>赛车感 · 工艺高端感</td>
+        <td>摩托品类的产品展示与品牌叙事</td>
+        <td><a href="https://www.agv.com/en/" target="_blank">访问</a></td>
+      </tr>
+      <tr>
         <td>Akrapovic</td>
         <td>摩托排气</td>
         <td>黑白极简 · 暗黑科技</td>
@@ -912,57 +940,36 @@
         <td>SC Project</td>
         <td>摩托排气</td>
         <td>钛金属质感 · 奢华工业</td>
-        <td>品牌定位、材料质感表现</td>
+        <td>材料质感表现、高端品牌定位</td>
         <td><a href="https://sc-project.com/en/" target="_blank">访问</a></td>
+      </tr>
+      <tr>
+        <td>Corbin</td>
+        <td>摩托座椅（直接竞品）</td>
+        <td>定制化 · 在线配置器</td>
+        <td>配置器交互、同品类产品定制方案</td>
+        <td><a href="https://corbin.com" target="_blank">访问</a></td>
       </tr>
       <tr>
         <td>Hermès</td>
         <td>奢侈品</td>
         <td>工艺品牌感 · 高端叙事</td>
-        <td>品牌故事、工艺细节展示</td>
+        <td>品牌故事写法、工艺细节展示</td>
         <td><a href="https://www.hermes.com/us/en/" target="_blank">访问</a></td>
-      </tr>
-      <tr>
-        <td>Corbin</td>
-        <td>摩托座椅</td>
-        <td>定制化、在线配置</td>
-        <td>配置器交互、产品定制化方案</td>
-        <td><a href="https://corbin.com" target="_blank">访问</a></td>
       </tr>
       <tr>
         <td>Apple</td>
         <td>科技产品</td>
-        <td>极简、充足留白</td>
-        <td>极简美学、信息展现方式</td>
+        <td>极简 · 充足留白</td>
+        <td>极简美学与信息层级处理方式</td>
         <td><a href="https://www.apple.com" target="_blank">访问</a></td>
-      </tr>
-      <tr>
-        <td>Glossier</td>
-        <td>美妆品牌</td>
-        <td>社区感、生活方式</td>
-        <td>UGC 运营、社区文化融合</td>
-        <td><a href="https://www.glossier.com" target="_blank">访问</a></td>
-      </tr>
-      <tr>
-        <td>Away</td>
-        <td>旅行箱</td>
-        <td>极简设计 · 品质感</td>
-        <td>配置器、产品细节展示</td>
-        <td><a href="https://www.awaytravel.com" target="_blank">访问</a></td>
       </tr>
       <tr>
         <td>Ridge Wallet</td>
         <td>钱包配件</td>
         <td>极简黑白 · 细节展示</td>
-        <td>产品摄影、极简风格打造</td>
+        <td>小品类配件的产品摄影与叙事</td>
         <td><a href="https://www.ridge.com" target="_blank">访问</a></td>
-      </tr>
-      <tr>
-        <td>Aesop</td>
-        <td>护肤品</td>
-        <td>编辑感、品牌故事</td>
-        <td>内容运营、品牌叙事</td>
-        <td><a href="https://www.aesop.com" target="_blank">访问</a></td>
       </tr>
     </tbody>
   </table>
@@ -1034,8 +1041,8 @@
       </div>
       <div class="sc-desc">黑白配色 + 红色点缀。极简排版，专业冷调。适合追求纯工业美学、强调工艺品质的品牌。</div>
       <div class="ref-rows-label">参考网站</div>
-      <div class="ref-row"><span>Akrapovic</span><a href="https://www.akrapovic.com" target="_blank">→</a></div>
       <div class="ref-row"><span>Motographe</span><a href="https://motographe.com/en-wld" target="_blank">→</a></div>
+      <div class="ref-row"><span>Alpinestars</span><a href="https://www.alpinestars.com" target="_blank">→</a></div>
       <div class="pc-grid">
         <div class="pc-block">
           <label>优势</label>
@@ -1068,7 +1075,7 @@
       <div class="sc-desc">浅灰底 + 深色 + 科技蓝。简洁有力，强调科技精密感。突出 3D 打印、工程创新。</div>
       <div class="ref-rows-label">参考网站</div>
       <div class="ref-row"><span>Tesla</span><a href="https://www.tesla.com" target="_blank">→</a></div>
-      <div class="ref-row"><span>Dyson</span><a href="https://www.dyson.com" target="_blank">→</a></div>
+      <div class="ref-row"><span>SpaceX</span><a href="https://www.spacex.com" target="_blank">→</a></div>
       <div class="pc-grid">
         <div class="pc-block">
           <label>优势</label>
@@ -1100,8 +1107,8 @@
       </div>
       <div class="sc-desc">深灰 + 暖米 + 琥珀金。工艺感强，叙事性强。适合强调 20 年沉淀、匠心品质、高端定位。</div>
       <div class="ref-rows-label">参考网站</div>
+      <div class="ref-row"><span>Öhlins</span><a href="https://www.ohlins.com" target="_blank">→</a></div>
       <div class="ref-row"><span>Hermès</span><a href="https://www.hermes.com/us/en/" target="_blank">→</a></div>
-      <div class="ref-row"><span>Leatherman</span><a href="https://www.leatherman.com" target="_blank">→</a></div>
       <div class="pc-grid">
         <div class="pc-block">
           <label>优势</label>
