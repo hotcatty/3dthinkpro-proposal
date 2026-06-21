@@ -329,6 +329,256 @@
     color:var(--text); transition:background .2s;
   }
   .modal-close:hover { background:#fff; }
+
+  /* ═════════════════════════════════════════
+     📱 响应式设计：平板（768px~1024px）
+  ═════════════════════════════════════════ */
+  @media (max-width:1024px) {
+    :root { --gap:80px; }
+    nav { padding:0 32px; }
+    section { padding:var(--gap) 32px; }
+    .divider { margin:0 32px; }
+    .hero { padding:100px 32px 80px; }
+    .ref-tabs { grid-template-columns:repeat(3,1fr); gap:8px; }
+    .ref-panel.active { grid-template-columns:1fr; gap:28px; }
+    .ref-brand { font-size:36px; }
+    .ref-shots { min-height:300px; }
+    .research-grid { grid-template-columns:1fr; }
+    .style-grid { grid-template-columns:1fr 1fr; }
+    .pages5 { grid-template-columns:repeat(3,1fr); gap:16px; }
+  }
+
+  /* ═════════════════════════════════════════
+     📱 响应式设计：手机（<768px）
+  ═════════════════════════════════════════ */
+  @media (max-width:768px) {
+    :root { 
+      --gap:48px; 
+      --text: 16px;
+    }
+    html { font-size:16px; }
+
+    /* 导航栏 */
+    nav {
+      padding:0 16px; height:56px;
+      flex-direction:column; justify-content:center; position:relative;
+    }
+    .nav-logo { font-size:16px; margin-bottom:4px; }
+    .nav-links {
+      gap:12px; font-size:13px;
+      flex-wrap:wrap; justify-content:center;
+      display:flex !important;
+    }
+    .nav-cta {
+      position:absolute; right:16px; top:12px;
+      padding:6px 14px; font-size:12px;
+    }
+
+    /* Hero */
+    .hero {
+      padding:60px 16px 48px;
+      background:#f5f5f7;
+    }
+    .hero h1 {
+      font-size:clamp(32px,7vw,48px);
+      margin-bottom:16px;
+    }
+    .hero p { font-size:16px; margin-bottom:32px; }
+    .hero-meta {
+      flex-direction:column; border:none; background:transparent;
+    }
+    .hm-item {
+      padding:12px 0; border:none; border-bottom:1px solid var(--border-l);
+      text-align:left;
+    }
+    .hm-item:last-child { border-bottom:none; }
+
+    /* Section */
+    section { padding:var(--gap) 16px; }
+    .divider { margin:0 16px; }
+    .sec-title { font-size:clamp(28px,5vw,36px); margin-bottom:10px; }
+    .sec-sub { font-size:16px; margin-bottom:32px; }
+
+    /* 参考标签页 */
+    .ref-tabs {
+      grid-template-columns:repeat(2,1fr);
+      gap:6px; margin-bottom:24px;
+    }
+    .ref-tab-btn {
+      padding:12px 12px;
+      border-radius:8px;
+    }
+    .ref-tab-btn .rtn-name { font-size:13px; margin-bottom:2px; }
+    .ref-tab-btn .rtn-cat { font-size:11px; }
+
+    /* 参考面板 - 改为单列堆叠 */
+    .ref-panel.active {
+      grid-template-columns:1fr;
+      gap:20px;
+    }
+
+    /* 左侧文案区 */
+    .ref-info { justify-content:flex-start; padding:0; }
+    .ref-brand { font-size:28px; margin-bottom:6px; }
+    .ref-cat-tag { font-size:12px; margin-bottom:16px; }
+    .ref-desc { font-size:15px; line-height:1.6; margin-bottom:16px; }
+    .ref-highlights { margin-bottom:20px; }
+    .ref-highlights li { font-size:14px; padding:8px 0 8px 24px; }
+    .ref-link { font-size:13px; padding:8px 16px; }
+
+    /* 右侧截图 */
+    .ref-shots {
+      min-height:280px;
+      border-radius:12px;
+    }
+    .shots-tabs { bottom:12px; left:12px; gap:4px; }
+    .shots-tab { font-size:11px; padding:4px 12px; }
+    .shots-arrow {
+      width:32px; height:32px;
+      font-size:16px;
+    }
+
+    /* 延伸参考表 */
+    .ref-table {
+      font-size:13px;
+      margin-top:28px;
+    }
+    .ref-table thead th { padding:10px 12px; font-size:12px; }
+    .ref-table td { padding:10px 12px; font-size:13px; }
+
+    /* 调研网格 */
+    .research-grid { grid-template-columns:1fr; gap:16px; }
+    .rcard {
+      border-radius:16px;
+      padding:28px;
+    }
+    .rcard-title { font-size:20px; margin-bottom:12px; }
+    .rcard-body { font-size:15px; margin-bottom:16px; }
+    .ilist li { font-size:14px; padding:8px 0; gap:8px; }
+
+    /* 风格推荐 */
+    .style-grid {
+      grid-template-columns:1fr;
+      border-radius:16px;
+      margin-bottom:24px;
+    }
+    .sc {
+      padding:32px 20px;
+      position:relative;
+    }
+    .sc.rec::after { top:16px; right:16px; font-size:11px; padding:4px 10px; }
+    .sc-num { font-size:40px; margin-bottom:12px; }
+    .sc-name { font-size:20px; margin-bottom:4px; }
+    .sc-sub { font-size:12px; margin-bottom:16px; }
+    .palette { gap:8px; margin-bottom:16px; }
+    .sw { width:28px; height:28px; }
+    .ref-row { font-size:13px; padding:6px 0; }
+    .sc-desc { font-size:13px; margin:16px 0; }
+    .pc-grid { grid-template-columns:1fr; gap:16px; }
+    .pc-block label { font-size:10px; margin-bottom:8px; }
+    .pc-block li { font-size:12px; }
+
+    /* 对比表 */
+    .cmp-wrap {
+      border-radius:16px;
+      padding:20px;
+    }
+    .cmp { font-size:12px; }
+    .cmp thead th { padding:10px 12px; font-size:11px; }
+    .cmp td { padding:10px 12px; }
+    .cmp td:first-child { font-size:12px; }
+
+    /* 页面网格 */
+    .pages5 {
+      grid-template-columns:repeat(2,1fr);
+      gap:12px; margin-bottom:40px;
+    }
+    .pg {
+      border-radius:12px;
+      padding:20px;
+    }
+    .pg-num { font-size:32px; margin-bottom:8px; }
+    .pg-name { font-size:14px; margin-bottom:6px; }
+    .pg-desc { font-size:12px; line-height:1.5; }
+
+    /* 时间线 */
+    .tl { padding-left:28px; }
+    .tl::before { left:0px; }
+    .tlp::before { left:-36px; width:10px; height:10px; top:8px; }
+    .tl-hd { gap:8px; }
+    .tl-tag { font-size:10px; }
+    .tl-title { font-size:16px; }
+    .tl-date { font-size:12px; margin-left:0; margin-top:4px; }
+    .ms-badge { font-size:10px; padding:3px 10px; }
+    .tl-note { font-size:13px; margin-bottom:10px; }
+
+    /* 任务列表 */
+    .task-list { border-radius:10px; }
+    .ti {
+      grid-template-columns:100px 1fr;
+      font-size:13px;
+    }
+    .ti-date { padding:10px 12px; font-size:12px; }
+
+    /* Modal 图片 */
+    .modal {
+      border-radius:12px;
+      padding:0;
+    }
+    .modal-content {
+      border-radius:12px;
+      max-width:95%;
+      max-height:95%;
+    }
+    .modal-close {
+      width:36px; height:36px;
+      font-size:20px;
+      top:8px; right:8px;
+    }
+  }
+
+  /* ═════════════════════════════════════════
+     📱 超小屏（<480px）— 进一步优化
+  ═════════════════════════════════════════ */
+  @media (max-width:480px) {
+    :root { --gap:32px; }
+    nav { height:auto; padding:12px 16px; gap:8px; }
+    .nav-logo { font-size:14px; margin-bottom:8px; }
+    .nav-links { gap:8px; font-size:12px; }
+    .nav-cta { position:static; margin-top:8px; width:100%; text-align:center; }
+
+    .hero { padding:40px 16px 32px; }
+    .hero h1 { font-size:clamp(24px,6vw,32px); margin-bottom:12px; }
+    .hero p { font-size:14px; margin-bottom:24px; }
+    .hero-meta { gap:0; }
+
+    section { padding:var(--gap) 16px; }
+    .sec-title { font-size:clamp(24px,5vw,28px); }
+    .sec-sub { font-size:14px; margin-bottom:24px; }
+
+    .ref-tabs { grid-template-columns:1fr; }
+    .ref-tab-btn { padding:10px; }
+
+    .ref-brand { font-size:24px; }
+    .ref-desc { font-size:14px; }
+    .ref-shots { min-height:240px; }
+    .shots-tabs { bottom:8px; left:8px; gap:3px; }
+    .shots-tab { font-size:10px; padding:3px 10px; }
+    .shots-arrow { width:28px; height:28px; font-size:14px; }
+
+    .ref-table thead th { padding:8px 10px; font-size:11px; }
+    .ref-table td { padding:8px 10px; font-size:12px; }
+
+    .rcard { padding:20px; }
+    .rcard-title { font-size:18px; }
+
+    .sc-num { font-size:32px; }
+    .sc-name { font-size:16px; }
+
+    .pages5 { grid-template-columns:1fr; }
+
+    .ti { grid-template-columns:80px 1fr; }
+  }
 </style>
 </head>
 <body>
