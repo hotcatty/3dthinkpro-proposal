@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英皓 3DThinkPro — 独立站策划方案</title>
+<style>
+  :root {
+    --bg:       #ffffff;
+    --bg2:      #f5f5f7;
+    --bg3:      #e8e8ed;
+    --border:   #d2d2d7;
+    --border-l: #ebebed;
+    --text:     #1d1d1f;
+    --text-2:   #424245;
+    --text-3:   #6e6e73;
+    --accent:   #0071e3;
+    --gap:      120px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; font-size:18px; }
+  body {
+    background:var(--bg); color:var(--text);
+    font-family:-apple-system,"SF Pro Display","PingFang SC","Helvetica Neue",sans-serif;
+    line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position:sticky; top:0; z-index:200;
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(24px) saturate(180%);
+    -webkit-backdrop-filter:blur(24px) saturate(180%);
+    border-bottom:1px solid rgba(0,0,0,0.07);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 60px; height:58px;
+  }
+  .nav-logo { font-size:18px; font-weight:700; letter-spacing:-0.02em; }
+  .nav-links { display:flex; gap:36px; list-style:none; }
+  .nav-links a { color:var(--text-3); text-decoration:none; font-size:14px; transition:color .2s; }
+  .nav-links a:hover { color:var(--text); }
+  .nav-cta { background:var(--accent); color:#fff; font-size:13px; font-weight:600; padding:7px 18px; border-radius:100px; text-decoration:none; }
+
+  /* ── Hero ── */
+  .hero {
+    text-align:center; padding:140px 60px 120px;
+    background:linear-gradient(180deg,#f5f5f7 0%,#fff 100%);
+    border-bottom:1px solid var(--border-l);
+  }
+  .eyebrow { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:22px; }
+  .hero h1 { font-size:clamp(48px,6vw,80px); font-weight:700; line-height:1.05; letter-spacing:-0.035em; margin-bottom:24px; }
+  .hero p { font-size:22px; color:var(--text-3); max-width:640px; margin:0 auto 56px; line-height:1.5; }
+  .hero-meta { display:inline-flex; border:1px solid var(--border); border-radius:18px; overflow:hidden; background:#fff; }
+  .hm-item { padding:18px 32px; border-right:1px solid var(--border); text-align:left; }
+  .hm-item:last-child { border-right:none; }
+  .hm-item label { display:block; font-size:11px; letter-spacing:0.07em; text-transform:uppercase; color:var(--text-3); margin-bottom:5px; }
+  .hm-item span { font-size:15px; font-weight:600; }
+
+  /* ── Section wrapper ── */
+  section { padding:var(--gap) 60px; }
+  .sec-eyebrow { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:14px; }
+  .sec-title { font-size:clamp(36px,4vw,56px); font-weight:700; letter-spacing:-0.03em; line-height:1.08; margin-bottom:14px; }
+  .sec-sub { font-size:20px; color:var(--text-3); max-width:600px; margin-bottom:64px; line-height:1.5; }
+  .divider { height:1px; background:var(--border-l); margin:0 60px; }
+
+  /* ══════════════════════════
+     新的轮播：左文案 + 右截图
+  ══════════════════════════ */
+  .ref-carousel {
+    position:relative;
+  }
+
+  /* 选项卡导航 */
+  .ref-tabs {
+    display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-bottom:40px;
+  }
+  .ref-tab-btn {
+    padding:18px 16px; background:var(--bg2); border:none; border-radius:12px;
+    cursor:pointer; text-align:center; font-family:inherit; transition:all .2s;
+    border:2px solid transparent;
+  }
+  .ref-tab-btn .rtn-name { display:block; font-size:15px; font-weight:700; color:var(--text); margin-bottom:4px; }
+  .ref-tab-btn .rtn-cat { display:block; font-size:12px; color:var(--text-3); }
+  .ref-tab-btn.active {
+    background:#fff; border-color:var(--accent); box-shadow:0 2px 8px rgba(0,113,227,.15);
+  }
+  .ref-tab-btn.active .rtn-name { color:var(--accent); }
+
+  /* 面板容器 */
+  .ref-panels {
+    position:relative;
+  }
+
+  .ref-panel {
+    display:none;
+  }
+  .ref-panel.active {
+    display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:stretch;
+  }
+
+  /* 左侧：文案区 */
+  .ref-info {
+    display:flex; flex-direction:column; justify-content:center;
+    padding:0;
+  }
+  .ref-brand { font-size:44px; font-weight:700; letter-spacing:-0.03em; margin-bottom:8px; }
+  .ref-cat-tag { display:inline-block; font-size:13px; color:var(--accent); font-weight:600; margin-bottom:24px; }
+  .ref-desc { font-size:18px; color:var(--text-2); line-height:1.75; margin-bottom:32px; }
+  .ref-highlights {
+    list-style:none; margin-bottom:36px;
+  }
+  .ref-highlights li {
+    font-size:15px; color:var(--text-2); padding:10px 0 10px 28px;
+    position:relative; line-height:1.6;
+  }
+  .ref-highlights li::before {
+    content:'✓'; position:absolute; left:0; color:var(--accent); font-weight:700; font-size:16px;
+  }
+  .ref-link {
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--accent); color:#fff;
+    padding:10px 20px; border-radius:100px; text-decoration:none; font-size:14px; font-weight:600;
+    transition:opacity .2s; align-self:flex-start; width:fit-content;
+  }
+  .ref-link:hover { opacity:.85; }
+  .ref-link-arrow { font-size:15px; }
+
+  /* 右侧：截图轮播容器 — 高度自动撑满对齐左侧文案 */
+  .ref-shots {
+    position:relative; border-radius:16px; overflow:hidden;
+    border:1px solid var(--border-l); background:#000;
+    /* 高度跟左侧 .ref-info 对齐，由 grid align-items:stretch 控制 */
+    min-height:400px;
+  }
+
+  /* 轮播主体 — 占满整个容器，overflow:hidden 防止箭头溢出 */
+  .shots-track {
+    position:absolute; inset:0; overflow:hidden;
+  }
+  .shot-slide {
+    position:absolute; inset:0; opacity:0; transition:opacity .3s ease;
+    display:flex; align-items:center; justify-content:center; background:#111;
+    pointer-events:none;  /* 非激活 slide 完全不接受点击 */
+  }
+  .shot-slide.active { opacity:1; pointer-events:auto; }
+
+  .shot-slide img {
+    width:100%; height:100%; object-fit:cover; object-position:top center;
+    display:block; cursor:zoom-in;
+  }
+
+  /* 占位符 */
+  .shot-placeholder {
+    width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:10px; background:var(--bg2);
+  }
+  .sp-icon { font-size:36px; opacity:.3; }
+  .sp-text { font-size:13px; color:var(--text-3); }
+  .sp-hint { font-size:11px; color:var(--border); font-family:monospace; }
+
+  /* Tab 按钮浮在图片左下角 */
+  .shots-tabs {
+    position:absolute; bottom:16px; left:16px; z-index:10;
+    display:flex; gap:6px;
+  }
+  .shots-tab {
+    font-size:12px; font-weight:600; color:rgba(255,255,255,.8);
+    background:rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.25); border-radius:100px;
+    padding:5px 16px; cursor:pointer; font-family:inherit; transition:all .15s;
+    backdrop-filter:blur(8px);
+  }
+  .shots-tab.active {
+    background:rgba(255,255,255,.95); color:var(--text); border-color:transparent;
+  }
+
+  /* 左右箭头覆盖在图上中间 */
+  .shots-arrows {
+    position:absolute; top:50%; transform:translateY(-50%);
+    left:0; right:0; display:flex; justify-content:space-between;
+    padding:0 14px; pointer-events:none; z-index:5;
+  }
+  .shots-arrow {
+    width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.88);
+    border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    font-size:18px; color:var(--text); transition:background .15s;
+    pointer-events:all; box-shadow:0 2px 10px rgba(0,0,0,.2);
+  }
+  .shots-arrow:hover { background:#fff; }
+
+  /* ── 延伸参考表 ── */
+  .ref-table { width:100%; border-collapse:collapse; margin-top:52px; }
+  .ref-table thead th { text-align:left; font-size:13px; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-3); padding:12px 20px; border-bottom:1px solid var(--border); font-weight:600; }
+  .ref-table tbody tr { border-bottom:1px solid var(--border-l); }
+  .ref-table tbody tr:hover { background:var(--bg2); }
+  .ref-table td { padding:14px 20px; font-size:15px; color:var(--text-2); }
+  .ref-table td:first-child { font-weight:600; color:var(--text); }
+  .ref-table a { color:var(--accent); text-decoration:none; }
+
+  /* ── 调研 ── */
+  .research-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .rcard { background:var(--bg2); border-radius:24px; padding:48px; }
+  .rcard-eye { font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
+  .rcard-title { font-size:26px; font-weight:700; letter-spacing:-0.02em; margin-bottom:16px; }
+  .rcard-body { font-size:16px; color:var(--text-3); line-height:1.7; margin-bottom:24px; }
+  .ilist { list-style:none; }
+  .ilist li { padding:11px 0; border-bottom:1px solid var(--border-l); font-size:16px; color:var(--text-2); display:flex; gap:12px; align-items:flex-start; }
+  .ilist li:last-child { border-bottom:none; }
+  .ilist li::before { content:'→'; color:var(--accent); flex-shrink:0; font-weight:700; margin-top:2px; }
+  .ilist b { color:var(--text); font-weight:700; }
+  .tag-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+  .tag { font-size:13px; font-weight:600; padding:6px 16px; background:rgba(0,113,227,.08); color:var(--accent); border-radius:100px; }
+
+  /* ── 风格推荐 ── */
+  .style-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; border-radius:28px; overflow:hidden; margin-bottom:40px; }
+  .sc { background:var(--bg2); padding:52px 44px; position:relative; }
+  .sc.rec { background:#fff; box-shadow:inset 0 0 0 2px var(--accent); }
+  .sc.rec::after { content:'推荐'; position:absolute; top:24px; right:24px; background:var(--accent); color:#fff; font-size:12px; font-weight:700; padding:5px 14px; border-radius:100px; }
+  .sc-num { font-size:52px; font-weight:700; color:var(--border); line-height:1; margin-bottom:20px; letter-spacing:-0.03em; }
+  .sc-name { font-size:26px; font-weight:700; letter-spacing:-0.02em; margin-bottom:6px; }
+  .sc-sub { font-size:14px; color:var(--text-3); margin-bottom:28px; }
+  .palette { display:flex; gap:10px; margin-bottom:28px; }
+  .sw { width:34px; height:34px; border-radius:50%; border:1px solid rgba(0,0,0,.06); }
+  .ref-rows-label { font-size:12px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--text-3); margin-bottom:12px; }
+  .ref-row { display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--border-l); font-size:14px; }
+  .ref-row span { font-weight:600; color:var(--text-2); }
+  .ref-row a { color:var(--accent); text-decoration:none; }
+  .sc-desc { font-size:14px; color:var(--text-3); line-height:1.75; margin:24px 0; }
+  .pc-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .pc-block label { font-size:11px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--text-3); margin-bottom:10px; display:block; }
+  .pc-block ul { list-style:none; }
+  .pc-block li { font-size:13px; color:var(--text-3); padding:3px 0; }
+  .pros li::before { content:'+ '; color:#34c759; font-weight:700; }
+  .cons li::before { content:'− '; color:#ff3b30; font-weight:700; }
+
+  .cmp-wrap { background:var(--bg2); border-radius:24px; padding:44px; }
+  .cmp-label { font-size:13px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--text-3); margin-bottom:28px; }
+  .cmp { width:100%; border-collapse:collapse; font-size:15px; }
+  .cmp thead th {
+    text-align:center; padding:14px 20px; color:var(--text-3); font-weight:600; font-size:14px;
+    border-bottom:1px solid var(--border); cursor:pointer; transition:background .18s,color .18s;
+    border-radius:8px 8px 0 0; user-select:none;
+  }
+  .cmp thead th:first-child { text-align:left; cursor:default; border-radius:0; }
+  .cmp thead th:hover:not(:first-child) { opacity:.85; }
+  /* A 激活 — 金色 */
+  .cmp thead th.sel-a { background:#f0f6ff; color:#0071e3; font-weight:700; }
+  .cmp tbody td.sel-a { color:#0071e3; font-weight:700; background:#f5f9ff; }
+  /* B 激活 — 蓝色 */
+  .cmp thead th.sel-b { background:#e8f2ff; color:var(--accent); font-weight:700; }
+  .cmp tbody td.sel-b { color:var(--accent); font-weight:700; background:#f0f6ff; }
+  /* C 激活 — 棕金色 */
+  .cmp thead th.sel-c { background:#f0f6ff; color:#555555; font-weight:700; }
+  .cmp tbody td.sel-c { color:#555555; font-weight:700; background:#f5f9ff; }
+  .cmp tbody tr { border-bottom:1px solid var(--border-l); }
+  .cmp td { padding:13px 20px; text-align:center; color:var(--text-2); transition:background .18s,color .18s; }
+  .cmp td:first-child { text-align:left; color:var(--text-3); font-size:14px; }
+
+  /* ── 落地规划 ── */
+  .pages5 { display:grid; grid-template-columns:repeat(5,1fr); gap:20px; margin-bottom:72px; }
+  .pg { background:var(--bg2); border-radius:20px; padding:32px 26px; }
+  .pg-num { font-size:40px; font-weight:700; color:var(--border); line-height:1; margin-bottom:14px; letter-spacing:-0.02em; }
+  .pg-name { font-size:18px; font-weight:700; margin-bottom:10px; }
+  .pg-desc { font-size:14px; color:var(--text-3); line-height:1.65; }
+
+  /* ── 时间线外框 ── */
+  .tl { position:relative; padding-left:48px; }
+  .tl::before { content:''; position:absolute; left:10px; top:14px; bottom:0; width:1px; background:var(--border); }
+
+  /* 阶段块 */
+  .tlp { position:relative; margin-bottom:48px; }
+  .tlp::before { content:''; position:absolute; left:-42px; top:10px; width:14px; height:14px; border-radius:50%; background:var(--accent); border:3px solid #fff; box-shadow:0 0 0 2px var(--accent); }
+  .tlp.ms::before { background:#0071e3; box-shadow:0 0 0 2px #0071e3; }
+
+  /* 阶段标题行 */
+  .tl-hd { display:flex; align-items:center; gap:14px; margin-bottom:6px; flex-wrap:wrap; }
+  .tl-tag { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); }
+  .tlp.ms .tl-tag { color:#0071e3; }
+  .tl-title { font-size:20px; font-weight:700; letter-spacing:-0.02em; }
+  .tl-date { font-size:13px; color:var(--text-3); margin-left:auto; }
+  .ms-badge { background:#0071e3; color:#fff; font-size:11px; font-weight:700; padding:4px 12px; border-radius:100px; }
+  .tl-note { font-size:14px; color:var(--text-3); margin-bottom:14px; line-height:1.6; }
+
+  /* 列表式行 — 时间 + 事件并排 */
+  .task-list { border:1px solid var(--border-l); border-radius:14px; overflow:hidden; }
+  .ti {
+    display:grid; grid-template-columns:180px 1fr;
+    border-bottom:1px solid var(--border-l);
+    font-size:14px; line-height:1.55;
+  }
+  .ti:last-child { border-bottom:none; }
+  .ti.report { background:#f0f6ff; }
+  .tlp.ms .ti.report { background:#f0f6ff; }
+  .ti-date {
+    padding:13px 18px; font-weight:700; font-size:13px;
+    color:var(--accent); background:var(--bg2);
+    border-right:1px solid var(--border-l); flex-shrink:0;
+    display:flex; align-items:center;
+  }
+  .tlp.ms .ti-date { color:#0071e3; }
+  .ti.report .ti-date { color:#0071e3; }
+  .ti-content {
+    padding:13px 20px; color:var(--text-2);
+    display:flex; align-items:center;
+  }
+  .ti.report .ti-content { color:var(--text); font-weight:500; }
+
+  footer { padding:64px 60px; border-top:1px solid var(--border-l); display:flex; justify-content:space-between; align-items:center; }
+  footer span { font-size:14px; color:var(--text-3); }
+
+  /* ── 全图模态框 ── */
+  .modal {
+    display:none; position:fixed; top:0; left:0; right:0; bottom:0;
+    background:rgba(0,0,0,.8); z-index:300; justify-content:center; align-items:center;
+    padding:20px;
+  }
+  .modal.show { display:flex; }
+  .modal-content {
+    position:relative; max-width:90vw; max-height:90vh; background:#fff; border-radius:12px;
+    overflow:auto;
+  }
+  .modal-img {
+    width:100%; height:auto; display:block;
+  }
+  .modal-close {
+    position:absolute; top:16px; right:16px;
+    width:40px; height:40px; background:rgba(255,255,255,.9);
+    border:none; border-radius:50%; cursor:pointer; font-size:24px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text); transition:background .2s;
+  }
+  .modal-close:hover { background:#fff; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">英皓 3DThinkPro</div>
+  <ul class="nav-links">
+    <li><a href="#references">参考网站</a></li>
+    <li><a href="#research">调研结果</a></li>
+    <li><a href="#style">风格推荐</a></li>
+    <li><a href="#plan">落地规划</a></li>
+  </ul>
+  <a class="nav-cta" href="#plan">查看排期 →</a>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <p class="eyebrow">独立站策划方案 · 2026</p>
+  <h1>3DThinkPro<br>独立站全案策划</h1>
+  <p>基于国际市场调研与竞品研究，为台州英皓汽车摩托车配件有限公司提供的独立站视觉策划方案。</p>
+  <div class="hero-meta">
+    <div class="hm-item"><label>客户</label><span>台州英皓 · 品牌 3DThinkPro</span></div>
+    <div class="hm-item"><label>目标市场</label><span>欧美英语地区</span></div>
+    <div class="hm-item"><label>平台</label><span>Shopify 独立站</span></div>
+    <div class="hm-item"><label>项目周期</label><span>2026年 6月 — 10月</span></div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     01 · 参考网站（新轮播：左文案 + 右截图）
+═══════════════════════════════════ -->
+<section id="references">
+  <p class="sec-eyebrow">01 · 参考网站</p>
+  <h2 class="sec-title">精选设计参考清单</h2>
+  <p class="sec-sub">从全网筛选出最具参考价值的 6 个标杆网站。左侧查看参考价值，右侧切换首页/商品页截图。点击图片可查看全图。</p>
+
+  <!-- 截图存放说明 -->
+  <!-- 路径：/Users/hotcat/WorkBuddy/2026-06-19-14-06-34/yinghao-ecommerce/03-design-references/screenshots/
+       文件命名规则：
+         motographe-home.jpg / motographe-shop.jpg
+         benchmade-home.jpg  / benchmade-shop.jpg
+         tesla-home.jpg      / tesla-shop.jpg
+         dyson-home.jpg      / dyson-shop.jpg
+         leatherman-home.jpg / leatherman-shop.jpg
+         byd-home.jpg        / byd-shop.jpg
+  -->
+
+  <div class="ref-carousel">
+    <!-- Tab 导航 -->
+    <div class="ref-tabs">
+      <button class="ref-tab-btn active" data-index="0">
+        <span class="rtn-name">Motographe</span>
+        <span class="rtn-cat">法国 · 摩托配件</span>
+      </button>
+      <button class="ref-tab-btn" data-index="1">
+        <span class="rtn-name">Benchmade</span>
+        <span class="rtn-cat">美国 · 工业工具</span>
+      </button>
+      <button class="ref-tab-btn" data-index="2">
+        <span class="rtn-name">Tesla</span>
+        <span class="rtn-cat">美国 · 科技汽车</span>
+      </button>
+      <button class="ref-tab-btn" data-index="3">
+        <span class="rtn-name">Dyson</span>
+        <span class="rtn-cat">英国 · 工程美学</span>
+      </button>
+      <button class="ref-tab-btn" data-index="4">
+        <span class="rtn-name">Leatherman</span>
+        <span class="rtn-cat">美国 · 多工具品牌</span>
+      </button>
+      <button class="ref-tab-btn" data-index="5">
+        <span class="rtn-name">BYD</span>
+        <span class="rtn-cat">中国 · 电动汽车</span>
+      </button>
+    </div>
+
+    <!-- 内容面板 -->
+    <div class="ref-panels">
+      <!-- Panel 0: Motographe -->
+      <div class="ref-panel active">
+        <div class="ref-info">
+          <span class="ref-cat-tag">法国 · 摩托配件</span>
+          <h3 class="ref-brand">Motographe</h3>
+          <p class="ref-desc">欧洲精品摩托改装件品牌，以极简黑白的工业美学和专业品牌叙事著称。完全对标英皓 3DThinkPro 的高端定位。</p>
+          <ul class="ref-highlights">
+            <li><b>黑白极简</b>是高端配件品牌的主流视觉语言</li>
+            <li>产品摄影质感一流，细节展示深入人心</li>
+            <li>品牌故事与产品完美融合，信息架构清晰</li>
+            <li>首页 Hero 设计极具冲击力，转化能力强</li>
+          </ul>
+          <a href="https://motographe.com/en-wld" target="_blank" class="ref-link">
+            访问网站 <span class="ref-link-arrow">→</span>
+          </a>
+        </div>
+        <div class="ref-shots">
+          <div class="shots-tabs">
+              <button class="shots-tab active" onclick="switchShot(this,0)">首页</button>
+              <button class="shots-tab" onclick="switchShot(this,1)">商品页</button>
+            </div>
+          <div class="shots-track">
+            <div class="shot-slide active">
+              <img data-src="images/motographe-home.jpg" src="images/motographe-home.jpg" alt="Motographe 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">待截图</div><div class="sp-hint">motographe-home.jpg</div></div>
+            </div>
+            <div class="shot-slide">
+              <img data-src="images/motographe-shop.jpg" src="images/motographe-shop.jpg" alt="Motographe 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">待截图</div><div class="sp-hint">motographe-shop.jpg</div></div>
+            </div>
+            <div class="shots-arrows">
+              <button class="shots-arrow" onclick="prevShot(this)">‹</button>
+              <button class="shots-arrow" onclick="nextShot(this)">›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 1: Benchmade -->
+      <div class="ref-panel">
+        <div class="ref-info">
+          <span class="ref-cat-tag">美国 · 工业工具</span>
+          <h3 class="ref-brand">Benchmade</h3>
+          <p class="ref-desc">美国高端工具品牌，在线可视化配置器和工艺叙事是重点学习对象。展示如何将定制化与品质结合。</p>
+          <ul class="ref-highlights">
+            <li><b>在线配置器</b>提升用户参与度和转化率</li>
+            <li>工业工艺细节展示，信任度建立有方法</li>
+            <li>产品系列分层清晰，导航逻辑易懂</li>
+            <li>品牌故事穿插于产品页，叙事融洽自然</li>
+          </ul>
+          <a href="https://www.benchmade.com" target="_blank" class="ref-link">
+            访问网站 <span class="ref-link-arrow">→</span>
+          </a>
+        </div>
+        <div class="ref-shots">
+          <div class="shots-tabs">
+              <button class="shots-tab active" onclick="switchShot(this,0)">首页</button>
+              <button class="shots-tab" onclick="switchShot(this,1)">商品页</button>
+            </div>
+          <div class="shots-track">
+            <div class="shot-slide active">
+              <img data-src="images/benchmade-home.jpg" src="images/benchmade-home.jpg" alt="Benchmade 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
+            </div>
+            <div class="shot-slide">
+              <img data-src="images/benchmade-shop.jpg" src="images/benchmade-shop.jpg" alt="Benchmade 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
+            </div>
+            <div class="shots-arrows">
+              <button class="shots-arrow" onclick="prevShot(this)">‹</button>
+              <button class="shots-arrow" onclick="nextShot(this)">›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 2: Tesla -->
+      <div class="ref-panel">
+        <div class="ref-info">
+          <span class="ref-cat-tag">美国 · 科技汽车</span>
+          <h3 class="ref-brand">Tesla</h3>
+          <p class="ref-desc">科技品牌官方站的天花板。极简、配置器、多品牌矩阵展示都是表率。<b>科技工程感方向的重点参考</b>。</p>
+          <ul class="ref-highlights">
+            <li><b>极简美学</b>配合工程精密感，科技感十足</li>
+            <li>产品配置器交互设计一流，转化漏斗优化到位</li>
+            <li>视频、3D 渲染与平面设计融洽结合</li>
+            <li>导航结构清晰，多车型矩阵展示得体专业</li>
+          </ul>
+          <a href="https://www.tesla.com" target="_blank" class="ref-link">
+            访问网站 <span class="ref-link-arrow">→</span>
+          </a>
+        </div>
+        <div class="ref-shots">
+          <div class="shots-tabs">
+              <button class="shots-tab active" onclick="switchShot(this,0)">首页</button>
+              <button class="shots-tab" onclick="switchShot(this,1)">产品页</button>
+            </div>
+          <div class="shots-track">
+            <div class="shot-slide active">
+              <img data-src="images/tesla-home.jpg" src="images/tesla-home.jpg" alt="Tesla 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
+            </div>
+            <div class="shot-slide">
+              <img data-src="images/tesla-shop.jpg" src="images/tesla-shop.jpg" alt="Tesla 产品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
+            </div>
+            <div class="shots-arrows">
+              <button class="shots-arrow" onclick="prevShot(this)">‹</button>
+              <button class="shots-arrow" onclick="nextShot(this)">›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 3: Dyson -->
+      <div class="ref-panel">
+        <div class="ref-info">
+          <span class="ref-cat-tag">英国 · 工程美学</span>
+          <h3 class="ref-brand">Dyson</h3>
+          <p class="ref-desc">工业工程与简约设计的完美结合。产品展示方式、动画演示、品牌叙事都值得深入研究。</p>
+          <ul class="ref-highlights">
+            <li><b>工业美学</b>与科技感的完美融合</li>
+            <li>动画演示和 3D 展示让复杂产品易懂</li>
+            <li>价格定位明确，溢价能力强的品牌塑造</li>
+            <li>产品细节展示专业，信任度建立有数</li>
+          </ul>
+          <a href="https://www.dyson.com" target="_blank" class="ref-link">
+            访问网站 <span class="ref-link-arrow">→</span>
+          </a>
+        </div>
+        <div class="ref-shots">
+          <div class="shots-tabs">
+              <button class="shots-tab active" onclick="switchShot(this,0)">首页</button>
+              <button class="shots-tab" onclick="switchShot(this,1)">商品页</button>
+            </div>
+          <div class="shots-track">
+            <div class="shot-slide active">
+              <img data-src="images/dyson-home.jpg" src="images/dyson-home.jpg" alt="Dyson 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
+            </div>
+            <div class="shot-slide">
+              <img data-src="images/dyson-shop.jpg" src="images/dyson-shop.jpg" alt="Dyson 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
+            </div>
+            <div class="shots-arrows">
+              <button class="shots-arrow" onclick="prevShot(this)">‹</button>
+              <button class="shots-arrow" onclick="nextShot(this)">›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 4: Leatherman -->
+      <div class="ref-panel">
+        <div class="ref-info">
+          <span class="ref-cat-tag">美国 · 多工具品牌</span>
+          <h3 class="ref-brand">Leatherman</h3>
+          <p class="ref-desc">多工具品类的领航者。品牌故事与社区文化融合，产品线分层清晰，可定制化参考。</p>
+          <ul class="ref-highlights">
+            <li><b>社区文化</b>运营与 UGC 融合做得最好</li>
+            <li>产品线分类逻辑清晰，用户找到目标产品快</li>
+            <li>品牌故事穿插自然，不显得突兀</li>
+            <li>高端定位通过工艺细节和品质故事体现</li>
+          </ul>
+          <a href="https://www.leatherman.com" target="_blank" class="ref-link">
+            访问网站 <span class="ref-link-arrow">→</span>
+          </a>
+        </div>
+        <div class="ref-shots">
+          <div class="shots-tabs">
+              <button class="shots-tab active" onclick="switchShot(this,0)">首页</button>
+              <button class="shots-tab" onclick="switchShot(this,1)">商品页</button>
+            </div>
+          <div class="shots-track">
+            <div class="shot-slide active">
+              <img data-src="images/leatherman-home.jpg" src="images/leatherman-home.jpg" alt="Leatherman 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
+            </div>
+            <div class="shot-slide">
+              <img data-src="images/leatherman-shop.jpg" src="images/leatherman-shop.jpg" alt="Leatherman 商品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
+            </div>
+            <div class="shots-arrows">
+              <button class="shots-arrow" onclick="prevShot(this)">‹</button>
+              <button class="shots-arrow" onclick="nextShot(this)">›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 5: BYD -->
+      <div class="ref-panel">
+        <div class="ref-info">
+          <span class="ref-cat-tag">中国 · 电动汽车</span>
+          <h3 class="ref-brand">BYD</h3>
+          <p class="ref-desc">国内标杆。多品牌矩阵展示、多产品线管理、技术展示等都堪称教科书级别。</p>
+          <ul class="ref-highlights">
+            <li><b>多品牌矩阵</b>展示的最佳实践案例</li>
+            <li>产品线分层和品牌分层协调得当</li>
+            <li>技术与功能展示清晰，信息架构优化到位</li>
+            <li>国际化审美与中国品牌特色融洽平衡</li>
+          </ul>
+          <a href="https://www.byd.com" target="_blank" class="ref-link">
+            访问网站 <span class="ref-link-arrow">→</span>
+          </a>
+        </div>
+        <div class="ref-shots">
+          <div class="shots-tabs">
+              <button class="shots-tab active" onclick="switchShot(this,0)">首页</button>
+              <button class="shots-tab" onclick="switchShot(this,1)">产品页</button>
+            </div>
+          <div class="shots-track">
+            <div class="shot-slide active">
+              <img data-src="images/byd-home.jpg" src="images/byd-home.jpg" alt="BYD 首页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
+            </div>
+            <div class="shot-slide">
+              <img data-src="images/byd-shop.jpg" src="images/byd-shop.jpg" alt="BYD 产品页" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" onclick="openModal(this.getAttribute('data-src')||this.getAttribute('src'))">
+              <div class="shot-placeholder" style="display:none;"><div class="sp-icon">📸</div><div class="sp-text">加载中</div></div>
+            </div>
+            <div class="shots-arrows">
+              <button class="shots-arrow" onclick="prevShot(this)">‹</button>
+              <button class="shots-arrow" onclick="nextShot(this)">›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 延伸参考（9个站点简表） -->
+  <p style="font-size:14px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--text-3); margin-top:80px; margin-bottom:20px;">延伸参考（9个站点速查表）</p>
+  <table class="ref-table">
+    <thead>
+      <tr>
+        <th>网站</th>
+        <th>品类</th>
+        <th>核心特征</th>
+        <th>学习重点</th>
+        <th>链接</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Akrapovic</td>
+        <td>摩托排气</td>
+        <td>黑白极简 · 暗黑科技</td>
+        <td>产品摄影质感、视觉冲击力</td>
+        <td><a href="https://www.akrapovic.com" target="_blank">访问</a></td>
+      </tr>
+      <tr>
+        <td>SC Project</td>
+        <td>摩托排气</td>
+        <td>钛金属质感 · 奢华工业</td>
+        <td>品牌定位、材料质感表现</td>
+        <td><a href="https://sc-project.com/en/" target="_blank">访问</a></td>
+      </tr>
+      <tr>
+        <td>Hermès</td>
+        <td>奢侈品</td>
+        <td>工艺品牌感 · 高端叙事</td>
+        <td>品牌故事、工艺细节展示</td>
+        <td><a href="https://www.hermes.com/us/en/" target="_blank">访问</a></td>
+      </tr>
+      <tr>
+        <td>Corbin</td>
+        <td>摩托座椅</td>
+        <td>定制化、在线配置</td>
+        <td>配置器交互、产品定制化方案</td>
+        <td><a href="https://corbin.com" target="_blank">访问</a></td>
+      </tr>
+      <tr>
+        <td>Apple</td>
+        <td>科技产品</td>
+        <td>极简、充足留白</td>
+        <td>极简美学、信息展现方式</td>
+        <td><a href="https://www.apple.com" target="_blank">访问</a></td>
+      </tr>
+      <tr>
+        <td>Glossier</td>
+        <td>美妆品牌</td>
+        <td>社区感、生活方式</td>
+        <td>UGC 运营、社区文化融合</td>
+        <td><a href="https://www.glossier.com" target="_blank">访问</a></td>
+      </tr>
+      <tr>
+        <td>Away</td>
+        <td>旅行箱</td>
+        <td>极简设计 · 品质感</td>
+        <td>配置器、产品细节展示</td>
+        <td><a href="https://www.awaytravel.com" target="_blank">访问</a></td>
+      </tr>
+      <tr>
+        <td>Ridge Wallet</td>
+        <td>钱包配件</td>
+        <td>极简黑白 · 细节展示</td>
+        <td>产品摄影、极简风格打造</td>
+        <td><a href="https://www.ridge.com" target="_blank">访问</a></td>
+      </tr>
+      <tr>
+        <td>Aesop</td>
+        <td>护肤品</td>
+        <td>编辑感、品牌故事</td>
+        <td>内容运营、品牌叙事</td>
+        <td><a href="https://www.aesop.com" target="_blank">访问</a></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ───────────────────── -->
+<!-- 02 · 调研结果 -->
+<!-- ───────────────────── -->
+<section id="research">
+  <p class="sec-eyebrow">02 · 调研结果</p>
+  <h2 class="sec-title">竞品格局与趋势</h2>
+
+  <div class="research-grid">
+    <!-- Card 1 -->
+    <div class="rcard">
+      <p class="rcard-eye">01 · 设计趋势</p>
+      <h3 class="rcard-title">六大趋势</h3>
+      <ul class="ilist">
+        <li><b>黑白极简</b>是高端配件品牌的主流视觉语言</li>
+        <li>产品摄影质量成为转化的关键因素</li>
+        <li><b>在线配置器</b>提升用户参与度和转化率</li>
+        <li>品牌故事融于产品展示，而非单独页面</li>
+        <li>视频、3D、动画成为标配视觉元素</li>
+        <li>导航信息架构越来越简洁有力</li>
+      </ul>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="rcard">
+      <p class="rcard-eye">02 · 竞品定位</p>
+      <h3 class="rcard-title">英皓竞品</h3>
+      <ul class="ilist">
+        <li><b>直接竞品：Corbin</b>（美国摩托座椅品牌，已有配置器）</li>
+        <li><b>间接参考：Benchmade</b>（工业工具品，工艺叙事标杆）</li>
+        <li><b>策略参考：Leatherman</b>（多工具品牌，社区运营）</li>
+        <li>国内无直接对标站，差异化机会大</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">配件品牌</span>
+        <span class="tag">定制化</span>
+        <span class="tag">工业设计</span>
+        <span class="tag">高端定位</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 分割线 -->
+<div class="divider"></div>
+
+<!-- ───────────────────── -->
+<!-- 03 · 风格推荐 -->
+<!-- ───────────────────── -->
+<section id="style">
+  <p class="sec-eyebrow">03 · 风格推荐</p>
+  <h2 class="sec-title">三个方向完整对比</h2>
+
+  <!-- 三个风格卡 -->
+  <div class="style-grid">
+    <!-- 方向 A -->
+    <div class="sc">
+      <div class="sc-num">A</div>
+      <div class="sc-name">工业极简黑</div>
+      <div class="sc-sub">Industrial Minimal</div>
+      <div class="palette">
+        <div class="sw" style="background:#111111;"></div>
+        <div class="sw" style="background:#ffffff;"></div>
+        <div class="sw" style="background:#c0392b;"></div>
+      </div>
+      <div class="sc-desc">黑白配色 + 红色点缀。极简排版，专业冷调。适合追求纯工业美学、强调工艺品质的品牌。</div>
+      <div class="ref-rows-label">参考网站</div>
+      <div class="ref-row"><span>Akrapovic</span><a href="https://www.akrapovic.com" target="_blank">→</a></div>
+      <div class="ref-row"><span>Motographe</span><a href="https://motographe.com/en-wld" target="_blank">→</a></div>
+      <div class="pc-grid">
+        <div class="pc-block">
+          <label>优势</label>
+          <ul class="pros">
+            <li>视觉冲击力强</li>
+            <li>高端感立刻建立</li>
+            <li>欧美市场广泛接受</li>
+          </ul>
+        </div>
+        <div class="pc-block">
+          <label>劣势</label>
+          <ul class="cons">
+            <li>品牌故事空间受限</li>
+            <li>调性固定，扩展性弱</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 方向 B -->
+    <div class="sc">
+      <div class="sc-num">B</div>
+      <div class="sc-name">科技工程感</div>
+      <div class="sc-sub">Tech Precision</div>
+      <div class="palette">
+        <div class="sw" style="background:#f5f5f7;"></div>
+        <div class="sw" style="background:#1d1d1f;"></div>
+        <div class="sw" style="background:#0071e3;"></div>
+      </div>
+      <div class="sc-desc">浅灰底 + 深色 + 科技蓝。简洁有力，强调科技精密感。突出 3D 打印、工程创新。</div>
+      <div class="ref-rows-label">参考网站</div>
+      <div class="ref-row"><span>Tesla</span><a href="https://www.tesla.com" target="_blank">→</a></div>
+      <div class="ref-row"><span>Dyson</span><a href="https://www.dyson.com" target="_blank">→</a></div>
+      <div class="pc-grid">
+        <div class="pc-block">
+          <label>优势</label>
+          <ul class="pros">
+            <li>科技感十足</li>
+            <li>3D 打印特性易展现</li>
+            <li>扩展性强</li>
+          </ul>
+        </div>
+        <div class="pc-block">
+          <label>劣势</label>
+          <ul class="cons">
+            <li>设计难度相对高</li>
+            <li>品牌故事需特别设计</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 方向 C -->
+    <div class="sc">
+      <div class="sc-num">C</div>
+      <div class="sc-name">工艺品牌感</div>
+      <div class="sc-sub">Craftsmanship</div>
+      <div class="palette">
+        <div class="sw" style="background:#3a3a3c;"></div>
+        <div class="sw" style="background:#f5ede0;"></div>
+        <div class="sw" style="background:#c8922a;"></div>
+      </div>
+      <div class="sc-desc">深灰 + 暖米 + 琥珀金。工艺感强，叙事性强。适合强调 20 年沉淀、匠心品质、高端定位。</div>
+      <div class="ref-rows-label">参考网站</div>
+      <div class="ref-row"><span>Hermès</span><a href="https://www.hermes.com/us/en/" target="_blank">→</a></div>
+      <div class="ref-row"><span>Leatherman</span><a href="https://www.leatherman.com" target="_blank">→</a></div>
+      <div class="pc-grid">
+        <div class="pc-block">
+          <label>优势</label>
+          <ul class="pros">
+            <li>品牌故事空间大</li>
+            <li>高端感、工艺感强</li>
+            <li>差异化明显</li>
+          </ul>
+        </div>
+        <div class="pc-block">
+          <label>劣势</label>
+          <ul class="cons">
+            <li>科技感不足</li>
+            <li>年轻用户接受度低</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 对比表 -->
+  <div class="cmp-wrap">
+    <p class="cmp-label">三个方向综合对比（点击列高亮）</p>
+    <table class="cmp">
+      <thead>
+        <tr>
+          <th></th>
+          <th style="cursor:pointer;" onclick="selectCol('a')">A — 工业极简黑</th>
+          <th style="cursor:pointer;" onclick="selectCol('b')">B — 科技工程感</th>
+          <th style="cursor:pointer;" onclick="selectCol('c')">C — 工艺品牌感</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>设计难度</td>
+          <td>低</td>
+          <td>高</td>
+          <td>中</td>
+        </tr>
+        <tr>
+          <td>欧美市场接受度</td>
+          <td>极高</td>
+          <td>高</td>
+          <td>中高</td>
+        </tr>
+        <tr>
+          <td>技术感表达</td>
+          <td>强</td>
+          <td>极强</td>
+          <td>一般</td>
+        </tr>
+        <tr>
+          <td>3D 打印特性展示</td>
+          <td>一般</td>
+          <td>极强</td>
+          <td>弱</td>
+        </tr>
+        <tr>
+          <td>品牌故事空间</td>
+          <td>中</td>
+          <td>低</td>
+          <td>极强</td>
+        </tr>
+        <tr>
+          <td>落地可行性</td>
+          <td>极高</td>
+          <td>中</td>
+          <td>中高</td>
+        </tr>
+        <tr>
+          <td>综合推荐</td>
+          <td>★★★★</td>
+          <td>★★★★★</td>
+          <td>★★★</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 分割线 -->
+<div class="divider"></div>
+
+<!-- ───────────────────── -->
+<!-- 04 · 落地规划 -->
+<!-- ───────────────────── -->
+<section id="plan">
+  <p class="sec-eyebrow">04 · 落地规划</p>
+  <h2 class="sec-title">网站结构 & 项目时间线</h2>
+
+  <!-- 页面结构 -->
+  <p style="font-size:14px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--text-3); margin-bottom:24px;">五个核心页面</p>
+  <div class="pages5">
+    <div class="pg">
+      <div class="pg-num">1</div>
+      <div class="pg-name">首页</div>
+      <div class="pg-desc">Hero + 品牌优势 + 产品分类 + 社群运营 + Footer</div>
+    </div>
+    <div class="pg">
+      <div class="pg-num">2</div>
+      <div class="pg-name">品牌故事</div>
+      <div class="pg-desc">20 年沉淀 + 核心工艺 + 认证资质 + 视频展示</div>
+    </div>
+    <div class="pg">
+      <div class="pg-num">3</div>
+      <div class="pg-name">技术展示</div>
+      <div class="pg-desc">3D 打印能力 + 产品工艺 + 视频演示 + FAQ</div>
+    </div>
+    <div class="pg">
+      <div class="pg-num">4</div>
+      <div class="pg-name">商品页</div>
+      <div class="pg-desc">产品分类 + 高保真产品详情 + 配置器（可选）</div>
+    </div>
+    <div class="pg">
+      <div class="pg-num">5</div>
+      <div class="pg-name">联系页</div>
+      <div class="pg-desc">销售团队 + 邮箱 + 表单 + 社交链接</div>
+    </div>
+  </div>
+
+  <!-- 时间线 -->
+  <p style="font-size:14px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--text-3); margin:56px 0 32px 0;">项目推进时间线</p>
+  <div class="tl">
+
+    <!-- 第一阶段 -->
+    <div class="tlp ms">
+      <div class="tl-hd">
+        <span class="tl-tag">阶段一</span>
+        <span class="tl-title">MVP 搭建</span>
+        <span class="tl-date">2026年 6月 19日 — 6月 30日（共 12 天）</span>
+        <span class="ms-badge">当前阶段</span>
+      </div>
+      <div class="tl-note">目标：确定产品方向，完成网站初步原型，明确平台接入方案。每月月中、月底各汇报一次。</div>
+      <div class="task-list">
+        <div class="ti"><div class="ti-date">6月 19–23日</div><div class="ti-content">AI 生成官网基础框架，制作意向网站雏形</div></div>
+        <div class="ti"><div class="ti-date">6月 24–30日</div><div class="ti-content">研究 Shopify 接入方案，评估自研后端可行性，确认平台选型</div></div>
+        <div class="ti report"><div class="ti-date">6月 30日　月底汇报</div><div class="ti-content">本阶段整体产出交付：网站雏形 + 平台方案确认</div></div>
+      </div>
+    </div>
+
+    <!-- 第二阶段 -->
+    <div class="tlp">
+      <div class="tl-hd">
+        <span class="tl-tag">阶段二</span>
+        <span class="tl-title">网站初稿制作</span>
+        <span class="tl-date">2026年 7月 1日 — 7月 31日（共 31 天）</span>
+      </div>
+      <div class="tl-note">目标：完成 Figma 交互稿及核心功能，分四个节点推进。同期与客户运营对接资源。每月月中、月底各汇报一次。</div>
+      <div class="task-list">
+        <div class="ti"><div class="ti-date">7月 1–7日</div><div class="ti-content">节点一：关键页面制作（首页、商品购买页）</div></div>
+        <div class="ti"><div class="ti-date">7月 8–14日</div><div class="ti-content">节点二：图片设计 + 核心商品信息录入</div></div>
+        <div class="ti report"><div class="ti-date">7月 15日　月中汇报</div><div class="ti-content">汇报节点一、二的进度情况，就图文素材细节与客户沟通</div></div>
+        <div class="ti"><div class="ti-date">7月 15–21日</div><div class="ti-content">节点三：核心功能测试（购物、结算、支付、通知）</div></div>
+        <div class="ti"><div class="ti-date">7月 22–31日</div><div class="ti-content">节点四：完善主要交互流程；与客户运营对接文案及素材</div></div>
+        <div class="ti report"><div class="ti-date">7月 31日　月底汇报</div><div class="ti-content">本阶段整体产出交付：初稿成果 + 商品列表对齐</div></div>
+      </div>
+    </div>
+
+    <!-- 第三阶段 -->
+    <div class="tlp">
+      <div class="tl-hd">
+        <span class="tl-tag">阶段三</span>
+        <span class="tl-title">用户体验与细节打磨</span>
+        <span class="tl-date">2026年 8月 1日 — 8月 31日（共 31 天）</span>
+      </div>
+      <div class="tl-note">目标：交互完善、全站内容录入、响应式适配。每月月中、月底各汇报一次。</div>
+      <div class="task-list">
+        <div class="ti"><div class="ti-date">8月 1–10日</div><div class="ti-content">完善各主页面交互细节</div></div>
+        <div class="ti"><div class="ti-date">8月 11–20日</div><div class="ti-content">次级界面设计（品牌故事、技术展示、联系页）</div></div>
+        <div class="ti report"><div class="ti-date">8月 15日　月中汇报</div><div class="ti-content">汇报交互细节与次级界面进度，就具体设计细节与客户沟通</div></div>
+        <div class="ti"><div class="ti-date">8月 21–25日</div><div class="ti-content">全部商品录入，图片视频展示效果协调</div></div>
+        <div class="ti"><div class="ti-date">8月 26–31日</div><div class="ti-content">手机端响应式设计适配</div></div>
+        <div class="ti report"><div class="ti-date">8月 31日　月底汇报</div><div class="ti-content">本阶段整体产出交付：完整网站设计稿 + 内容录入完成情况</div></div>
+      </div>
+    </div>
+
+    <!-- 第四阶段 -->
+    <div class="tlp">
+      <div class="tl-hd">
+        <span class="tl-tag">阶段四</span>
+        <span class="tl-title">可用性测试与优化</span>
+        <span class="tl-date">2026年 9月 1日 — 9月 30日（共 30 天）</span>
+      </div>
+      <div class="tl-note">目标：确保整体可用性达标，用户体验流畅无断点，完成 SEO 基础设计，上线前最终协商。每月月中、月底各汇报一次。</div>
+      <div class="task-list">
+        <div class="ti"><div class="ti-date">9月 1–15日</div><div class="ti-content">全流程可用性测试，逐一消除体验断点</div></div>
+        <div class="ti report"><div class="ti-date">9月 15日　月中汇报</div><div class="ti-content">汇报测试进度与体验问题，就各断点修复方案与客户沟通</div></div>
+        <div class="ti"><div class="ti-date">9月 16–25日</div><div class="ti-content">最终细节打磨 + SEO 基础配置（meta / alt / sitemap）</div></div>
+        <div class="ti"><div class="ti-date">9月 26–30日</div><div class="ti-content">与客户上线前最终协商，确认所有变更</div></div>
+        <div class="ti report"><div class="ti-date">9月 30日　月底汇报</div><div class="ti-content">本阶段整体产出交付：SEO 配置成果 + 上线前最终确认</div></div>
+      </div>
+    </div>
+
+    <!-- 第五阶段 -->
+    <div class="tlp ms">
+      <div class="tl-hd">
+        <span class="tl-tag">阶段五</span>
+        <span class="tl-title">正式交付 + 容错缓冲</span>
+        <span class="tl-date">2026年 10月 1日 — 10月 31日（约 31 天）</span>
+        <span class="ms-badge">交付节点</span>
+      </div>
+      <div class="tl-note">完成最终交付，预留约一个月机动时间作为容错缓冲，处理上线后突发问题。</div>
+      <div class="task-list">
+        <div class="ti"><div class="ti-date">10月 1–7日</div><div class="ti-content">正式上线部署</div></div>
+        <div class="ti"><div class="ti-date">10月 8–15日</div><div class="ti-content">上线后监控与紧急响应</div></div>
+        <div class="ti report"><div class="ti-date">10月 15日　月中汇报</div><div class="ti-content">汇报上线情况与监控结果，就突发问题处理方案与客户沟通</div></div>
+        <div class="ti"><div class="ti-date">10月 16–31日</div><div class="ti-content">容错缓冲期：处理突发问题，完成最终交付文档整理</div></div>
+        <div class="ti report"><div class="ti-date">10月 31日　月底收尾</div><div class="ti-content">项目正式收尾，全部交付完成</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <span>© 2026 3DThinkPro · 台州英皓汽车摩托车配件. All rights reserved.</span>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <img src="data:image/png;base64,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" alt="火猫hoho" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid #e8e8ed;">
+    <span style="font-size:14px;color:#1d1d1f;font-weight:600;">火猫hoho</span>
+  </div>
+</footer>
+
+<!-- ── 全图模态框 ── -->
+<div id="imageModal" class="modal">
+  <div class="modal-content">
+    <img id="modalImage" class="modal-img" src="" alt="">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+</div>
+
+<script>
+  // ═════════════════════════════════════
+  // 参考网站轮播
+  // ═════════════════════════════════════
+  let currentPanel = 0;
+  const totalPanels = 6;
+
+  const tabs = document.querySelectorAll('.ref-tab-btn');
+  const panels = document.querySelectorAll('.ref-panel');
+
+  tabs.forEach((tab, idx) => {
+    tab.addEventListener('click', () => {
+      currentPanel = idx;
+      updatePanel();
+    });
+  });
+
+  function updatePanel() {
+    tabs.forEach((t, i) => t.classList.toggle('active', i === currentPanel));
+    panels.forEach((p, i) => p.classList.toggle('active', i === currentPanel));
+  }
+
+  // ═════════════════════════════════════
+  // 风格对比表交互
+  // ═════════════════════════════════════
+  function selectCol(col) {
+    const ths = document.querySelectorAll('.cmp thead th');
+    const tds = document.querySelectorAll('.cmp tbody td');
+
+    // 清除所有高亮（列顺序：col1=A col2=B col3=C）
+    ths.forEach(th => {
+      th.classList.remove('sel-a', 'sel-b', 'sel-c');
+      th.style.opacity = '1';
+    });
+    tds.forEach(td => td.classList.remove('sel-a', 'sel-b', 'sel-c'));
+
+    // idx: 0=空白列 1=A 2=B 3=C
+    const map = { a: 1, b: 2, c: 3 };
+    const cls = { a: 'sel-a', b: 'sel-b', c: 'sel-c' };
+    const idx = map[col];
+    if (idx) {
+      ths[idx].classList.add(cls[col]);
+      document.querySelectorAll(`.cmp tbody tr td:nth-child(${idx + 1})`).forEach(td => td.classList.add(cls[col]));
+    }
+  }
+
+  // ═════════════════════════════════════
+  // 截图轮播（switchShot / prevShot / nextShot）
+  // ═════════════════════════════════════
+
+  // 通用：切换到指定索引
+  function goToSlide(refShots, idx) {
+    const slides = refShots.querySelectorAll('.shot-slide');
+    const tabs   = refShots.querySelectorAll('.shots-tab');
+    slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+    tabs.forEach((t, i)   => t.classList.toggle('active', i === idx));
+  }
+
+  // Tab 按钮点击
+  function switchShot(btn, idx) {
+    goToSlide(btn.closest('.ref-shots'), idx);
+  }
+
+  // 左箭头
+  function prevShot(btn) {
+    const refShots = btn.closest('.ref-shots');
+    const slides = refShots.querySelectorAll('.shot-slide');
+    const cur  = [...slides].findIndex(s => s.classList.contains('active'));
+    goToSlide(refShots, (cur - 1 + slides.length) % slides.length);
+  }
+
+  // 右箭头
+  function nextShot(btn) {
+    const refShots = btn.closest('.ref-shots');
+    const slides = refShots.querySelectorAll('.shot-slide');
+    const cur  = [...slides].findIndex(s => s.classList.contains('active'));
+    goToSlide(refShots, (cur + 1) % slides.length);
+  }
+
+  // ═════════════════════════════════════
+  // 图片点击查看全图（事件委托，解决绝对定位层叠导致事件打到错误 slide 的问题）
+  // ═════════════════════════════════════
+  function openModal(src) {
+    if (!src) return;
+    document.getElementById('modalImage').src = src;
+    document.getElementById('imageModal').classList.add('show');
+  }
+
+
+  function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.remove('show');
+  }
+
+  // 点击遮罩关闭
+  document.getElementById('imageModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // 点击模态框背景关闭
+  document.getElementById('imageModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeModal();
+    }
+  });
+
+  // 按 ESC 关闭模态框
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  // 初始化：默认选中 B 方向
+  selectCol('b');
+</script>
+</body>
+</html>
