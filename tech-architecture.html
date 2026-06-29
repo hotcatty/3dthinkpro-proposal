@@ -297,37 +297,80 @@
 
 <!-- ════ 05 后端管理 ════ -->
 <section id="backend">
-  <p class="sec-eyebrow">Backend · 后端管理</p>
-  <h2 class="sec-title">Shopify 是当前最合适的后端选择</h2>
-  <p class="sec-sub">我们对后端的核心需求：商品管理、订单管理、安全收款。Shopify 在这三点上提供了市场上最成熟、国际信任度最高的现成方案。</p>
+  <p class="sec-eyebrow">Backend · 后端选型</p>
+  <h2 class="sec-title">后端平台待调研，尚未定论</h2>
+  <p class="sec-sub">我们对后端的核心需求只有三项：商品目录管理、订单管理、安全收款。基于这三点，以下平台值得进入下一步"实测调研"，再做最终决策。</p>
 
-  <div class="two-col">
-    <div class="info-card">
-      <h4>Shopify 商品管理</h4>
-      <ul>
-        <li>多规格 SKU（车型 × 年份 × 颜色）</li>
-        <li>库存实时同步</li>
-        <li>批量上下架、定时发布</li>
-        <li>多图、视频、3D 模型支持</li>
-        <li>多币种、多语言商品信息</li>
-      </ul>
-    </div>
-    <div class="info-card">
-      <h4>Shopify 订单与物流</h4>
-      <ul>
-        <li>订单全生命周期管理</li>
-        <li>自动发送订单确认邮件</li>
-        <li>物流商接入（DHL、FedEx、EasyPost）</li>
-        <li>自动运费计算、退货流程</li>
-        <li>数据仪表盘（销售额、转化率、客单价）</li>
-      </ul>
-    </div>
+  <div class="callout callout-orange">
+    <strong>决策前提：</strong>后端平台的选择，与支付方案强绑定。若最终采用 Stripe 嵌入式支付（结算方案 B），则平台自带的"支付能力"优势大幅削弱，选型重心转移到 API 质量和月费成本上。建议支付方案确认后，再对后端平台做最终决策。
   </div>
 
-  <div class="highlight">
-    <h3>后续落地任务</h3>
-    <p>当前原型网站已完成前端视觉，下一阶段的核心工作是将 Shopify 后端真正接入：连通商品数据、配置 Shopify Payments、设置运费规则，并完成结算方案的技术选型和实施（Stripe 嵌入方案为优先方向）。</p>
-    <p>这部分需要一定时间进行调研和开发落地，建议作为下阶段并行推进的重点。</p>
+  <table class="tbl" style="margin-top:40px;">
+    <thead>
+      <tr>
+        <th>平台</th>
+        <th>月费</th>
+        <th>交易手续费</th>
+        <th>无头 API 质量</th>
+        <th>主要优势</th>
+        <th>主要劣势</th>
+        <th style="width:90px">调研优先级</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Shopify Basic</td>
+        <td>$39</td>
+        <td style="color:var(--text-3)">2.9% + $0.30<br><small>用自带支付无额外费</small></td>
+        <td><span class="pill pill-orange">良好</span></td>
+        <td style="color:var(--text-2)">最成熟生态；国际买家信任度最高；团队最熟悉；上手最快</td>
+        <td style="color:var(--text-2)">我们用不到大多数功能，存在功能溢价；若用 Stripe 则优势进一步缩小</td>
+        <td><span class="pill pill-blue">高</span></td>
+      </tr>
+      <tr>
+        <td>BigCommerce</td>
+        <td>$39</td>
+        <td style="color:var(--text-3)"><strong style="color:var(--green);">$0</strong><br><small>无额外交易费</small></td>
+        <td><span class="pill pill-green">优秀</span></td>
+        <td style="color:var(--text-2)">无额外交易手续费；官方 Headless API 文档更完整；同价位竞争力强</td>
+        <td style="color:var(--text-2)">国际知名度略低于 Shopify；插件生态较小；团队不熟悉</td>
+        <td><span class="pill pill-blue">高</span></td>
+      </tr>
+      <tr>
+        <td>Swell</td>
+        <td style="color:var(--green);font-weight:600;">$0<br><small style="color:var(--text-3);font-weight:400;">10 万美元 GMV 内免费</small></td>
+        <td style="color:var(--text-3)">按 GMV 阶梯收费<br><small>早期 $0</small></td>
+        <td><span class="pill pill-green">优秀</span></td>
+        <td style="color:var(--text-2)">专为无头独立品牌设计；早期完全免费；API 设计最干净</td>
+        <td style="color:var(--text-2)">知名度低；生态小；国际买家对其 Checkout 信任度未知</td>
+        <td><span class="pill pill-orange">中</span></td>
+      </tr>
+      <tr>
+        <td>Medusa.js</td>
+        <td style="color:var(--green);font-weight:600;">$0<br><small style="color:var(--text-3);font-weight:400;">自托管，只需服务器费</small></td>
+        <td style="color:var(--text-3)">$0<br><small>支付费用直接给 Stripe</small></td>
+        <td><span class="pill pill-green">优秀</span></td>
+        <td style="color:var(--text-2)">完全开源；功能对标 Shopify；月费最低；最大自主性</td>
+        <td style="color:var(--text-2)">需自行部署和维护服务器；无官方托管；技术门槛最高</td>
+        <td><span class="pill pill-orange">中</span></td>
+      </tr>
+      <tr>
+        <td>店匠 Shoplazza</td>
+        <td>¥88–698</td>
+        <td style="color:var(--text-3)">视套餐而定</td>
+        <td><span class="pill pill-gray">有限</span></td>
+        <td style="color:var(--text-2)">中国出海专属；中文客服；费用约为 Shopify 三分之一；国内物流对接顺畅</td>
+        <td style="color:var(--text-2)">无头支持弱；国际买家对 Checkout 信任度不明；生态小</td>
+        <td><span class="pill pill-gray">低</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight" style="margin-top:40px;">
+    <h3>下一步：肉身调研计划</h3>
+    <p><strong>Shopify vs. BigCommerce</strong> 是优先级最高的对比。两者月费相同，但 BigCommerce 没有额外交易手续费，且 Headless API 质量更好。重点核实：后台管理体验是否足够顺手、多规格 SKU 支持是否完整。</p>
+    <p><strong>Swell</strong> 值得注册免费账号快速试用一遍，重点看后台 UI 和 API 文档质量，成本风险为零。</p>
+    <p><strong>结论原则：</strong>如果 Shopify 在价格上没有明显溢价、后台操作最顺手，选它是完全合理的。如果 BigCommerce 或 Swell 能在相近成本下提供更好的 API 体验和更低的交易成本，则值得切换。</p>
   </div>
 </section>
 
