@@ -31,7 +31,6 @@
     line-height:1.65; -webkit-font-smoothing:antialiased;
   }
 
-  /* ── Nav ── */
   nav {
     position:sticky; top:0; z-index:200;
     background:rgba(255,255,255,0.88);
@@ -49,7 +48,6 @@
   .nav-links a.current { color:var(--text); font-weight:600; }
   .nav-cta { background:var(--accent); color:#fff; font-size:13px; font-weight:600; padding:7px 18px; border-radius:100px; text-decoration:none; }
 
-  /* ── Page Header ── */
   .page-hero {
     text-align:center; padding:100px 60px 80px;
     background:linear-gradient(180deg,#f5f5f7 0%,#fff 100%);
@@ -59,107 +57,64 @@
   .page-hero h1 { font-size:clamp(42px,5vw,68px); font-weight:700; line-height:1.05; letter-spacing:-0.035em; margin-bottom:20px; }
   .page-hero p { font-size:20px; color:var(--text-3); max-width:620px; margin:0 auto 48px; line-height:1.55; }
   .hero-tags { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
-  .hero-tag {
-    display:inline-block; padding:6px 16px; border-radius:100px;
-    font-size:13px; font-weight:600;
-    background:var(--bg2); color:var(--text-2);
-    border:1px solid var(--border);
-  }
+  .hero-tag { display:inline-block; padding:6px 16px; border-radius:100px; font-size:13px; font-weight:600; background:var(--bg2); color:var(--text-2); border:1px solid var(--border); }
   .hero-tag.accent { background:#e8f2ff; color:var(--accent); border-color:#c8dfff; }
 
-  /* ── Section ── */
   section { padding:var(--gap) 60px; }
   .divider { height:1px; background:var(--border-l); margin:0 60px; }
   .sec-eyebrow { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:14px; }
-  .sec-title { font-size:clamp(30px,3.5vw,48px); font-weight:700; letter-spacing:-0.03em; line-height:1.1; margin-bottom:14px; }
-  .sec-sub { font-size:18px; color:var(--text-3); max-width:640px; margin-bottom:52px; line-height:1.5; }
+  .sec-title { font-size:clamp(30px,3.5vw,46px); font-weight:700; letter-spacing:-0.03em; line-height:1.1; margin-bottom:14px; }
+  .sec-sub { font-size:18px; color:var(--text-3); max-width:680px; margin-bottom:48px; line-height:1.55; }
 
-  /* ── Callout ── */
-  .callout {
-    padding:20px 24px; border-radius:12px;
-    font-size:15px; line-height:1.7; margin-top:24px;
-  }
+  .callout { padding:20px 24px; border-radius:12px; font-size:15px; line-height:1.75; margin-top:24px; }
   .callout-blue   { background:#e8f2ff; border-left:4px solid var(--accent); color:var(--text-2); }
   .callout-green  { background:var(--bg-green); border-left:4px solid var(--green); color:var(--text-2); }
   .callout-orange { background:var(--bg-orange); border-left:4px solid var(--orange); color:var(--text-2); }
   .callout strong { color:var(--text); }
 
-  /* ── Table ── */
   .tbl { width:100%; border-collapse:collapse; font-size:15px; }
-  .tbl thead th {
-    text-align:left; font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
-    color:var(--text-3); padding:12px 18px; border-bottom:1px solid var(--border);
-    font-weight:600; background:var(--bg2);
-  }
+  .tbl thead th { text-align:left; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-3); padding:12px 18px; border-bottom:1px solid var(--border); font-weight:600; background:var(--bg2); }
   .tbl tbody tr { border-bottom:1px solid var(--border-l); }
   .tbl tbody tr:hover { background:var(--bg2); }
   .tbl td { padding:14px 18px; color:var(--text-2); vertical-align:top; }
   .tbl td:first-child { font-weight:600; color:var(--text); }
-  .tbl th:first-child { border-radius:8px 0 0 0; }
-  .tbl th:last-child  { border-radius:0 8px 0 0; }
 
-  .pill {
-    display:inline-block; padding:2px 10px; border-radius:100px;
-    font-size:12px; font-weight:600;
-  }
+  .pill { display:inline-block; padding:2px 10px; border-radius:100px; font-size:12px; font-weight:600; }
   .pill-green  { background:var(--bg-green); color:var(--green); }
   .pill-red    { background:var(--bg-red);   color:var(--red); }
   .pill-orange { background:var(--bg-orange);color:var(--orange); }
   .pill-blue   { background:#e8f2ff;         color:var(--accent); }
   .pill-gray   { background:var(--bg2);      color:var(--text-3); }
 
-  /* ── 3-col cards ── */
   .cards3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:40px; }
-  .cards2 { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:40px; }
-  .card {
-    background:var(--bg2); border:1px solid var(--border-l);
-    border-radius:16px; padding:28px;
-  }
+  .card { background:var(--bg2); border:1px solid var(--border-l); border-radius:16px; padding:28px; }
   .card.featured { background:#fff; border-color:var(--accent); box-shadow:0 0 0 1px var(--accent); }
-  .card-eyebrow { font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px; }
-  .card.featured .card-eyebrow { color:var(--accent); }
-  .card-eyebrow:not(.card.featured .card-eyebrow) { color:var(--text-3); }
-  .card-title  { font-size:17px; font-weight:700; margin-bottom:6px; }
-  .card-price  { font-size:30px; font-weight:700; margin-bottom:4px; }
+  .card-label { font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px; color:var(--text-3); }
+  .card.featured .card-label { color:var(--accent); }
+  .card-title { font-size:17px; font-weight:700; margin-bottom:10px; }
+  .card-price { font-size:28px; font-weight:700; margin-bottom:4px; }
   .card-price span { font-size:14px; font-weight:400; color:var(--text-3); }
-  .card-sub    { font-size:12px; color:var(--text-3); margin-bottom:20px; }
-  .card-list   { list-style:none; display:flex; flex-direction:column; gap:9px; }
-  .card-list li { font-size:13px; color:var(--text-2); display:flex; gap:8px; }
-  .li-ok  { color:var(--green);  flex-shrink:0; }
-  .li-no  { color:var(--red);    flex-shrink:0; }
-  .li-mid { color:var(--orange); flex-shrink:0; }
+  .card-sub { font-size:12px; color:var(--text-3); margin-bottom:18px; }
+  .card-body { font-size:14px; color:var(--text-2); line-height:1.7; }
 
-  /* ── Highlight box ── */
-  .highlight {
-    border:1px solid var(--accent); border-radius:16px;
-    padding:40px; margin-top:40px; background:#fff;
-  }
-  .highlight h3 { font-size:22px; font-weight:700; margin-bottom:16px; letter-spacing:-0.02em; }
+  .highlight { border:1px solid var(--accent); border-radius:16px; padding:40px; margin-top:40px; background:#fff; }
+  .highlight h3 { font-size:22px; font-weight:700; margin-bottom:14px; letter-spacing:-0.02em; }
   .highlight p  { font-size:15px; color:var(--text-2); line-height:1.75; }
   .highlight p + p { margin-top:12px; }
 
-  /* ── Code ── */
-  .code {
-    background:#1d1d1f; border-radius:12px;
-    padding:20px 24px; font-size:13px;
-    font-family:'SF Mono','Fira Code',monospace;
-    color:#7dd3fc; line-height:1.65;
-    margin-top:20px; overflow-x:auto;
-    white-space:pre;
-  }
-
-  /* ── Stat row ── */
   .stat-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:40px; }
   .stat-box { background:var(--bg2); border:1px solid var(--border-l); border-radius:16px; padding:24px; text-align:center; }
   .stat-val { font-size:32px; font-weight:700; letter-spacing:-0.03em; }
   .stat-lbl { font-size:12px; color:var(--text-3); margin-top:6px; line-height:1.4; }
 
-  /* ── Footer ── */
-  footer {
-    text-align:center; padding:60px;
-    border-top:1px solid var(--border-l);
-    color:var(--text-3); font-size:14px;
-  }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:40px; }
+  .info-card { background:var(--bg2); border:1px solid var(--border-l); border-radius:16px; padding:28px; }
+  .info-card h4 { font-size:16px; font-weight:700; margin-bottom:10px; }
+  .info-card p  { font-size:14px; color:var(--text-2); line-height:1.7; }
+  .info-card ul { margin-top:10px; padding-left:18px; }
+  .info-card li { font-size:14px; color:var(--text-2); line-height:1.7; margin-bottom:4px; }
+
+  footer { text-align:center; padding:60px; border-top:1px solid var(--border-l); color:var(--text-3); font-size:14px; }
   footer a { color:var(--accent); text-decoration:none; }
 
   @media (max-width:900px) {
@@ -167,7 +122,7 @@
     section { padding:60px 24px; }
     .divider { margin:0 24px; }
     .page-hero { padding:60px 24px; }
-    .cards3, .cards2 { grid-template-columns:1fr; }
+    .cards3, .two-col { grid-template-columns:1fr; }
     .stat-row { grid-template-columns:repeat(2,1fr); }
     .nav-links { display:none; }
   }
@@ -175,7 +130,6 @@
 </head>
 <body>
 
-<!-- ── Nav ── -->
 <nav>
   <div class="nav-logo"><a href="index.html">英皓 3DThinkPro</a></div>
   <ul class="nav-links">
@@ -185,416 +139,200 @@
     <li><a href="index.html#plan">落地规划</a></li>
     <li><a href="tech-architecture.html" class="current">技术架构</a></li>
   </ul>
-  <a class="nav-cta" href="index.html#plan">查看排期 →</a>
+  <a class="nav-cta" href="https://prototype-sigma-inky-55.vercel.app" target="_blank">查看原型 →</a>
 </nav>
 
-<!-- ── Page Hero ── -->
 <div class="page-hero">
   <p class="eyebrow">Technical Architecture · 技术决策</p>
   <h1>独立站技术架构方案</h1>
-  <p>三套方案的成本、设计自由度、运维复杂度和结算体验全面对比，帮助团队做出最优技术决策。</p>
+  <p>前后端分离方案的核心逻辑、成本结构、后端管理与结算方案全览，供团队决策参考。</p>
   <div class="hero-tags">
-    <span class="hero-tag accent">当前方案：无头 Next.js</span>
-    <span class="hero-tag">月费 $39 起</span>
-    <span class="hero-tag">设计完全自由</span>
+    <span class="hero-tag accent">方向确定：前后端分离</span>
+    <span class="hero-tag">商业后台：Shopify</span>
     <span class="hero-tag">原型已上线</span>
+    <span class="hero-tag">后续：后端 + 支付落地</span>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════════════════════
-     01 · 三方案全局对比
-════════════════════════════════════════════════════════ -->
-<section id="compare">
-  <p class="sec-eyebrow">Overview · 全局对比</p>
-  <h2 class="sec-title">三条路，一个决定</h2>
-  <p class="sec-sub">三套方案都以 Shopify 为商业后台管理系统（商品、订单、支付），区别只在于前端的构建方式和托管位置。</p>
+<!-- ════ 01 核心决策 ════ -->
+<section id="decision">
+  <p class="sec-eyebrow">Core Decision · 核心决策</p>
+  <h2 class="sec-title">我们选了什么，为什么</h2>
+  <p class="sec-sub">前后端分离 = 前端（网站视觉）和后端（商品/订单/支付）各自独立，互不绑定。</p>
 
-  <table class="tbl">
-    <thead>
-      <tr>
-        <th style="width:140px">维度</th>
-        <th>方案 A — 无头 Next.js <span style="color:var(--accent);font-weight:700;">（当前）</span></th>
-        <th>方案 B — Shopify 标准主题</th>
-        <th>方案 C — Hydrogen 官方无头</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>设计自由度</td>
-        <td><span class="pill pill-green">完全自由</span></td>
-        <td><span class="pill pill-orange">受主题限制</span></td>
-        <td><span class="pill pill-green">完全自由</span></td>
-      </tr>
-      <tr>
-        <td>月均费用</td>
-        <td><span class="pill pill-green">$39–$59</span></td>
-        <td><span class="pill pill-green">$29–$79</span></td>
-        <td><span class="pill pill-red">$299+</span></td>
-      </tr>
-      <tr>
-        <td>Shopify 插件兼容</td>
-        <td><span class="pill pill-orange">约 10–20%</span></td>
-        <td><span class="pill pill-green">约 95%</span></td>
-        <td><span class="pill pill-orange">约 20–30%</span></td>
-      </tr>
-      <tr>
-        <td>商品/订单/支付运维</td>
-        <td><span class="pill pill-green">Shopify 后台，无代码</span></td>
-        <td><span class="pill pill-green">Shopify 后台，无代码</span></td>
-        <td><span class="pill pill-green">Shopify 后台，无代码</span></td>
-      </tr>
-      <tr>
-        <td>前端维护</td>
-        <td><span class="pill pill-orange">AI + 开发者</span>（极快）</td>
-        <td><span class="pill pill-green">无代码操作</span></td>
-        <td><span class="pill pill-orange">AI + 开发者</span></td>
-      </tr>
-      <tr>
-        <td>结算页控制</td>
-        <td>可用 Stripe Elements 方案（见下文）</td>
-        <td>CSS 品牌化</td>
-        <td>可用 Stripe Elements 方案</td>
-      </tr>
-      <tr>
-        <td>AI 辅助效率</td>
-        <td><span class="pill pill-green">极高</span>（代码 + Cursor）</td>
-        <td><span class="pill pill-orange">有限</span>（Liquid 模板）</td>
-        <td><span class="pill pill-green">极高</span>（React + Cursor）</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="two-col">
+    <div class="info-card">
+      <h4>前端（网站界面）— 我们自己做</h4>
+      <p>用 Next.js + React 构建，部署在 Vercel。网站的每一处视觉细节完全自主，不受任何主题模板约束。目前原型已完成，还原度高，后续修改极快。</p>
+    </div>
+    <div class="info-card">
+      <h4>后端（商业系统）— Shopify 托管</h4>
+      <p>Shopify 负责商品上架、库存、订单处理、支付收款、物流对接。这部分全走 Shopify 管理后台，无需写任何代码，和传统开 Shopify 店没有区别。</p>
+    </div>
+  </div>
+
+  <div class="callout callout-green" style="margin-top:24px;">
+    <strong>与传统 Shopify 主题方案的关键区别：</strong>只有"网站长什么样"是我们自己控制的，其余的商业运营能力（商品管理、结账、物流、数据）全部还是 Shopify 在跑。两全其美——设计自由 + 成熟商业系统。
+  </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ════════════════════════════════════════════════════════
-     02 · 成本分析
-════════════════════════════════════════════════════════ -->
+<!-- ════ 02 成本 ════ -->
 <section id="cost">
-  <p class="sec-eyebrow">Cost · 成本分析</p>
-  <h2 class="sec-title">各方案费用明细</h2>
-  <p class="sec-sub">三套方案都以 Shopify 作为商业后台，商品管理、订单处理、支付收款的费用结构完全相同。</p>
-
-  <div class="cards3">
-    <div class="card featured">
-      <p class="card-eyebrow" style="color:var(--accent);">方案 A · 推荐</p>
-      <p class="card-title">无头 Next.js</p>
-      <p class="card-price">$39<span> /月</span></p>
-      <p class="card-sub">Shopify Basic $39 + Vercel 免费托管</p>
-      <ul class="card-list">
-        <li><span class="li-ok">✓</span>设计完全自由，无任何视觉约束</li>
-        <li><span class="li-ok">✓</span>商品/价格/订单全在 Shopify 后台，无代码</li>
-        <li><span class="li-ok">✓</span>Vercel 免费版足够早期使用</li>
-        <li><span class="li-mid">△</span>前端视觉改动需 AI + 开发介入（但极快）</li>
-        <li><span class="li-no">✗</span>大多数 Shopify 主题插件不可注入</li>
-      </ul>
-    </div>
-    <div class="card">
-      <p class="card-eyebrow">方案 B</p>
-      <p class="card-title">标准 Shopify 主题</p>
-      <p class="card-price">$29<span> /月起</span></p>
-      <p class="card-sub">Shopify Basic $29 + 付费主题 $0–$350 一次性</p>
-      <ul class="card-list">
-        <li><span class="li-ok">✓</span>所有 Shopify 插件可用</li>
-        <li><span class="li-ok">✓</span>托管含在订阅内，无需额外服务器</li>
-        <li><span class="li-ok">✓</span>上线最快，操作门槛最低</li>
-        <li><span class="li-mid">△</span>设计受主题限制，定制需写 Liquid</li>
-        <li><span class="li-no">✗</span>难以实现 Motographe 级别的视觉品质</li>
-      </ul>
-    </div>
-    <div class="card">
-      <p class="card-eyebrow">方案 C</p>
-      <p class="card-title">Hydrogen 官方无头</p>
-      <p class="card-price">$299<span> /月起</span></p>
-      <p class="card-sub">需要 Shopify Advanced 套餐才能使用 Oxygen 托管</p>
-      <ul class="card-list">
-        <li><span class="li-ok">✓</span>Shopify 官方无头框架，最稳定</li>
-        <li><span class="li-ok">✓</span>Oxygen CDN 托管含在内，无需 Vercel</li>
-        <li><span class="li-mid">△</span>方案 A 跑通后的自然升级路径</li>
-        <li><span class="li-no">✗</span>早期阶段 $299/月性价比差</li>
-        <li><span class="li-no">✗</span>同样缺失大多数第三方插件</li>
-      </ul>
-    </div>
-  </div>
+  <p class="sec-eyebrow">Cost · 费用</p>
+  <h2 class="sec-title">实际费用非常可控</h2>
+  <p class="sec-sub">前后端分离不会增加基础成本，反而在设计自由度上远超同价位的标准主题方案。</p>
 
   <div class="stat-row">
-    <div class="stat-box"><div class="stat-val">$39</div><div class="stat-lbl">方案 A<br>首月全部费用</div></div>
-    <div class="stat-box"><div class="stat-val">$0</div><div class="stat-lbl">Vercel 免费托管<br>早期流量完全够用</div></div>
-    <div class="stat-box"><div class="stat-val" style="color:var(--accent);">$1,404</div><div class="stat-lbl">方案 A<br>三年基础设施合计</div></div>
-    <div class="stat-box"><div class="stat-val" style="color:var(--green);">$0</div><div class="stat-lbl">商品/订单/支付<br>运维代码工作量</div></div>
+    <div class="stat-box">
+      <div class="stat-val" style="color:var(--accent);">$39</div>
+      <div class="stat-lbl">每月<br>Shopify Basic 套餐</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-val">$0</div>
+      <div class="stat-lbl">Vercel 前端托管<br>免费层完全够用</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-val">2.9%</div>
+      <div class="stat-lbl">每笔交易手续费<br>+ $0.30（Shopify Payments）</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-val">$0</div>
+      <div class="stat-lbl">商品/订单/支付<br>日常运营无需开发</div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue" style="margin-top:32px;">
+    <strong>关于传统主题方案的对比：</strong>标准 Shopify 主题同样是 $29–$79/月，但视觉上受主题框架限制，想做定制改动还需要花时间在主题编辑器里反复调，效率反而更低。同等预算下，前后端分离设计更自由，调改更快。
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ════════════════════════════════════════════════════════
-     03 · 运维说明
-════════════════════════════════════════════════════════ -->
-<section id="maintenance">
-  <p class="sec-eyebrow">Maintenance · 运维说明</p>
-  <h2 class="sec-title">日常运营和维护代码，是两件完全不同的事</h2>
-  <p class="sec-sub">Shopify 后台负责一切电商运营，代码只负责网站视觉。这两个维度完全独立，互不干扰。</p>
+<!-- ════ 03 日常运营 ════ -->
+<section id="ops">
+  <p class="sec-eyebrow">Operations · 日常运营</p>
+  <h2 class="sec-title">商业运营这块，和普通 Shopify 店没区别</h2>
+  <p class="sec-sub">前后端分离只影响"网站视觉怎么做"，不影响任何电商运营动作。</p>
 
   <table class="tbl">
     <thead>
-      <tr><th>运营任务</th><th>谁来负责</th><th style="width:100px">需要改代码</th><th>说明</th></tr>
+      <tr><th>运营任务</th><th>操作方式</th><th style="width:110px">需要开发介入</th></tr>
     </thead>
     <tbody>
       <tr>
-        <td>上架新商品、修改价格</td>
-        <td>Shopify Admin 后台</td>
+        <td>上架商品、改价格</td>
+        <td style="color:var(--text-3)">Shopify 后台 → 商品管理</td>
         <td><span class="pill pill-green">不需要</span></td>
-        <td style="color:var(--text-3)">Shopify 商品管理 UI 完全独立于前端代码</td>
       </tr>
       <tr>
-        <td>处理订单、安排发货</td>
-        <td>Shopify Admin 后台</td>
+        <td>查看/处理订单</td>
+        <td style="color:var(--text-3)">Shopify 后台 → 订单</td>
         <td><span class="pill pill-green">不需要</span></td>
-        <td style="color:var(--text-3)">订单、发货、退款全在 Shopify 后台操作</td>
       </tr>
       <tr>
-        <td>收款、支付管理</td>
-        <td>Shopify Payments / PayPal</td>
+        <td>支付收款、退款</td>
+        <td style="color:var(--text-3)">Shopify Payments 自动处理</td>
         <td><span class="pill pill-green">不需要</span></td>
-        <td style="color:var(--text-3)">Shopify 全权处理，PCI 合规，资金直接到账</td>
       </tr>
       <tr>
-        <td>运费规则、物流设置</td>
-        <td>Shopify Shipping 配置</td>
+        <td>运费规则设置</td>
+        <td style="color:var(--text-3)">Shopify 后台 → 运输</td>
         <td><span class="pill pill-green">不需要</span></td>
-        <td style="color:var(--text-3)">在 Shopify 后台设置运费规则即可</td>
       </tr>
       <tr>
-        <td>用户评价</td>
-        <td>Judge.me Headless API</td>
-        <td><span class="pill pill-orange">一次性接入</span></td>
-        <td style="color:var(--text-3)">Judge.me 提供 REST API，调接口取数据，样式完全自定义，一次接入永久使用</td>
-      </tr>
-      <tr>
-        <td>邮件营销、弹窗</td>
-        <td>Klaviyo JS 脚本</td>
-        <td><span class="pill pill-green">不需要</span></td>
-        <td style="color:var(--text-3)">一行脚本嵌入，与技术架构无关</td>
+        <td>邮件营销 / 客服弹窗</td>
+        <td style="color:var(--text-3)">Klaviyo / Tidio 一行脚本接入</td>
+        <td><span class="pill pill-green">一次性，极简</span></td>
       </tr>
       <tr>
         <td>网站视觉调整</td>
-        <td>Next.js 前端 + AI</td>
+        <td style="color:var(--text-3)">前端代码 + AI 辅助修改</td>
         <td><span class="pill pill-orange">需要，但极快</span></td>
-        <td style="color:var(--text-3)">有 AI 辅助，改一个模块以分钟计，远快于在 Shopify 主题编辑器里手动操作</td>
       </tr>
     </tbody>
   </table>
-
-  <div class="highlight" style="margin-top:40px;">
-    <h3>AI 开发效率 vs. 无代码平台</h3>
-    <p>无代码（Shopify 主题编辑器）的本质是：有限的选项 → 点来点去 → 效果受限。做设计调整反而更费时间。</p>
-    <p>用代码 + AI 的路线，对一个懂设计审美的运营者来说，只需要自然语言描述需求，几分钟内生成、验证、落地。实际操作效率高于无代码方案，不是低于。</p>
-  </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ════════════════════════════════════════════════════════
-     04 · 结算页方案
-════════════════════════════════════════════════════════ -->
+<!-- ════ 04 结算页 ════ -->
 <section id="checkout">
-  <p class="sec-eyebrow">Checkout · 结算页方案</p>
-  <h2 class="sec-title">结算页跳转问题——三种解法</h2>
-  <p class="sec-sub">点击购买跳转到 Shopify 白色默认结算页，视觉断层大。这个问题是有解的。</p>
-
-  <!-- Stripe 科普 -->
-  <div class="callout callout-blue" style="margin-bottom:40px;">
-    <strong>关于 Stripe：它不是 Shopify 的功能，是一家独立的支付基础设施公司。</strong><br><br>
-    Stripe 是美国最大的支付处理公司，Amazon、Google、Spotify 都用它。有意思的是：<strong>Shopify Payments 本身就是架在 Stripe 上面的</strong>。Stripe 完全独立于 Shopify，可以在任何网页里直接嵌入使用。<br><br>
-    <strong>费用：</strong>2.9% + $0.30 /笔，和 Shopify Payments 完全一样。没有月费，按实际成交计费。<br>
-    <strong>核心价值：</strong>提供 React 组件库（Stripe Elements），可以把支付表单直接嵌入我们自己的页面，用户全程不跳转，结算页 100% 自主设计。
-  </div>
+  <p class="sec-eyebrow">Checkout · 结算方案</p>
+  <h2 class="sec-title">结算页三套方案</h2>
+  <p class="sec-sub">前后端分离在结算页有一个特殊问题：默认点击购买会跳转到 Shopify 原生 Checkout 页面，与我们的界面有视觉断层。以下是三个解决路径，由易到深。</p>
 
   <div class="cards3">
     <div class="card">
-      <p class="card-eyebrow" style="color:var(--text-3);">方案 1 · 最快</p>
-      <p class="card-title">Shopify Checkout CSS 品牌化</p>
-      <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-top:10px;">所有 Shopify 套餐（含 Basic $39）均支持对 Checkout 页面做 CSS 覆盖：改黑色背景、替换 Logo、调整字体颜色。不改结构，但视觉断层可以大幅降低。</p>
-      <p style="font-size:12px;color:var(--text-3);margin-top:16px;padding-top:12px;border-top:1px solid var(--border-l);">成本：$0 · 工时：1–2 小时</p>
+      <p class="card-label">方案 A · 短期</p>
+      <p class="card-title">Shopify Checkout 品牌化</p>
+      <p class="card-price" style="font-size:18px;">CSS 覆盖样式</p>
+      <p class="card-sub">所有套餐均支持，1–2 小时完成</p>
+      <p class="card-body">为跳转后的 Checkout 页替换品牌配色、Logo、字体，跳转感大幅降低。不改结构，改的是外观。</p>
     </div>
     <div class="card featured">
-      <p class="card-eyebrow" style="color:var(--accent);">方案 2 · 推荐</p>
-      <p class="card-title">Stripe Elements 嵌入式结算</p>
-      <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-top:10px;">将 Stripe 支付组件直接嵌入我们自己的 Next.js 页面内，完全无跳转。用户在我们的界面内完成支付。Shopify 仍负责商品目录和订单记录，Stripe 负责支付收款。</p>
-      <p style="font-size:12px;color:var(--text-3);margin-top:16px;padding-top:12px;border-top:1px solid var(--border-l);">费率：2.9% + $0.30/笔（与 Shopify Payments 相同）· 工时：1–2 天（一次性开发）</p>
+      <p class="card-label">方案 B · 中期推荐</p>
+      <p class="card-title">Stripe 嵌入式支付</p>
+      <p class="card-price" style="font-size:18px;">完全无跳转</p>
+      <p class="card-sub">2.9% + $0.30 /笔，无月费，一次性开发</p>
+      <p class="card-body">将支付表单直接嵌入我们自己的页面，用户全程不离开。Shopify 继续管商品和订单，Stripe 管安全收款，前端样式 100% 由我们控制。</p>
+      <p style="margin-top:14px;font-size:12px;color:var(--text-3);padding-top:12px;border-top:1px solid var(--border-l);">注：Stripe 是独立支付公司，Shopify Payments 底层即是 Stripe，费率完全相同。</p>
     </div>
     <div class="card">
-      <p class="card-eyebrow" style="color:var(--text-3);">方案 3 · 远期</p>
-      <p class="card-title">Shopify Plus 完整定制</p>
-      <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-top:10px;">Shopify Plus（$2,000/月）开放 checkout.liquid，可完全重写结算页前端。适合年营业额达到一定规模后作为升级方案。</p>
-      <p style="font-size:12px;color:var(--text-3);margin-top:16px;padding-top:12px;border-top:1px solid var(--border-l);">月费：$2,000 · 当前阶段性价比差</p>
+      <p class="card-label">方案 C · 远期</p>
+      <p class="card-title">Shopify Plus</p>
+      <p class="card-price" style="font-size:18px;">$2,000 /月</p>
+      <p class="card-sub">适合规模化后的升级方向</p>
+      <p class="card-body">开放 Checkout 完整自定义权限，可彻底重写结算页前端。当前阶段性价比不足，作为远期方向保留。</p>
     </div>
   </div>
 
-  <div class="code">// Next.js 结算页 — Stripe Elements 嵌入（无跳转）
-import { Elements, PaymentElement, useStripe } from '@stripe/react-stripe-js';
-
-// 第 1 步：我们的后端 API 创建 PaymentIntent
-const { clientSecret } = await fetch('/api/checkout', {
-  method: 'POST',
-  body: JSON.stringify({ cartItems, shippingAddress })
-}).then(r => r.json());
-
-// 第 2 步：支付组件直接嵌在我们的页面里，完全无跳转
-return (
-  &lt;Elements stripe={stripePromise} options={{ clientSecret }}&gt;
-    &lt;PaymentElement /&gt;   {/* Stripe 的安全支付表单，外观由我们的 CSS 完全控制 */}
-    &lt;button onClick={handleSubmit}&gt;确认支付&lt;/button&gt;
-  &lt;/Elements&gt;
-);
-
-// 第 3 步：支付成功后，把订单同步到 Shopify 后台（一次性开发）
-await fetch('https://your-store.myshopify.com/admin/api/orders.json', {
-  method: 'POST', headers: { 'X-Shopify-Access-Token': TOKEN },
-  body: JSON.stringify({ order: { line_items, customer, shipping_address } })
-});</div>
-
-  <div class="callout callout-green" style="margin-top:24px;">
-    <strong>建议路径：</strong>短期先做 Shopify Checkout CSS 品牌化（1–2 小时即可改观），中期接入 Stripe Elements，彻底消灭跳转，前端完整闭环。
+  <div class="callout callout-orange" style="margin-top:24px;">
+    <strong>后续调研项：</strong>Stripe 嵌入方案（方案 B）是兼顾体验和成本的最优路径，需进一步调研 Stripe 在目标市场（北美、欧洲）的合规要求，以及与 Shopify 订单系统的对接流程，作为下阶段落地任务。
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ════════════════════════════════════════════════════════
-     05 · 后端方案对比
-════════════════════════════════════════════════════════ -->
-<section id="backends">
-  <p class="sec-eyebrow">Backend Alternatives · 后端方案</p>
-  <h2 class="sec-title">如果只需要后端能力——有哪些选择？</h2>
-  <p class="sec-sub">我们对 Shopify 的核心需求只有三样：商品目录管理、订单管理、支付接入。基于这三点，以下是市场上主要的替代方案。</p>
+<!-- ════ 05 后端管理 ════ -->
+<section id="backend">
+  <p class="sec-eyebrow">Backend · 后端管理</p>
+  <h2 class="sec-title">Shopify 是当前最合适的后端选择</h2>
+  <p class="sec-sub">我们对后端的核心需求：商品管理、订单管理、安全收款。Shopify 在这三点上提供了市场上最成熟、国际信任度最高的现成方案。</p>
 
-  <table class="tbl">
-    <thead>
-      <tr><th>平台</th><th>类型</th><th>月费</th><th>无头支持</th><th>支付集成</th><th>对我们的适合度</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Shopify Basic</td>
-        <td style="color:var(--text-3)">SaaS · 国际</td>
-        <td><span class="pill pill-orange">$39</span></td>
-        <td><span class="pill pill-green">完整 Storefront API</span></td>
-        <td><span class="pill pill-green">Shopify Payments</span></td>
-        <td style="color:var(--text-2)">当前方案，生态最成熟，国际信任度最高</td>
-      </tr>
-      <tr>
-        <td>Medusa.js</td>
-        <td style="color:var(--text-3)">开源 · 自托管</td>
-        <td><span class="pill pill-green">$0（自托管）</span></td>
-        <td><span class="pill pill-green">原生 API-first</span></td>
-        <td><span class="pill pill-green">Stripe / PayPal</span></td>
-        <td style="color:var(--text-2)"><strong style="color:var(--green);">★ 最强备选</strong>——完全开源，功能对标 Shopify，但需要自行部署维护服务器</td>
-      </tr>
-      <tr>
-        <td>Swell</td>
-        <td style="color:var(--text-3)">SaaS · API-first</td>
-        <td><span class="pill pill-green">前 10 万美元免费</span></td>
-        <td><span class="pill pill-green">专为无头设计</span></td>
-        <td><span class="pill pill-green">Stripe</span></td>
-        <td style="color:var(--text-2)"><strong style="color:var(--green);">★ 值得关注</strong>——专为独立品牌无头商店设计，早期完全免费</td>
-      </tr>
-      <tr>
-        <td>BigCommerce</td>
-        <td style="color:var(--text-3)">SaaS · 国际</td>
-        <td><span class="pill pill-orange">$39</span></td>
-        <td><span class="pill pill-green">官方支持，无额外 API 调用费</span></td>
-        <td><span class="pill pill-green">多方支付</span></td>
-        <td style="color:var(--text-2)">无头支持比 Shopify 更好，生态和知名度略低</td>
-      </tr>
-      <tr>
-        <td>店匠（Shoplazza）</td>
-        <td style="color:var(--text-3)">SaaS · 国内跨境</td>
-        <td><span class="pill pill-green">¥88–¥698/月</span></td>
-        <td><span class="pill pill-orange">部分支持</span></td>
-        <td><span class="pill pill-green">PayPal / 信用卡</span></td>
-        <td style="color:var(--text-2)"><strong style="color:var(--accent);">★ 国内首选</strong>——专服务中国出海卖家，中文客服，价格约为 Shopify 三分之一</td>
-      </tr>
-      <tr>
-        <td>SHOPLINE</td>
-        <td style="color:var(--text-3)">SaaS · 国内跨境</td>
-        <td><span class="pill pill-orange">¥199–¥999/月</span></td>
-        <td><span class="pill pill-orange">有限支持</span></td>
-        <td><span class="pill pill-green">多方支付</span></td>
-        <td style="color:var(--text-2)">面向中国跨境卖家，功能完整，中文支持好</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="two-col">
+    <div class="info-card">
+      <h4>Shopify 商品管理</h4>
+      <ul>
+        <li>多规格 SKU（车型 × 年份 × 颜色）</li>
+        <li>库存实时同步</li>
+        <li>批量上下架、定时发布</li>
+        <li>多图、视频、3D 模型支持</li>
+        <li>多币种、多语言商品信息</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Shopify 订单与物流</h4>
+      <ul>
+        <li>订单全生命周期管理</li>
+        <li>自动发送订单确认邮件</li>
+        <li>物流商接入（DHL、FedEx、EasyPost）</li>
+        <li>自动运费计算、退货流程</li>
+        <li>数据仪表盘（销售额、转化率、客单价）</li>
+      </ul>
+    </div>
+  </div>
 
   <div class="highlight">
-    <h3>综合建议</h3>
-    <p><strong>当前阶段继续用 Shopify。</strong>它的国际信任度、支付成功率、全球物流集成是其他平台短时间难以赶上的。对欧美买家来说，Shopify Checkout 有很高的品牌背书。</p>
-    <p><strong>如果希望降本或自主性更强，</strong>Medusa.js（完全开源）和 Swell（SaaS + 早期免费）是最值得认真评估的两个方向。</p>
-    <p><strong>如果团队主要在国内运营，</strong>店匠（Shoplazza）是最务实的选择：价格低、中文客服、专为出海卖家设计。</p>
+    <h3>后续落地任务</h3>
+    <p>当前原型网站已完成前端视觉，下一阶段的核心工作是将 Shopify 后端真正接入：连通商品数据、配置 Shopify Payments、设置运费规则，并完成结算方案的技术选型和实施（Stripe 嵌入方案为优先方向）。</p>
+    <p>这部分需要一定时间进行调研和开发落地，建议作为下阶段并行推进的重点。</p>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ════════════════════════════════════════════════════════
-     06 · 插件兼容
-════════════════════════════════════════════════════════ -->
-<section id="plugins">
-  <p class="sec-eyebrow">Plugins · 插件兼容性</p>
-  <h2 class="sec-title">哪些插件用不了？我们真的需要它们吗？</h2>
-  <p class="sec-sub">插件的本质是"数据 + 样式的打包方案"。无头架构中，我们只取数据（API），样式自己做，效果往往更好。</p>
-
-  <table class="tbl">
-    <thead>
-      <tr><th>插件类别</th><th>代表产品</th><th style="width:90px">无头兼容</th><th>对我们的实际影响</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>商品评价</td>
-        <td style="color:var(--text-3)">Judge.me、Yotpo</td>
-        <td><span class="pill pill-orange">API 可接</span></td>
-        <td style="color:var(--text-2)"><strong>影响高，但可解。</strong>Judge.me 提供 Headless REST API，只取评价数据，样式自己实现，效果更贴合品牌调性</td>
-      </tr>
-      <tr>
-        <td>在线客服</td>
-        <td style="color:var(--text-3)">Tidio、Gorgias</td>
-        <td><span class="pill pill-green">完全可用</span></td>
-        <td style="color:var(--text-2)">JS 脚本嵌入，无架构限制</td>
-      </tr>
-      <tr>
-        <td>邮件营销 / 弹窗</td>
-        <td style="color:var(--text-3)">Klaviyo、Mailchimp</td>
-        <td><span class="pill pill-green">完全可用</span></td>
-        <td style="color:var(--text-2)">JS 脚本嵌入，无架构限制</td>
-      </tr>
-      <tr>
-        <td>商品配置器</td>
-        <td style="color:var(--text-3)">Infinite Options</td>
-        <td><span class="pill pill-red">不可用</span></td>
-        <td style="color:var(--text-2)"><strong>影响高，但自建更好。</strong>车型年份选择器已在原型中自建，交互比任何插件更精准，视觉完全符合品牌</td>
-      </tr>
-      <tr>
-        <td>SEO 工具</td>
-        <td style="color:var(--text-3)">Smart SEO</td>
-        <td><span class="pill pill-green">原生优于插件</span></td>
-        <td style="color:var(--text-2)">Next.js 可直接控制所有 meta 标签和结构化数据，SEO 能力反而更强</td>
-      </tr>
-      <tr>
-        <td>数据分析 / 广告追踪</td>
-        <td style="color:var(--text-3)">GA4、Meta Pixel</td>
-        <td><span class="pill pill-green">完全可用</span></td>
-        <td style="color:var(--text-2)">通过 Google Tag Manager 注入，无任何限制</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="callout callout-blue" style="margin-top:24px;">
-    <strong>核心洞察：</strong>大多数插件提供的"样式"在我们的设计标准面前都是需要覆盖的累赘。我们真正需要的只是数据。用 API 取数据、用自己的代码渲染样式，既能完全控制视觉，又不依赖任何第三方插件的更新周期。
-  </div>
-</section>
-
-<!-- ── Footer ── -->
 <footer>
-  <p>英皓 3DThinkPro 独立站策划方案 · 技术架构页 · 2026</p>
+  <p>英皓 3DThinkPro 独立站策划方案 · 技术架构 · 2026</p>
   <p style="margin-top:8px;"><a href="index.html">← 返回主页</a> &nbsp;·&nbsp; <a href="https://prototype-sigma-inky-55.vercel.app" target="_blank">查看原型网站 →</a></p>
 </footer>
 
