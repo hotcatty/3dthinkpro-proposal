@@ -145,105 +145,95 @@
 <div class="page-hero">
   <p class="eyebrow">Technical Architecture · 技术决策</p>
   <h1>独立站技术架构方案</h1>
-  <p>前后端分离方案的核心逻辑、成本结构、后端管理与结算方案全览，供团队决策参考。</p>
+  <p>为什么选前后端分离，它怎么运作，成本如何，以及后端平台的选型调研计划。</p>
   <div class="hero-tags">
     <span class="hero-tag accent">方向确定：前后端分离</span>
-    <span class="hero-tag">商业后台：Shopify</span>
-    <span class="hero-tag">原型已上线</span>
-    <span class="hero-tag">后续：后端 + 支付落地</span>
+    <span class="hero-tag">前端原型已上线</span>
+    <span class="hero-tag">后端平台：待调研</span>
+    <span class="hero-tag">结算方案：待落地</span>
   </div>
 </div>
 
-<!-- ════ 01 核心决策 ════ -->
-<section id="decision">
-  <p class="sec-eyebrow">Core Decision · 核心决策</p>
-  <h2 class="sec-title">我们选了什么，为什么</h2>
-  <p class="sec-sub">前后端分离 = 前端（网站视觉）和后端（商品/订单/支付）各自独立，互不绑定。</p>
-
-  <div class="two-col">
-    <div class="info-card">
-      <h4>前端（网站界面）— 我们自己做</h4>
-      <p>用 Next.js + React 构建，部署在 Vercel。网站的每一处视觉细节完全自主，不受任何主题模板约束。目前原型已完成，还原度高，后续修改极快。</p>
-    </div>
-    <div class="info-card">
-      <h4>后端（商业系统）— Shopify 托管</h4>
-      <p>Shopify 负责商品上架、库存、订单处理、支付收款、物流对接。这部分全走 Shopify 管理后台，无需写任何代码，和传统开 Shopify 店没有区别。</p>
-    </div>
-  </div>
-
-  <div class="callout callout-green" style="margin-top:24px;">
-    <strong>与传统 Shopify 主题方案的关键区别：</strong>只有"网站长什么样"是我们自己控制的，其余的商业运营能力（商品管理、结账、物流、数据）全部还是 Shopify 在跑。两全其美——设计自由 + 成熟商业系统。
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ════ 02 成本 ════ -->
-<section id="cost">
-  <p class="sec-eyebrow">Cost · 费用</p>
-  <h2 class="sec-title">实际费用非常可控</h2>
-  <p class="sec-sub">前后端分离不会增加基础成本，反而在设计自由度上远超同价位的标准主题方案。</p>
-
-  <div class="stat-row">
-    <div class="stat-box">
-      <div class="stat-val" style="color:var(--accent);">$39</div>
-      <div class="stat-lbl">每月<br>Shopify Basic 套餐</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-val">$0</div>
-      <div class="stat-lbl">Vercel 前端托管<br>免费层完全够用</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-val">2.9%</div>
-      <div class="stat-lbl">每笔交易手续费<br>+ $0.30（Shopify Payments）</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-val">$0</div>
-      <div class="stat-lbl">商品/订单/支付<br>日常运营无需开发</div>
-    </div>
-  </div>
-
-  <div class="callout callout-blue" style="margin-top:32px;">
-    <strong>关于传统主题方案的对比：</strong>标准 Shopify 主题同样是 $29–$79/月，但视觉上受主题框架限制，想做定制改动还需要花时间在主题编辑器里反复调，效率反而更低。同等预算下，前后端分离设计更自由，调改更快。
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ════ 03 日常运营 ════ -->
-<section id="ops">
-  <p class="sec-eyebrow">Operations · 日常运营</p>
-  <h2 class="sec-title">商业运营这块，和普通 Shopify 店没区别</h2>
-  <p class="sec-sub">前后端分离只影响"网站视觉怎么做"，不影响任何电商运营动作。</p>
+<!-- ════ 01 为什么选前后端分离 ════ -->
+<section id="why">
+  <p class="sec-eyebrow">Why · 为什么选这条路</p>
+  <h2 class="sec-title">前后端分离，比无代码建站更适合我们</h2>
+  <p class="sec-sub">市面上主流的独立站建站方案有两种：无代码主题建站（Shopify 标准主题、SHOPLINE 等）和前后端分离。我们选择了后者。</p>
 
   <table class="tbl">
     <thead>
-      <tr><th>运营任务</th><th>操作方式</th><th style="width:110px">需要开发介入</th></tr>
+      <tr><th style="width:160px">对比维度</th><th>无代码主题建站</th><th>前后端分离（我们的方案）</th></tr>
     </thead>
     <tbody>
       <tr>
-        <td>上架商品、改价格</td>
-        <td style="color:var(--text-3)">Shopify 后台 → 商品管理</td>
+        <td>设计自由度</td>
+        <td style="color:var(--text-2)">受主题框架限制，改动靠拖拽选项，难以实现品牌级视觉</td>
+        <td style="color:var(--text-2)"><strong style="color:var(--green);">完全自由。</strong>每一处视觉细节由我们自己写，像 Motographe 那样的效果可以直接还原</td>
+      </tr>
+      <tr>
+        <td>修改效率</td>
+        <td style="color:var(--text-2)">在主题编辑器里手动操作，选项有限，改半天效果不理想</td>
+        <td style="color:var(--text-2)"><strong style="color:var(--green);">AI 辅助，改一个模块以分钟计。</strong>需求用自然语言描述，快速生成、验证、上线</td>
+      </tr>
+      <tr>
+        <td>商业运营（商品/订单/支付）</td>
+        <td style="color:var(--text-2)">平台后台操作，无代码</td>
+        <td style="color:var(--text-2)"><strong style="color:var(--green);">完全相同。</strong>商业后台仍由电商平台负责，日常运营无需写任何代码（详见下节）</td>
+      </tr>
+      <tr>
+        <td>月费成本</td>
+        <td style="color:var(--text-2)">$29–$79/月 + 付费主题一次性费用</td>
+        <td style="color:var(--text-2)">后端平台费用（待定）+ Vercel 免费托管，总体相当甚至更低</td>
+      </tr>
+      <tr>
+        <td>长期可维护性</td>
+        <td style="color:var(--text-2)">依赖平台更新节奏，重大改版需重新购买主题或大量手动操作</td>
+        <td style="color:var(--text-2)"><strong style="color:var(--green);">代码在自己手里，</strong>随时可调整，AI 加持下维护成本持续降低</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-green" style="margin-top:24px;">
+    <strong>核心逻辑：</strong>前后端分离的本质是把"网站长什么样"和"商业系统怎么跑"拆开。视觉层完全自主，商业系统继续由成熟平台托底。两件事各归其位，互不妥协。
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ════ 02 日常运营 ════ -->
+<section id="ops">
+  <p class="sec-eyebrow">Operations · 日常运营</p>
+  <h2 class="sec-title">商业运营这块，和普通独立站没有任何区别</h2>
+  <p class="sec-sub">前后端分离只影响"网站视觉怎么做"。商品上架、订单处理、收款、物流——这些全在电商平台的后台完成，不涉及任何代码。</p>
+
+  <table class="tbl">
+    <thead>
+      <tr><th>运营任务</th><th>操作方式</th><th style="width:110px">需要改代码</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>上架商品、调整价格</td>
+        <td style="color:var(--text-3)">电商平台后台 → 商品管理</td>
         <td><span class="pill pill-green">不需要</span></td>
       </tr>
       <tr>
         <td>查看/处理订单</td>
-        <td style="color:var(--text-3)">Shopify 后台 → 订单</td>
+        <td style="color:var(--text-3)">电商平台后台 → 订单</td>
         <td><span class="pill pill-green">不需要</span></td>
       </tr>
       <tr>
         <td>支付收款、退款</td>
-        <td style="color:var(--text-3)">Shopify Payments 自动处理</td>
+        <td style="color:var(--text-3)">支付平台自动处理</td>
         <td><span class="pill pill-green">不需要</span></td>
       </tr>
       <tr>
         <td>运费规则设置</td>
-        <td style="color:var(--text-3)">Shopify 后台 → 运输</td>
+        <td style="color:var(--text-3)">电商平台后台 → 运输配置</td>
         <td><span class="pill pill-green">不需要</span></td>
       </tr>
       <tr>
         <td>邮件营销 / 客服弹窗</td>
-        <td style="color:var(--text-3)">Klaviyo / Tidio 一行脚本接入</td>
+        <td style="color:var(--text-3)">Klaviyo / Tidio 脚本一次性接入</td>
         <td><span class="pill pill-green">一次性，极简</span></td>
       </tr>
       <tr>
@@ -253,6 +243,38 @@
       </tr>
     </tbody>
   </table>
+</section>
+
+<div class="divider"></div>
+
+<!-- ════ 03 成本 ════ -->
+<section id="cost">
+  <p class="sec-eyebrow">Cost · 成本</p>
+  <h2 class="sec-title">费用与无代码方案相当，设计自由度远超</h2>
+  <p class="sec-sub">前后端分离的基础成本不高于传统主题建站，后端平台月费 + Vercel 免费托管即为全部。</p>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-val" style="color:var(--accent);">待定</div>
+      <div class="stat-lbl">后端平台月费<br>（$0–$39，取决于平台选型）</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-val">$0</div>
+      <div class="stat-lbl">Vercel 前端托管<br>免费层完全够用</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-val">2.9%</div>
+      <div class="stat-lbl">每笔交易手续费<br>+ $0.30（Stripe 标准费率）</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-val">$0</div>
+      <div class="stat-lbl">商品/订单/支付<br>日常运营无需开发</div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue" style="margin-top:32px;">
+    <strong>参照系：</strong>Shopify 标准主题方案同样是 $29–$79/月，付费主题还有一次性费用 $200–$350。视觉上受限，做定制改动更费时间。我们的方案在相近或更低的月费下，获得了完全的设计自主权。
+  </div>
 </section>
 
 <div class="divider"></div>
@@ -299,21 +321,21 @@
 <section id="backend">
   <p class="sec-eyebrow">Backend · 后端选型</p>
   <h2 class="sec-title">后端平台待调研，尚未定论</h2>
-  <p class="sec-sub">我们对后端的核心需求只有三项：商品目录管理、订单管理、安全收款。基于这三点，以下平台值得进入下一步"实测调研"，再做最终决策。</p>
+  <p class="sec-sub">我们对后端的核心需求只有三项：商品管理、订单管理、安全收款。以下平台值得进入下一步实测调研，再做最终决策。</p>
 
   <div class="callout callout-orange">
-    <strong>决策前提：</strong>后端平台的选择，与支付方案强绑定。若最终采用 Stripe 嵌入式支付（结算方案 B），则平台自带的"支付能力"优势大幅削弱，选型重心转移到 API 质量和月费成本上。建议支付方案确认后，再对后端平台做最终决策。
+    <strong>重要：Shopify 的隐藏费用陷阱。</strong>如果我们用 Stripe 嵌入式支付（不走 Shopify Payments），Shopify 会在 Stripe 的 2.9%+$0.30 之外，<strong>额外再收 0.5%–2% 的交易手续费</strong>。也就是说，越想要设计自由，Shopify 就越贵。BigCommerce、Swell、Medusa.js 均无此问题。
   </div>
 
-  <table class="tbl" style="margin-top:40px;">
+  <!-- 费用对比 -->
+  <h3 style="font-size:18px;font-weight:700;margin:44px 0 16px;letter-spacing:-0.01em;">费用与 API 对比</h3>
+  <table class="tbl">
     <thead>
       <tr>
         <th>平台</th>
         <th>月费</th>
-        <th>交易手续费</th>
-        <th>无头 API 质量</th>
-        <th>主要优势</th>
-        <th>主要劣势</th>
+        <th>用 Stripe 嵌入时的实际交易费</th>
+        <th>无头 API</th>
         <th style="width:90px">调研优先级</th>
       </tr>
     </thead>
@@ -321,56 +343,127 @@
       <tr>
         <td>Shopify Basic</td>
         <td>$39</td>
-        <td style="color:var(--text-3)">2.9% + $0.30<br><small>用自带支付无额外费</small></td>
+        <td><span class="pill pill-red">2.9%+$0.30 + 额外 2%</span><br><small style="color:var(--text-3)">用第三方支付需额外缴费</small></td>
         <td><span class="pill pill-orange">良好</span></td>
-        <td style="color:var(--text-2)">最成熟生态；国际买家信任度最高；团队最熟悉；上手最快</td>
-        <td style="color:var(--text-2)">我们用不到大多数功能，存在功能溢价；若用 Stripe 则优势进一步缩小</td>
         <td><span class="pill pill-blue">高</span></td>
       </tr>
       <tr>
         <td>BigCommerce</td>
         <td>$39</td>
-        <td style="color:var(--text-3)"><strong style="color:var(--green);">$0</strong><br><small>无额外交易费</small></td>
+        <td><span class="pill pill-green">2.9%+$0.30（仅 Stripe）</span><br><small style="color:var(--text-3)">无任何额外交易费</small></td>
         <td><span class="pill pill-green">优秀</span></td>
-        <td style="color:var(--text-2)">无额外交易手续费；官方 Headless API 文档更完整；同价位竞争力强</td>
-        <td style="color:var(--text-2)">国际知名度略低于 Shopify；插件生态较小；团队不熟悉</td>
         <td><span class="pill pill-blue">高</span></td>
       </tr>
       <tr>
         <td>Swell</td>
-        <td style="color:var(--green);font-weight:600;">$0<br><small style="color:var(--text-3);font-weight:400;">10 万美元 GMV 内免费</small></td>
-        <td style="color:var(--text-3)">按 GMV 阶梯收费<br><small>早期 $0</small></td>
+        <td style="color:var(--green);font-weight:600;">$0 <small style="color:var(--text-3);font-weight:400;">（10万 GMV 内）</small></td>
+        <td><span class="pill pill-green">2.9%+$0.30（仅 Stripe）</span></td>
         <td><span class="pill pill-green">优秀</span></td>
-        <td style="color:var(--text-2)">专为无头独立品牌设计；早期完全免费；API 设计最干净</td>
-        <td style="color:var(--text-2)">知名度低；生态小；国际买家对其 Checkout 信任度未知</td>
         <td><span class="pill pill-orange">中</span></td>
       </tr>
       <tr>
         <td>Medusa.js</td>
-        <td style="color:var(--green);font-weight:600;">$0<br><small style="color:var(--text-3);font-weight:400;">自托管，只需服务器费</small></td>
-        <td style="color:var(--text-3)">$0<br><small>支付费用直接给 Stripe</small></td>
+        <td style="color:var(--green);font-weight:600;">$0 <small style="color:var(--text-3);font-weight:400;">（自托管）</small></td>
+        <td><span class="pill pill-green">2.9%+$0.30（仅 Stripe）</span></td>
         <td><span class="pill pill-green">优秀</span></td>
-        <td style="color:var(--text-2)">完全开源；功能对标 Shopify；月费最低；最大自主性</td>
-        <td style="color:var(--text-2)">需自行部署和维护服务器；无官方托管；技术门槛最高</td>
         <td><span class="pill pill-orange">中</span></td>
       </tr>
       <tr>
         <td>店匠 Shoplazza</td>
-        <td>¥88–698</td>
-        <td style="color:var(--text-3)">视套餐而定</td>
+        <td>¥88–698 <small style="color:var(--text-3)">（约 $12–$96）</small></td>
+        <td><span class="pill pill-gray">视套餐，待核实</span></td>
         <td><span class="pill pill-gray">有限</span></td>
-        <td style="color:var(--text-2)">中国出海专属；中文客服；费用约为 Shopify 三分之一；国内物流对接顺畅</td>
-        <td style="color:var(--text-2)">无头支持弱；国际买家对 Checkout 信任度不明；生态小</td>
+        <td><span class="pill pill-gray">低</span></td>
+      </tr>
+      <tr>
+        <td>SHOPLINE</td>
+        <td>与 Shopify 相近</td>
+        <td><span class="pill pill-gray">待核实</span></td>
+        <td><span class="pill pill-gray">有限</span></td>
         <td><span class="pill pill-gray">低</span></td>
       </tr>
     </tbody>
   </table>
 
+  <!-- 后台功能对比 -->
+  <h3 style="font-size:18px;font-weight:700;margin:44px 0 16px;letter-spacing:-0.01em;">后台管理功能对比</h3>
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th>功能</th>
+        <th>Shopify</th>
+        <th>BigCommerce</th>
+        <th>Swell</th>
+        <th>Medusa.js</th>
+        <th>国内平台（店匠/SHOPLINE）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>商品 / 多规格 SKU</td>
+        <td style="color:var(--text-2)">最多 3 属性 × 100 变体</td>
+        <td style="color:var(--text-2)"><strong style="color:var(--green);">无限变体</strong></td>
+        <td style="color:var(--text-2)">灵活，无硬限制</td>
+        <td style="color:var(--text-2)">完全自定义</td>
+        <td style="color:var(--text-2)">完整，功能对标 Shopify</td>
+      </tr>
+      <tr>
+        <td>订单管理</td>
+        <td style="color:var(--text-2)">完整</td>
+        <td style="color:var(--text-2)">完整</td>
+        <td style="color:var(--text-2)">良好</td>
+        <td style="color:var(--text-2)">完整，但需自建后台 UI</td>
+        <td style="color:var(--text-2)">完整</td>
+      </tr>
+      <tr>
+        <td>物流 / 运费集成</td>
+        <td style="color:var(--text-2)">DHL、FedEx、UPS 原生</td>
+        <td style="color:var(--text-2)">同等，含实时运费计算</td>
+        <td style="color:var(--text-2)">有限，需第三方</td>
+        <td style="color:var(--text-2)">需自行接入</td>
+        <td style="color:var(--text-2)"><strong style="color:var(--green);">国内仓/海外仓对接更顺畅</strong></td>
+      </tr>
+      <tr>
+        <td>折扣 / 促销码</td>
+        <td style="color:var(--text-2)">完整</td>
+        <td style="color:var(--text-2)"><strong style="color:var(--green);">更强（复杂促销规则）</strong></td>
+        <td style="color:var(--text-2)">基础</td>
+        <td style="color:var(--text-2)">完整</td>
+        <td style="color:var(--text-2)">完整</td>
+      </tr>
+      <tr>
+        <td>数据分析</td>
+        <td style="color:var(--text-2)">良好</td>
+        <td style="color:var(--text-2)">良好</td>
+        <td style="color:var(--text-2)">较弱</td>
+        <td style="color:var(--text-2)">无，需外接（GA4 等）</td>
+        <td style="color:var(--text-2)">有，含汇率/跨境报表</td>
+      </tr>
+      <tr>
+        <td>后台 UI 易用性</td>
+        <td style="color:var(--text-2)"><strong style="color:var(--green);">最佳</strong></td>
+        <td style="color:var(--text-2)">很好</td>
+        <td style="color:var(--text-2)">一般</td>
+        <td style="color:var(--text-2)">无官方 UI（开源自建）</td>
+        <td style="color:var(--text-2)">好，<strong style="color:var(--green);">中文界面</strong></td>
+      </tr>
+      <tr>
+        <td>欧美买家对 Checkout 的信任度</td>
+        <td style="color:var(--text-2)"><strong style="color:var(--green);">最高</strong></td>
+        <td style="color:var(--text-2)">高</td>
+        <td style="color:var(--text-2)">低（知名度小）</td>
+        <td style="color:var(--text-2)">无原生 Checkout</td>
+        <td style="color:var(--text-2)"><span class="pill pill-orange">低（中国平台）</span><br><small style="color:var(--text-3)">若用 Stripe 嵌入则无影响</small></td>
+      </tr>
+    </tbody>
+  </table>
+
   <div class="highlight" style="margin-top:40px;">
-    <h3>下一步：肉身调研计划</h3>
-    <p><strong>Shopify vs. BigCommerce</strong> 是优先级最高的对比。两者月费相同，但 BigCommerce 没有额外交易手续费，且 Headless API 质量更好。重点核实：后台管理体验是否足够顺手、多规格 SKU 支持是否完整。</p>
-    <p><strong>Swell</strong> 值得注册免费账号快速试用一遍，重点看后台 UI 和 API 文档质量，成本风险为零。</p>
-    <p><strong>结论原则：</strong>如果 Shopify 在价格上没有明显溢价、后台操作最顺手，选它是完全合理的。如果 BigCommerce 或 Swell 能在相近成本下提供更好的 API 体验和更低的交易成本，则值得切换。</p>
+    <h3>调研计划 · 下一步行动</h3>
+    <p><strong>优先级 1：Shopify vs. BigCommerce。</strong>月费相同，但 BigCommerce 无额外交易手续费，无头 API 更好，SKU 上限更高。重点核实后台操作体验是否够顺手。</p>
+    <p><strong>优先级 2：Swell 免费试用。</strong>注册账号试用后台，看 API 文档质量和 UI 流畅度，成本为零，值得快速验证。</p>
+    <p><strong>国内平台的定位：</strong>若最终采用 Stripe 嵌入（用户完全看不到后端是什么平台），国内平台的信任度劣势消失，届时店匠的低月费优势更值得认真评估。</p>
+    <p><strong>决策原则：</strong>价格差距不大时选最顺手的；若 BigCommerce 或 Swell 在 API 体验和综合费率上有明显优势，则切换是合理的。</p>
   </div>
 </section>
 
