@@ -890,7 +890,7 @@
   </div>
 
   <!-- 延伸参考（9个站点简表） -->
-  <p style="font-size:14px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--text-3); margin-top:80px; margin-bottom:20px;">延伸参考（速查表）</p>
+  <p style="font-size:14px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--text-3); margin-top:80px; margin-bottom:20px;">延伸参考</p>
   <table class="ref-table">
     <thead>
       <tr>
@@ -996,121 +996,82 @@
     </tbody>
   </table>
 
-  <!-- ── 参考延伸：三栏 ── -->
+
+  <!-- ── 延伸参考 Tab（A竞品 / B电商品牌 / C Shopify结算） ── -->
   <div style="margin-top:56px;">
-    <p style="font-size:14px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:28px;">参考延伸 · 三类分类</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+    <div style="display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:32px;" id="ext-tabs">
+      <button onclick="switchExtTab(0)" class="ext-tab-btn active" style="padding:10px 20px;font-size:13px;font-weight:600;background:none;border:none;border-bottom:2px solid var(--accent);color:var(--accent);cursor:pointer;">A · 摩托配件竞品</button>
+      <button onclick="switchExtTab(1)" class="ext-tab-btn" style="padding:10px 20px;font-size:13px;font-weight:600;background:none;border:none;border-bottom:2px solid transparent;color:var(--text-3);cursor:pointer;">B · 其他电商参考</button>
+      <button onclick="switchExtTab(2)" class="ext-tab-btn" style="padding:10px 20px;font-size:13px;font-weight:600;background:none;border:none;border-bottom:2px solid transparent;color:var(--text-3);cursor:pointer;">C · Shopify 结算参考</button>
+    </div>
 
-      <!-- A 摩托车配件直接竞品 -->
-      <div style="background:var(--bg-2);border-radius:12px;padding:28px 24px;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#c0392b;margin-bottom:8px;">A · 摩托车配件竞品</p>
-        <p style="font-size:13px;color:var(--text-3);margin-bottom:20px;line-height:1.5;">与 3DThinkPro 同赛道，面向相同用户群的直接竞争品牌。</p>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <a href="https://saddlemen.com" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Saddlemen</div><div style="font-size:12px;color:var(--text-3);">北美 · 仿赛/ADV整座 · $175–826</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://touratech-usa.com" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Touratech</div><div style="font-size:12px;color:var(--text-3);">全球 · ADV长途 · $649–730</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://wunderlichamerica.com" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Wunderlich</div><div style="font-size:12px;color:var(--text-3);">德系 · BMW专属 · $600–923</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://corbin.com" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Corbin</div><div style="font-size:12px;color:var(--text-3);">北美 · 手工真皮/巡航 · $356–897</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://luimoto.com" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Luimoto</div><div style="font-size:12px;color:var(--text-3);">北美/欧洲 · 设计型座套 · $200–500</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://tpzitalia.com" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Tappezzeria Italia</div><div style="font-size:12px;color:var(--text-3);">意大利 · 赛道座套 · €99–290</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://seatconcepts.com" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Seat Concepts</div><div style="font-size:12px;color:var(--text-3);">北美 · ADV实用型 · $230–400</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://sargentcycle.com" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Sargent</div><div style="font-size:12px;color:var(--text-3);">北美 · 长途人体工学 · $300–650</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://mustangseats.com" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Mustang Seats</div><div style="font-size:12px;color:var(--text-3);">北美 · 美式巡航 · $289–769</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://sw-motech.us" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">SW-MOTECH</div><div style="font-size:12px;color:var(--text-3);">德系 · ADV全品类 · €110–570</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://raceseats.it" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Race Seats</div><div style="font-size:12px;color:var(--text-3);">意大利 · 赛道/MotoGP · $110–520</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-        </div>
+    <!-- Tab A -->
+    <div class="ext-tab-panel" id="ext-panel-0">
+      <p style="font-size:14px;color:var(--text-3);margin-bottom:24px;line-height:1.6;">与 3DThinkPro 同赛道，面向相同用户群的直接竞争品牌。</p>
+      <table class="ref-table">
+        <thead><tr><th>品牌</th><th>市场 · 定位</th><th>价格带</th><th>链接</th></tr></thead>
+        <tbody>
+          <tr><td>Saddlemen</td><td>北美 · 仿赛/ADV 整座</td><td>$175–826</td><td><a href="https://saddlemen.com" target="_blank">访问</a></td></tr>
+          <tr><td>Touratech</td><td>全球 · ADV 长途</td><td>$649–730</td><td><a href="https://touratech-usa.com" target="_blank">访问</a></td></tr>
+          <tr><td>Wunderlich</td><td>德系 · BMW 专属</td><td>$600–923</td><td><a href="https://wunderlichamerica.com" target="_blank">访问</a></td></tr>
+          <tr><td>Corbin</td><td>北美 · 手工真皮/巡航</td><td>$356–897</td><td><a href="https://corbin.com" target="_blank">访问</a></td></tr>
+          <tr><td>Luimoto</td><td>北美/欧洲 · 设计型座套</td><td>$200–500</td><td><a href="https://luimoto.com" target="_blank">访问</a></td></tr>
+          <tr><td>Tappezzeria Italia</td><td>意大利 · 赛道座套</td><td>€99–290</td><td><a href="https://tpzitalia.com" target="_blank">访问</a></td></tr>
+          <tr><td>Seat Concepts</td><td>北美 · ADV 实用型</td><td>$230–400</td><td><a href="https://seatconcepts.com" target="_blank">访问</a></td></tr>
+          <tr><td>Sargent</td><td>北美 · 长途人体工学</td><td>$300–650</td><td><a href="https://sargentcycle.com" target="_blank">访问</a></td></tr>
+          <tr><td>Mustang Seats</td><td>北美 · 美式巡航</td><td>$289–769</td><td><a href="https://mustangseats.com" target="_blank">访问</a></td></tr>
+          <tr><td>SW-MOTECH</td><td>德系 · ADV 全品类</td><td>€110–570</td><td><a href="https://sw-motech.us" target="_blank">访问</a></td></tr>
+          <tr><td>Race Seats</td><td>意大利 · 赛道/MotoGP</td><td>$110–520</td><td><a href="https://raceseats.it" target="_blank">访问</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tab B -->
+    <div class="ext-tab-panel" id="ext-panel-1" style="display:none;">
+      <p style="font-size:14px;color:var(--text-3);margin-bottom:24px;line-height:1.6;">在品牌调性、视觉设计或购买转化上有值得借鉴之处的跨品类电商。</p>
+      <table class="ref-table">
+        <thead><tr><th>品牌</th><th>品类</th><th>核心参考价值</th><th>链接</th></tr></thead>
+        <tbody>
+          <tr><td>Motographe</td><td>法国 · 摩托配件</td><td>极简工业美学标杆，黑白排版参考</td><td><a href="https://motographe.com/en-wld" target="_blank">访问</a></td></tr>
+          <tr><td>Dyson</td><td>英国 · 科技消费品</td><td>产品驱动电商，技术展示范本</td><td><a href="https://www.dyson.com" target="_blank">访问</a></td></tr>
+          <tr><td>Benchmade</td><td>美国 · 高端刀具</td><td>Stories from the Field 用户故事结构</td><td><a href="https://www.benchmade.com" target="_blank">访问</a></td></tr>
+          <tr><td>Öhlins</td><td>瑞典 · 高端悬挂</td><td>同赛道品牌调性，品质感建立方式</td><td><a href="https://www.ohlins.com" target="_blank">访问</a></td></tr>
+          <tr><td>Alpinestars</td><td>意大利 · 摩托装备</td><td>成熟品牌运营，多品类导航结构</td><td><a href="https://www.alpinestars.com" target="_blank">访问</a></td></tr>
+          <tr><td>Ridge Wallet</td><td>美国 · 极简配件</td><td>高转化购买流程，小品类产品摄影</td><td><a href="https://www.ridge.com" target="_blank">访问</a></td></tr>
+          <tr><td>AGV Helmets</td><td>意大利 · 摩托头盔</td><td>摩托品类产品展示与品牌叙事</td><td><a href="https://www.agv.com/en/" target="_blank">访问</a></td></tr>
+          <tr><td>Akrapovic</td><td>摩托排气</td><td>黑白极简，产品摄影质感参考</td><td><a href="https://www.akrapovic.com" target="_blank">访问</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tab C -->
+    <div class="ext-tab-panel" id="ext-panel-2" style="display:none;">
+      <p style="font-size:14px;color:var(--text-3);margin-bottom:24px;line-height:1.6;">使用 Shopify 作为结账后台，可直接观察完整购买流程的参考网站。</p>
+      <table class="ref-table">
+        <thead><tr><th>网站</th><th>类型</th><th>参考点</th><th>链接</th></tr></thead>
+        <tbody>
+          <tr><td>Ridge Wallet 购物车</td><td>钱包配件 · Shopify</td><td>标准结账页完整流程，用自己域名（ridge.com/checkouts/...）</td><td><a href="https://www.ridge.com/cart" target="_blank">访问</a></td></tr>
+          <tr><td>Quad Lock</td><td>摩托/自行车配件 · Shopify</td><td>选车型逻辑与 3DThinkPro 最接近，变体选择交互</td><td><a href="https://www.quadlockcase.asia" target="_blank">访问</a></td></tr>
+          <tr><td>Luimoto 购物车</td><td>摩托座垫竞品 · Shopify</td><td>同品类竞品结账流程验证</td><td><a href="https://luimoto.com/cart" target="_blank">访问</a></td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:20px;padding:14px 18px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--accent);">
+        <p style="font-size:13px;color:var(--text-2);line-height:1.6;margin:0;"><b>验证结论：</b>Shopify 结账页托管在商家自己域名下（/checkouts/...），用户全程不离开品牌域名。商家只需配置 logo 和配色，其余由 Shopify 托管。访客购买无需注册账号，物流信息全程靠邮件通知。</p>
       </div>
-
-      <!-- B 其他电商品牌参考 -->
-      <div style="background:var(--bg-2);border-radius:12px;padding:28px 24px;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0071e3;margin-bottom:8px;">B · 其他电商品牌参考</p>
-        <p style="font-size:13px;color:var(--text-3);margin-bottom:20px;line-height:1.5;">在品牌调性、视觉设计或购买转化上有值得借鉴之处的跨品类电商。</p>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <a href="https://motographe.com/en-wld" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Motographe</div><div style="font-size:12px;color:var(--text-3);">法国 · 极简工业美学标杆</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://www.dyson.com" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Dyson</div><div style="font-size:12px;color:var(--text-3);">英国 · 产品驱动电商 · 技术展示范本</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://www.benchmade.com" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Benchmade</div><div style="font-size:12px;color:var(--text-3);">美国 · 高端刀具 · Stories from the Field</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://www.ohlins.com" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Öhlins</div><div style="font-size:12px;color:var(--text-3);">瑞典 · 高端悬挂 · 品牌调性参考</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://www.alpinestars.com" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Alpinestars</div><div style="font-size:12px;color:var(--text-3);">意大利 · 摩托装备 · 成熟品牌运营</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://www.ridge.com" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Ridge Wallet</div><div style="font-size:12px;color:var(--text-3);">美国 · 极简配件 · 高转化购买流程</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- C Shopify 结算流程参考 -->
-      <div style="background:var(--bg-2);border-radius:12px;padding:28px 24px;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5ac8fa;margin-bottom:8px;">C · Shopify 结算流程参考</p>
-        <p style="font-size:13px;color:var(--text-3);margin-bottom:20px;line-height:1.5;">使用 Shopify 作为结账后台，可直接观察完整购买流程的参考网站。</p>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <a href="https://www.ridge.com/cart" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Ridge Wallet 购物车</div><div style="font-size:12px;color:var(--text-3);">标准 Shopify 购物车 → 结账页完整流程</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://www.quadlockcase.asia" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Quad Lock</div><div style="font-size:12px;color:var(--text-3);">摩托车/自行车配件 · 选车型逻辑与你最接近</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-          <a href="https://luimoto.com/cart" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:10px 14px;background:var(--bg-1);border-radius:8px;border:1px solid var(--border);">
-            <div><div style="font-size:14px;font-weight:600;color:var(--text-1);">Luimoto 购物车</div><div style="font-size:12px;color:var(--text-3);">摩托座垫竞品 · Shopify 结账验证</div></div>
-            <span style="color:var(--text-3);">→</span>
-          </a>
-        </div>
-        <div style="margin-top:20px;padding:14px;background:rgba(90,200,250,.08);border-radius:8px;border-left:3px solid #5ac8fa;">
-          <p style="font-size:12px;color:var(--text-2);line-height:1.6;margin:0;"><b>验证结论：</b>Shopify 结账页托管在商家自己域名下（<code>/checkouts/...</code>），用户全程不离开品牌域名。商家只需上传 logo、配色，其余由 Shopify 托管。访客购买无需注册，物流信息全程靠邮件通知。</p>
-        </div>
-      </div>
-
     </div>
   </div>
 
+  <script>
+  function switchExtTab(idx) {
+    document.querySelectorAll('.ext-tab-btn').forEach((b, i) => {
+      b.style.borderBottomColor = i === idx ? 'var(--accent)' : 'transparent';
+      b.style.color = i === idx ? 'var(--accent)' : 'var(--text-3)';
+    });
+    document.querySelectorAll('.ext-tab-panel').forEach((p, i) => {
+      p.style.display = i === idx ? '' : 'none';
+    });
+  }
+  </script>
 </section>
 
 <!-- ───────────────────── -->
@@ -1166,13 +1127,13 @@
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
 
     <!-- 画像 1：高端仿赛 -->
-    <div style="background:var(--bg-2);border-radius:12px;padding:28px 24px;border-top:3px solid #c0392b;">
+    <div style="background:var(--bg-2);border-radius:12px;padding:28px 24px;border-top:3px solid var(--accent);">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
         <div>
-          <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#c0392b;margin-bottom:4px;">画像一 · 首发利润担当</p>
+          <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">画像一 · 首发利润担当</p>
           <h3 style="font-size:20px;font-weight:700;color:var(--text-1);margin:0;">高端仿赛性能改装玩家</h3>
         </div>
-        <span style="font-size:28px;">🏍</span>
+        
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
         <div style="background:var(--bg-1);border-radius:8px;padding:12px;"><p style="font-size:11px;color:var(--text-3);margin-bottom:4px;">年龄 · 车型</p><p style="font-size:13px;color:var(--text-1);font-weight:600;">30–45岁 · BMW S1000RR / Ducati Panigale</p></div>
@@ -1182,17 +1143,17 @@
       </div>
       <div style="margin-bottom:16px;"><p style="font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:8px;">最强痛点</p><p style="font-size:13px;color:var(--text-3);line-height:1.6;">刹车前滑、坐骨压痛、赛后疲劳、原厂座垫外观普通。希望座垫配得上高端车的颜值并在赛道日更稳。</p></div>
       <div style="margin-bottom:16px;"><p style="font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:8px;">触达渠道</p><p style="font-size:13px;color:var(--text-3);line-height:1.6;">Instagram/Reels · TikTok · YouTube赛道测试 · r/Trackdays · S1000RR Forum · Ducati.ms</p></div>
-      <div style="padding:12px 14px;background:rgba(192,57,43,.08);border-radius:8px;border-left:3px solid #c0392b;"><p style="font-size:12px;color:var(--text-2);line-height:1.5;margin:0;"><b>独立站卖法：</b>用真实高端车型做首图；展示压力/前滑数据、材质近景、安装视频和车型专属评测；少用大额折扣。"像塑料件"会直接打掉溢价。</p></div>
+      <div style="padding:12px 14px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--accent);"><p style="font-size:12px;color:var(--text-2);line-height:1.5;margin:0;"><b>独立站卖法：</b>用真实高端车型做首图；展示压力/前滑数据、材质近景、安装视频和车型专属评测；少用大额折扣。"像塑料件"会直接打掉溢价。</p></div>
     </div>
 
     <!-- 画像 2：高端 ADV -->
-    <div style="background:var(--bg-2);border-radius:12px;padding:28px 24px;border-top:3px solid #0071e3;">
+    <div style="background:var(--bg-2);border-radius:12px;padding:28px 24px;border-top:3px solid var(--accent);">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
         <div>
-          <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0071e3;margin-bottom:4px;">画像三 · 首发利润主力</p>
+          <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">画像三 · 首发利润主力</p>
           <h3 style="font-size:20px;font-weight:700;color:var(--text-1);margin:0;">高端 ADV 长途体验优化型骑士</h3>
         </div>
-        <span style="font-size:28px;">🗺️</span>
+        
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
         <div style="background:var(--bg-1);border-radius:8px;padding:12px;"><p style="font-size:11px;color:var(--text-3);margin-bottom:4px;">年龄 · 车型</p><p style="font-size:13px;color:var(--text-1);font-weight:600;">35–60岁 · BMW GS / Africa Twin / KTM 890</p></div>
@@ -1202,17 +1163,17 @@
       </div>
       <div style="margin-bottom:16px;"><p style="font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:8px;">最强痛点</p><p style="font-size:13px;color:var(--text-3);line-height:1.6;">骑2–6小时后热点、麻木、闷湿。担心座高、双脚够地、乘客体验和雨后处理。第一次长途后最容易换座。</p></div>
       <div style="margin-bottom:16px;"><p style="font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:8px;">触达渠道</p><p style="font-size:13px;color:var(--text-3);line-height:1.6;">YouTube长视频 · Google"车型+best seat" · ADVrider · BMW MOA · Africa Twin/KTM论坛</p></div>
-      <div style="padding:12px 14px;background:rgba(0,113,227,.08);border-radius:8px;border-left:3px solid #0071e3;"><p style="font-size:12px;color:var(--text-2);line-height:1.5;margin:0;"><b>独立站卖法：</b>长测优先于短视频；提供身高/体重、座高变化、清洁视频、交付日期、试用和保修。$649 专业版可作利润主力。</p></div>
+      <div style="padding:12px 14px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--accent);"><p style="font-size:12px;color:var(--text-2);line-height:1.5;margin:0;"><b>独立站卖法：</b>长测优先于短视频；提供身高/体重、座高变化、清洁视频、交付日期、试用和保修。$649 专业版可作利润主力。</p></div>
     </div>
 
     <!-- 画像 3：中排量仿赛 -->
-    <div style="background:var(--bg-2);border-radius:12px;padding:28px 24px;border-top:3px solid #30d158;">
+    <div style="background:var(--bg-2);border-radius:12px;padding:28px 24px;border-top:3px solid var(--accent);">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
         <div>
-          <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#30d158;margin-bottom:4px;">画像二 · 质价比 · 大众偏好度高</p>
+          <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">画像二 · 质价比 · 大众偏好度高</p>
           <h3 style="font-size:20px;font-weight:700;color:var(--text-1);margin:0;">中排量性价比升级型车主</h3>
         </div>
-        <span style="font-size:28px;">🏁</span>
+        
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
         <div style="background:var(--bg-1);border-radius:8px;padding:12px;"><p style="font-size:11px;color:var(--text-3);margin-bottom:4px;">年龄 · 车型</p><p style="font-size:13px;color:var(--text-1);font-weight:600;">22–35岁 · Ninja 400/500 · CBR500R</p></div>
@@ -1221,17 +1182,17 @@
         <div style="background:var(--bg-1);border-radius:8px;padding:12px;"><p style="font-size:11px;color:var(--text-3);margin-bottom:4px;">年配件预算</p><p style="font-size:13px;color:var(--text-1);font-weight:600;">$0.5k–1.5k</p></div>
       </div>
       <div style="margin-bottom:16px;"><p style="font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:8px;">最强痛点</p><p style="font-size:13px;color:var(--text-3);line-height:1.6;">连续骑行约1小时后疼痛；原厂座垫普通；预算有限又担心买错。价格、免邮、分期、真实评价最敏感。</p></div>
-      <div style="padding:12px 14px;background:rgba(48,209,88,.08);border-radius:8px;border-left:3px solid #30d158;"><p style="font-size:12px;color:var(--text-2);line-height:1.5;margin:0;"><b>独立站卖法：</b>强化原厂前后对比、UGC、车型适配、分期和免费退换。$549 对大部分用户过高。</p></div>
+      <div style="padding:12px 14px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--accent);"><p style="font-size:12px;color:var(--text-2);line-height:1.5;margin:0;"><b>独立站卖法：</b>强化原厂前后对比、UGC、车型适配、分期和免费退换。$549 对大部分用户过高。</p></div>
     </div>
 
     <!-- 画像 4：轻量 ADV -->
-    <div style="background:var(--bg-2);border-radius:12px;padding:28px 24px;border-top:3px solid #ff9f0a;">
+    <div style="background:var(--bg-2);border-radius:12px;padding:28px 24px;border-top:3px solid var(--accent);">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
         <div>
-          <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#ff9f0a;margin-bottom:4px;">画像四 · 后续扩量 · 耐用场景测试</p>
+          <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:4px;">画像四 · 后续扩量 · 耐用场景测试</p>
           <h3 style="font-size:20px;font-weight:700;color:var(--text-1);margin:0;">轻量 ADV / 公路越野实用型骑士</h3>
         </div>
-        <span style="font-size:28px;">🌲</span>
+        
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
         <div style="background:var(--bg-1);border-radius:8px;padding:12px;"><p style="font-size:11px;color:var(--text-3);margin-bottom:4px;">年龄 · 车型</p><p style="font-size:13px;color:var(--text-1);font-weight:600;">25–45岁 · 300–700cc ADV/Dual-sport</p></div>
@@ -1240,7 +1201,7 @@
         <div style="background:var(--bg-1);border-radius:8px;padding:12px;"><p style="font-size:11px;color:var(--text-3);margin-bottom:4px;">年配件预算</p><p style="font-size:13px;color:var(--text-1);font-weight:600;">$1k–3k</p></div>
       </div>
       <div style="margin-bottom:16px;"><p style="font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:8px;">最强痛点</p><p style="font-size:13px;color:var(--text-3);line-height:1.6;">前段太宽难够地、站坐转换碍事、摔车耐用、泥水清洁和维修。更看重窄、抓地、易清洁。</p></div>
-      <div style="padding:12px 14px;background:rgba(255,159,10,.08);border-radius:8px;border-left:3px solid #ff9f0a;"><p style="font-size:12px;color:var(--text-2);line-height:1.5;margin:0;"><b>独立站卖法：</b>用泥水、跌落、清洁和站坐转换内容成交；做 $449–599 耐用方案，不建议作为首发主力。</p></div>
+      <div style="padding:12px 14px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--accent);"><p style="font-size:12px;color:var(--text-2);line-height:1.5;margin:0;"><b>独立站卖法：</b>用泥水、跌落、清洁和站坐转换内容成交；做 $449–599 耐用方案，不建议作为首发主力。</p></div>
     </div>
 
   </div>
