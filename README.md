@@ -2,19 +2,17 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+The storefront and the admin CMS are the same Next.js app. To run both at once, use two terminals and two ports (each has its own `.next-*` cache so they do not lock each other):
 
 ```bash
+# Storefront — http://localhost:3100
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Admin CMS — http://localhost:3200/admin/login
+npm run admin
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Scripts already run `env -u NODE_OPTIONS` (this machine's `NODE_OPTIONS=--use-system-ca` breaks Next workers). Do not use `scripts/keep-dev.sh`; it no longer starts a server.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

@@ -1,0 +1,70 @@
+---
+description: 3DThinkPro 独立站按 Figma Auto Layout 还原；颜色/圆角/字号只用 tokens；英文大小写按角色写死；不改 Shopify 数据层。
+alwaysApply: true
+---
+
+# 3DThinkPro 前端规范
+
+视觉唯一来源仍是 Figma `y9ipvLiu6Ve7HkExTae0Ay`。颜色/圆角/字号只用 `src/styles/tokens.css` 与 typography class。禁止新增散装 hex。
+
+这不是视觉稿，是很规范的 UI 设计稿。
+既然做成 Auto Layout，一定考虑到了前端代码逻辑，必须按她的走。
+自适应：首先做好**当前这个设计版本**，再在这个版本的基础上做自适应。不要先自成一套流式/响应式再「参考」稿。
+
+## 设计还原（独立站顾客 UI）
+
+- 范围：`src/app/(site)`、`src/components`、`src/sections`。运营后台走 Ant Design，不要用这套 Figma 去画 B 端。
+- FILL / 固定高 / 兄弟节点 Y 是布局合同，不是装饰（例：商品页 Product Description 是固定槽，Quantity 不随手风琴移动）。
+- 先 1:1 还原当前桌面设计版本（量高度、Y、间距），验证展开/收起后固定槽位不变，再自适应；自适应不得破坏 Auto Layout 槽位。
+- 和稿冲突时改代码迁就稿，不改她的前端逻辑迁就旧实现。
+- 完整工作流：`.cursor/skills/storefront-design-restore/SKILL.md`。
+
+## 分层（不要跨层乱改）
+
+- `src/lib/shopify/` — Storefront API / Cart。UI 迁就数据层，不要反过来改接口。
+- `src/components/ui/` — Figma 原子：Button、IconButton、TextField、Icon。
+- `src/components/commerce/` — 商品橱窗、车型卡、横滑轨道。
+- `src/components/layout/` — Header、Footer。
+- `src/sections/` — 首页等页面区块，只组合上面的组件。
+- `src/lib/cms/` + `content/home.json` — 首页运营素材（Hero / 活动 / 社媒），不是 Shopify。
+- `src/app/admin/` — 运营后台。
+- `src/app/` — 路由，不写样式细节。
+
+顾客侧只用 `SHOPIFY_STOREFRONT_PUBLIC_TOKEN`。Admin `shpat_` 不进这个前端。
+服务端请求必须带 `Shopify-Storefront-Buyer-IP`。结算跳转 Shopify 托管页，不套设计稿。
+
+网站文案英文；内部文档中文。品牌 3DThinkPro，公司英皓。
+
+## 英文大小写（顾客站，写死）
+
+新文案按表执行。不要趁机改旧文案。
+
+**Title Case** = 实词首字母大写。介词（to / of / for / with / in / on / at / by / from / as）、连词（and / or）、冠词（a / an / the）句中小写。**第一个和最后一个单词仍大写。** 对：`Seats Built for Your Ride` `Add to Cart` `Select Country / Currency and Language` `Buy with Shop`。错：`Seats Built For Your Ride` `Add To Cart` `Select Country / Currency And Language`。
+
+**Sentence case** = 仅句首字母大写，句中普通词不大写。`Each seat is precision-printed to fit a specific model.`
+
+| 角色 | 只准这一种 |
+|---|---|
+| 主标题（Hero / 页面 H1 / 同级区块题） | Title Case。`Seats Built for Your Ride`。不准 sentence case、不准全大写。 |
+| 标签（分类芯片、库存徽章、表单字段 label） | 全大写。`HONDA` `CBR650R` `NEW` `OUT OF STOCK` `COUNTRY / CURRENCY` `LANGUAGE`。不准 Title Case 徽章（不要 `Out Of Stock`）。 |
+| 选项（导航、筛选、变体、手风琴标题、字段值 / 下拉选项） | Title Case（同样介词 / 连词 / 冠词小写）。`Shop` `Details` `Honda` `Japan (€)` `English`。车型码保持厂家写法 `GSX-1300R`，不要 `Gsx-1300r`。 |
+| 按钮（含表单主按钮） | Title Case。`Add to Cart` `Send` `Join` `Discover More` `Apply`。Shop Pay 官方锁 `Buy with Shop` 正好符合（with 小写）。源字符串不要手打全大写；表单按钮也不开全大写例外（不要 `APPLY`）。不要 `Add To Cart`。 |
+| 表单 / 弹层标题 | Title Case。同主标题 / 区块题。`Select Country / Currency and Language`（and 小写；Country / Currency 仍大写）。不准 sentence case、不准全大写。 |
+| 占位符 placeholder | Sentence case。属提示正文。`Search your bike model`。 |
+| 正文与段落 | Sentence case。`Each seat is precision-printed to fit a specific model.` |
+| 商品名称 | 卡面/PDP 主名按 SKU 展示，**仅展示层** uppercase：`3DTHINKPRO-H001`。Shopify / 运营输入的长商品名保持源串，禁止 `text-transform` 或 JS 转成 Title Case / 全大写。 |
+| 价格 | `$` 在前 + 美式千分位；整数不写 `.00`。`$64,800` `$595` `$299.50`。不准 `$64800` `$64,800.00` `64,800$`。 |
+
+表单四条（弹层 / 筛选 / 订阅 / 结账前选择器，写死）：
+
+- 表单 / 弹层标题 = Title Case。`Select Country / Currency and Language`
+- 字段标签（label）= 全大写。`COUNTRY / CURRENCY` `LANGUAGE`
+- 字段值 / 下拉选项 = Title Case。`Japan (€)` `English`
+- 表单按钮 = Title Case（同按钮规则）。`Apply`。不要 `APPLY`
+- 占位符 placeholder = sentence case（属提示正文）。`Search your bike model`
+
+专有名词保持官方形，不套上面的规则：`3DThinkPro`（SKU 展示层除外）、`Shop`（Shop Pay）、`SKU`、`HIVE®`、`TPU`、车型 `GSX-1300R` / `CBR650R`。Community / Technology 页 Hero 词 Figma 已写成全小写 `community` / `technology`，那两页维持，不要推广到 Shop / PDP。
+
+`text-transform` 只许用在：SKU 展示、`.btn-outline-white` / `.btn-accent`（Figma 营销按钮 `textCase: UPPER` 显示层）。禁止用 `capitalize` 收按钮大小写（会把 `Add to Cart` 收成 `Add To Cart`）。禁止对用户输入、评论、CMS 正文、Shopify `title` 一刀切。源字符串直接写成对的 Title Case。
+
+对齐：fizik 导航/集合 H1 全大写、按钮 Title Case、正文 sentence case、价带小数（€190,00）；我们导航/H1 跟 Figma 用 Title Case，不抄 fizik 全大写导航。fizik 国家货币弹层标题 sentence case、按钮 `APPLY` 全大写，我们都不抄：弹层题 Title Case，按钮 `Apply`。商品身份（SKU、卡面品牌码、库存徽章）跟标签全大写，不抄 fizik 货名混用。

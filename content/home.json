@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "enabled": true,
+    "ctaLabel": "Discover Your Passion",
+    "ctaHref": "/shop",
+    "media": {
+      "kind": "video",
+      "src": "/cms/1789276125171-sgkv8w.mp4"
+    }
+  },
+  "campaigns": [
+    {
+      "id": "campaign-1",
+      "title": "Ultimate Comfort with Personalized Cushion",
+      "description": "Tailored to fit you. No more one-size-fits-all discomfort. Our personalized cushions support your unique body shape, relieving pressure for all-day comfort, whether you’re working, driving or relaxing.",
+      "ctaLabel": "Discover More",
+      "ctaHref": "/shop",
+      "media": {
+        "kind": "image",
+        "src": "/cms/1789290877248-40lsn6.png"
+      }
+    }
+  ],
+  "social": {
+    "title": "Built for Your Bike",
+    "cards": [
+      {
+        "id": "1789276201366-4yfls",
+        "brand": "Kawasaki",
+        "model": "Z900",
+        "href": "/shop",
+        "media": {
+          "kind": "image",
+          "src": "/cms/1789276374726-jw7yo1.png"
+        }
+      },
+      {
+        "id": "1789276376275-ub2tk",
+        "brand": "SUZUKI ",
+        "model": "GSX1300R",
+        "href": "/shop",
+        "media": {
+          "kind": "image",
+          "src": "/cms/1789276386754-037gzc.png"
+        }
+      },
+      {
+        "id": "1789276377333-dqg31",
+        "brand": "BMW ",
+        "model": "CBR1000RR",
+        "href": "/shop",
+        "media": {
+          "kind": "image",
+          "src": "/cms/1789276400010-czdny1.png"
+        }
+      }
+    ]
+  }
+}

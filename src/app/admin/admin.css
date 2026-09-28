@@ -1,0 +1,272 @@
+/* Admin 布局胶水。颜色来自 AntdProvider 写入的 token 变量，不写散装 hex。 */
+
+.admin-sider-brand {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  color: var(--admin-text-light);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.admin-content {
+  padding: 16px 24px 24px;
+}
+
+.admin-dock {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  padding: 12px 0;
+  background: var(--admin-bg-layout);
+  border-top: 1px solid var(--admin-border);
+}
+
+.admin-login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--admin-bg-layout);
+  padding: 24px;
+}
+
+.admin-media-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 120px;
+  max-height: 320px;
+  padding: 0;
+  border: none;
+  background: var(--admin-fill);
+  cursor: pointer;
+}
+
+.admin-media-preview img,
+.admin-media-preview video {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+}
+
+.admin-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-thumb {
+  position: relative;
+  width: 96px;
+}
+
+.admin-thumb img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: var(--admin-radius);
+  display: block;
+}
+
+.admin-thumb-pos {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+}
+
+.pdp-rte {
+  --pdp-paragraph-indent: 24px;
+  overflow: hidden;
+  background: var(--admin-bg-container);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+}
+
+.pdp-rte-toolbar {
+  width: 100%;
+  padding: 8px;
+  border-bottom: 1px solid var(--admin-border);
+  background: var(--admin-fill);
+}
+
+.pdp-rte-editor {
+  min-height: 280px;
+  padding: 12px 16px;
+}
+
+.pdp-rte-loading {
+  min-height: 280px;
+  padding: 12px 16px;
+  color: var(--admin-text-quaternary);
+}
+
+.pdp-rte .ProseMirror,
+.pdp-rte-prose {
+  outline: none;
+  min-height: 256px;
+  color: var(--admin-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.pdp-rte .ProseMirror h2,
+.pdp-rte-prose h2 {
+  margin: 1.25em 0 0.5em;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--admin-text);
+}
+
+.pdp-rte .ProseMirror h2:first-child,
+.pdp-rte-prose h2:first-child {
+  margin-top: 0;
+}
+
+.pdp-rte .ProseMirror p,
+.pdp-rte-prose p {
+  margin: 0 0 0.5em;
+}
+
+.pdp-rte .ProseMirror p:last-child,
+.pdp-rte-prose p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tailwind / antd preflight sets ul,ol { list-style: none; padding: 0 }. Write markers back. */
+.pdp-rte .ProseMirror ul,
+.pdp-rte-prose ul {
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  margin: 0 0 0.5em !important;
+  padding-left: 1.75em !important;
+}
+
+.pdp-rte .ProseMirror ol,
+.pdp-rte-prose ol {
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+  margin: 0 0 0.5em !important;
+  padding-left: 1.75em !important;
+}
+
+.pdp-rte .ProseMirror li,
+.pdp-rte-prose li {
+  display: list-item !important;
+  list-style: inherit !important;
+}
+
+.pdp-rte .ProseMirror p.pdp-indent,
+.pdp-rte .ProseMirror p[style*='text-indent'],
+.pdp-rte-prose p.pdp-indent,
+.pdp-rte-prose p[style*='text-indent'],
+.pdp-rte .ProseMirror blockquote p,
+.pdp-rte-prose blockquote p {
+  text-indent: var(--pdp-paragraph-indent) !important;
+  margin: 0 !important;
+}
+
+.pdp-rte .ProseMirror blockquote,
+.pdp-rte-prose blockquote {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  quotes: none;
+}
+
+.pdp-rte .ProseMirror blockquote::before,
+.pdp-rte .ProseMirror blockquote::after,
+.pdp-rte-prose blockquote::before,
+.pdp-rte-prose blockquote::after {
+  content: none;
+}
+
+/* Marker joins the first line, then text-indent moves 「1. / ·」 with the copy. */
+.pdp-rte .ProseMirror li.pdp-indent,
+.pdp-rte .ProseMirror li[style*='text-indent'],
+.pdp-rte-prose li.pdp-indent,
+.pdp-rte-prose li[style*='text-indent'],
+.pdp-rte .ProseMirror blockquote li,
+.pdp-rte-prose blockquote li {
+  list-style-position: inside !important;
+  text-indent: var(--pdp-paragraph-indent) !important;
+}
+
+/* TipTap wraps li copy in <p>; keep 「1. Remove…」 on one indented line. */
+.pdp-rte .ProseMirror li.pdp-indent > p,
+.pdp-rte .ProseMirror li[style*='text-indent'] > p,
+.pdp-rte-prose li.pdp-indent > p,
+.pdp-rte-prose li[style*='text-indent'] > p,
+.pdp-rte .ProseMirror blockquote li > p,
+.pdp-rte-prose blockquote li > p {
+  display: inline !important;
+}
+
+.pdp-rte .ProseMirror strong,
+.pdp-rte .ProseMirror b,
+.pdp-rte-prose strong,
+.pdp-rte-prose b {
+  font-weight: 700 !important;
+}
+
+.pdp-rte .ProseMirror em,
+.pdp-rte .ProseMirror i,
+.pdp-rte-prose em,
+.pdp-rte-prose i {
+  font-style: italic !important;
+}
+
+.pdp-rte .ProseMirror u,
+.pdp-rte-prose u {
+  text-decoration: underline !important;
+}
+
+.admin-html-preview {
+  margin: 0;
+  max-height: 220px;
+  overflow: auto;
+  padding: 12px;
+  background: var(--admin-fill);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  color: var(--admin-text);
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.admin-cover {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--admin-radius-sm);
+  overflow: hidden;
+  background: var(--admin-fill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--admin-text-quaternary);
+}
+
+.admin-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .admin-content {
+    padding: 12px 16px 24px;
+  }
+}

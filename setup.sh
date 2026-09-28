@@ -44,6 +44,6 @@ fi
 
 # 启动开发服务器
 echo "🚀 启动开发服务器..."
-echo "访问 http://localhost:3000"
+echo "访问 http://localhost:3100"
 echo ""
 npm run dev

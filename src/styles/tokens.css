@@ -1,0 +1,90 @@
+/* 3DThinkPro 基础 Scale — 对齐 Figma 开发页 486:749
+   字：角色 / 编号 · 字号/行高。色：只用常用复用色。 */
+
+:root {
+  --leading: 1.4;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --font-sans: var(--font-noto), "Noto Sans SC", "Helvetica Neue", sans-serif;
+  --font-logo: var(--font-montserrat), Montserrat, var(--font-sans);
+  --font-card: Arial, Helvetica, sans-serif;
+
+  --type-display-0: 56px;
+  --type-title-0: 32px;
+  --type-title-1: 24px;
+  --type-body-0: 18px;
+  --type-body-1: 16px;
+  --type-body-2: 14px;
+  --type-caption: 12px;
+  --type-card-0: 28px;
+  --type-card-1: 18px;
+  --type-card-2: 16px;
+
+  --fg-100: #000000;
+  --fg-80: #000000cc;
+  --fg-60: #00000099;
+  --fg-50: color-mix(in srgb, var(--fg-100) 50%, transparent);
+  --fg-40: #00000066;
+  --fg-30: #0000004d;
+  --overlay-100: #ffffff;
+  --overlay-80: #ffffffcc;
+  --overlay-60: #ffffff99;
+  --overlay-20: #ffffff33;
+  --overlay-8: #ffffff14;
+  --line-12: #0000001f;
+  --line-8: #00000014;
+  --line-4: #0000000a;
+  --fill-accent: #ffe100;
+  --fill-shop: #5731f6;
+  --fill-link: #115d95;
+  --fill-danger: #de001a;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-pill: 30px;
+  --page-max: 1440px;
+  --gutter: 48px;
+  --gutter-wide: 120px;
+  /* Figma 516:3036 paragraphIndent — Installation 编号段首行缩进 */
+  --pdp-paragraph-indent: 24px;
+
+  /* 旧 class 别名 */
+  --fs-40: 40px;
+  --fs-32: var(--type-title-0);
+  --fs-24: var(--type-title-1);
+  --fs-18: var(--type-body-0);
+  --fs-16: var(--type-body-1);
+  --fs-14: var(--type-body-2);
+  --fs-12: var(--type-caption);
+  --color-white: var(--overlay-100);
+  --color-black: var(--fg-100);
+  --color-black-80: var(--fg-80);
+  --color-black-60: var(--fg-60);
+  --color-black-50: var(--fg-50);
+  --color-black-40: var(--fg-40);
+  --color-black-30: var(--fg-30);
+  --color-black-12: var(--line-12);
+  --color-black-8: var(--line-8);
+  --color-black-4: var(--line-4);
+  --color-white-80: var(--overlay-80);
+  --color-white-60: var(--overlay-60);
+  --color-white-20: var(--overlay-20);
+  --color-white-8: var(--overlay-8);
+  --color-accent: var(--fill-accent);
+  --color-shop: var(--fill-shop);
+}
+
+@media (max-width: 1199px) {
+  :root {
+    --gutter: 32px;
+    --gutter-wide: 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --gutter: 20px;
+    --gutter-wide: 24px;
+  }
+}

@@ -1,0 +1,61 @@
+import Link from 'next/link';
+import NewsletterForm from './NewsletterForm';
+
+export default function SiteFooter() {
+  return (
+    <footer className="site-footer">
+      <div className="footer-main">
+        <div className="footer-brand">
+          <Link href="/" className="footer-mark" aria-label="3DThinkPro">
+            <img src="/brand/hive-mark.png" alt="" width={77} height={89} />
+          </Link>
+          <div className="footer-subscribe">
+            <p className="footer-subscribe-title fs-24 fw-regular">
+              Subscribe to 3DThinkPro’s
+              <br />
+              Newsletter
+            </p>
+            <div className="footer-form-block">
+              <NewsletterForm />
+              <p className="footer-terms fs-12">
+                By subscribing I accept the Terms of policies of 3DThinkPro
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="footer-links">
+          <div className="footer-col footer-col-explore">
+            <p className="footer-col-title fs-16 fw-regular">Explore</p>
+            <div className="footer-col-list">
+              <Link href="/shop">All Our Products</Link>
+              <Link href="/brand">Blog</Link>
+              <Link href="/community">Community</Link>
+            </div>
+          </div>
+          <div className="footer-col footer-col-social">
+            <p className="footer-col-title fs-16 fw-regular">Follow Us</p>
+            <div className="footer-social">
+              <a href="https://x.com" aria-label="X">
+                <img src="/brand/social-x.svg" alt="" width={20} height={20} />
+              </a>
+              <a href="https://instagram.com" aria-label="Instagram">
+                <img src="/brand/social-instagram.svg" alt="" width={20} height={20} />
+              </a>
+              <a href="https://facebook.com" aria-label="Facebook">
+                <img src="/brand/social-facebook.svg" alt="" width={20} height={20} />
+              </a>
+              <a href="https://tiktok.com" aria-label="TikTok">
+                <img src="/brand/social-tiktok.svg" alt="" width={20} height={20} />
+              </a>
+            </div>
+          </div>
+          <div className="footer-col footer-col-contact">
+            <p className="footer-col-title fs-16 fw-medium">Contact Us</p>
+            <a href="mailto:sales1@3dthinkpro.com">sales1@3dthinkpro.com</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
