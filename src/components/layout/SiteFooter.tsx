@@ -56,6 +56,9 @@ export default function SiteFooter() {
           </div>
         </div>
       </div>
+      <p className="footer-legal fs-14 fw-medium">
+        Part of Sandi Holdings Limited · © 2026 All Rights Reserved
+      </p>
     </footer>
   );
 }

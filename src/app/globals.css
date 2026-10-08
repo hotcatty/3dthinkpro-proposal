@@ -677,14 +677,24 @@ img { max-width: 100%; display: block; }
 .feature-banner.is-empty .feature-copy .fs-16 { color: var(--color-black-60); }
 
 .site-footer {
-  /* Figma 400:4656 — VERTICAL, pad 32 / 120 / 80 / 120 */
-  background: var(--color-black); color: var(--color-white);
-  padding: 32px var(--gutter-wide) 80px;
+  /* Figma 400:4656 — VERTICAL, gap 20, items END, pad 32 / 120 / 45 / 120 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: 32px var(--gutter-wide) 45px;
 }
 .footer-main {
-  /* Frame 131 — HORIZONTAL SPACE_BETWEEN, gap 56, FILL, align MIN */
+  /* 557:5107 — HORIZONTAL SPACE_BETWEEN, FILL, align MIN */
   display: flex; justify-content: space-between; align-items: flex-start;
   gap: 56px; width: 100%;
+}
+.footer-legal {
+  margin: 0;
+  color: var(--color-white-80);
+  white-space: nowrap;
 }
 .footer-brand {
   /* Frame 130 — VERTICAL gap 56, HUG */
@@ -1873,6 +1883,8 @@ img { max-width: 100%; display: block; }
     align-items: flex-start;
     gap: 40px;
   }
+  .site-footer { align-items: flex-start; }
+  .footer-legal { white-space: normal; }
   .footer-links {
     width: 100%;
     padding-top: 0;
