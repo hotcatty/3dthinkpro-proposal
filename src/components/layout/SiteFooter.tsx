@@ -6,9 +6,6 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div className="footer-main">
         <div className="footer-brand">
-          <Link href="/" className="footer-mark" aria-label="3DThinkPro">
-            <img src="/brand/hive-mark.png" alt="" width={77} height={89} />
-          </Link>
           <div className="footer-subscribe">
             <p className="footer-subscribe-title fs-24 fw-regular">
               Subscribe to 3DThinkPro’s
@@ -56,9 +53,14 @@ export default function SiteFooter() {
           </div>
         </div>
       </div>
-      <p className="footer-legal fs-14 fw-medium">
-        Part of Sandi Holdings Limited · © 2026 All Rights Reserved
-      </p>
+      <div className="footer-legal">
+        <Link href="/" className="footer-legal-mark" aria-label="3DThinkPro">
+          <img src="/brand/hive-mark.png" alt="" width={47} height={54} />
+        </Link>
+        <p className="footer-legal-copy fs-14 fw-medium">
+          Part of Sandi Holdings Limited · © 2026 All Rights Reserved
+        </p>
+      </div>
     </footer>
   );
 }
