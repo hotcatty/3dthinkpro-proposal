@@ -2038,7 +2038,7 @@ img { max-width: 100%; display: block; }
 }
 .site-access-card {
   width: 100%;
-  max-width: 420px;
+  max-width: 480px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -2061,6 +2061,9 @@ img { max-width: 100%; display: block; }
   margin: 0;
   font-size: var(--type-body-1);
   color: var(--color-black-60);
+}
+.site-access-copy + .site-access-copy {
+  margin-top: -4px;
 }
 .site-access-label {
   margin: 8px 0 0;

@@ -52,8 +52,14 @@ export default async function AccessPage({
       <form className="site-access-card" action={enterAction}>
         <input type="hidden" name="next" value={next} />
         <p className="site-access-brand">3DThinkPro</p>
-        <h1 className="site-access-title">Private Preview</h1>
-        <p className="site-access-copy">This site is still being built. Enter the password to continue.</p>
+        <h1 className="site-access-title">Coming Soon</h1>
+        <p className="site-access-copy">
+          This website is still under construction. We expect to launch on October 30.
+        </p>
+        <p className="site-access-copy">
+          3DThinkPro makes HIVE lattice motorcycle seats — a complete seat, not a cover. Each
+          seat is precision-printed to fit a specific bike.
+        </p>
         <label className="site-access-label" htmlFor="site-access-password">
           PASSWORD
         </label>
