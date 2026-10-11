@@ -14,10 +14,21 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 });
 
-export const metadata: Metadata = {
-  title: '3DThinkPro — 3D-Printed Motorcycle Seats',
-  description: 'HIVE lattice motorcycle seats. A complete seat, not a cover. Built for your bike.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const gated = Boolean(process.env.SITE_GATE_PASSWORD);
+  return {
+    title: '3DThinkPro — 3D-Printed Motorcycle Seats',
+    description: 'HIVE lattice motorcycle seats. A complete seat, not a cover. Built for your bike.',
+    robots: gated
+      ? {
+          index: false,
+          follow: false,
+          nocache: true,
+          googleBot: { index: false, follow: false, noimageindex: true },
+        }
+      : undefined,
+  };
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
