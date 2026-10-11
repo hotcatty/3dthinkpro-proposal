@@ -757,6 +757,7 @@ img { max-width: 100%; display: block; }
   z-index: 5;
 }
 .footer-terms { margin: 0; padding: 0 4px; color: var(--color-white-60); }
+.footer-terms a { text-decoration: underline; text-underline-offset: 2px; }
 .footer-links {
   /* Links container 400:4635 — HORIZONTAL SPACE_BETWEEN, FIXED 617 */
   display: flex; justify-content: space-between; align-items: flex-start;
@@ -777,6 +778,53 @@ img { max-width: 100%; display: block; }
 }
 .footer-social { display: flex; align-items: center; gap: 18px; }
 .footer-social a { display: flex; flex-shrink: 0; }
+
+/* Same 180 side inset as vehicle-request; type roles from tokens / Figma 486:749 */
+.policy-page {
+  padding: 64px 180px 80px;
+  background: var(--color-white);
+}
+.policy-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 32px;
+  max-width: 1008px;
+}
+.policy-title { color: var(--color-black); }
+.policy-body {
+  max-width: 1008px;
+  padding-top: 40px;
+  color: var(--color-black);
+  font-size: var(--type-body-2);
+  font-weight: var(--fw-regular);
+  line-height: var(--leading);
+}
+.policy-body :first-child { margin-top: 0; }
+.policy-body h2 {
+  margin: 40px 0 16px;
+  color: var(--color-black);
+  font-size: var(--type-title-1);
+  font-weight: var(--fw-regular);
+  line-height: var(--leading);
+}
+.policy-body h3 {
+  margin: 28px 0 12px;
+  color: var(--color-black);
+  font-size: var(--type-body-0);
+  font-weight: var(--fw-medium);
+  line-height: var(--leading);
+}
+.policy-body p,
+.policy-body ul,
+.policy-body ol { margin: 0 0 14px; }
+.policy-body ul,
+.policy-body ol { padding-left: 20px; }
+.policy-body a {
+  color: var(--fill-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 
 .shop-page { padding: 64px var(--gutter) 80px; }
 .shop-intro {
@@ -1891,6 +1939,7 @@ img { max-width: 100%; display: block; }
   }
   .site-footer { align-items: flex-start; }
   .footer-legal-copy { white-space: normal; }
+  .policy-page { padding: 64px var(--gutter) 80px; }
   .footer-links {
     width: 100%;
     padding-top: 0;

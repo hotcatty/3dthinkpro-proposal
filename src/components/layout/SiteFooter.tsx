@@ -15,7 +15,8 @@ export default function SiteFooter() {
             <div className="footer-form-block">
               <NewsletterForm />
               <p className="footer-terms fs-12">
-                By subscribing I accept the Terms of policies of 3DThinkPro
+                By subscribing I accept the{' '}
+                <Link href="/policies/privacy-policy">Terms of policies</Link> of 3DThinkPro
               </p>
             </div>
           </div>
@@ -26,8 +27,8 @@ export default function SiteFooter() {
             <p className="footer-col-title fs-16 fw-regular">Explore</p>
             <div className="footer-col-list">
               <Link href="/shop">All Our Products</Link>
-              <Link href="/brand">Blog</Link>
               <Link href="/community">Community</Link>
+              <Link href="/policies/privacy-policy">Privacy</Link>
             </div>
           </div>
           <div className="footer-col footer-col-social">

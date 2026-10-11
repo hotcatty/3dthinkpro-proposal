@@ -232,3 +232,18 @@ export const CART_LINES_REMOVE = `
     }
   }
 `;
+
+export const SHOP_POLICIES_QUERY = `
+  query ShopPolicies {
+    shop {
+      privacyPolicy { title handle body }
+      refundPolicy { title handle body }
+      shippingPolicy { title handle body }
+      termsOfService { title handle body }
+      termsOfSale { title handle body }
+      legalNotice { title handle body }
+      contactInformation { title handle body }
+      subscriptionPolicy { title handle body }
+    }
+  }
+`;
