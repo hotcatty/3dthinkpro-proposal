@@ -84,7 +84,9 @@
 
 @media (max-width: 900px) {
   :root {
-    --gutter: 20px;
-    --gutter-wide: 24px;
+    --gutter: 16px;
+    --gutter-wide: 16px;
+    --type-display-0: 32px;
+    --type-title-0: 24px;
   }
 }

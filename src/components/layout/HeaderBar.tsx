@@ -37,6 +37,7 @@ export default function HeaderBar({
   const [scrolled, setScrolled] = useState(false);
   const [barHover, setBarHover] = useState(false);
   const [shopOpen, setShopOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [searchHover, setSearchHover] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
   const [localeOpen, setLocaleOpen] = useState(false);
@@ -50,13 +51,14 @@ export default function HeaderBar({
   const blurTimer = useRef<number>(0);
 
   const searchOpen = searchHover || searchActive;
+  const overlayOpen = shopOpen || searchOpen || localeOpen || menuOpen;
   const chrome =
-    onDarkHero && !scrolled && !barHover && !shopOpen && !searchOpen && !localeOpen
+    onDarkHero && !scrolled && !barHover && !overlayOpen
       ? 'pinned'
-      : onLightHero && !scrolled && !barHover && !shopOpen && !searchOpen && !localeOpen
+      : onLightHero && !scrolled && !barHover && !overlayOpen
         ? 'over-light'
         : 'scrolled';
-  const onWhite = !onDarkHero && !onLightHero && !scrolled && !shopOpen && !searchOpen && !localeOpen;
+  const onWhite = !onDarkHero && !onLightHero && !scrolled && !overlayOpen;
 
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -86,6 +88,21 @@ export default function HeaderBar({
     setQuery('');
   }
 
+  function closeMenu() {
+    setMenuOpen(false);
+    setShopOpen(false);
+  }
+
+  function toggleMenu() {
+    if (menuOpen) {
+      closeMenu();
+      return;
+    }
+    closeSearch();
+    closeLocale();
+    setMenuOpen(true);
+  }
+
   function closeLocale() {
     setLocaleOpen(false);
     setLocaleDraft(locale);
@@ -93,6 +110,7 @@ export default function HeaderBar({
 
   function openLocale() {
     setShopOpen(false);
+    setMenuOpen(false);
     closeSearch();
     setLocaleDraft(locale);
     setLocaleOpen(true);
@@ -131,6 +149,7 @@ export default function HeaderBar({
 
   useEffect(() => {
     setShopOpen(false);
+    setMenuOpen(false);
     closeSearch();
     closeLocale();
     setBarHover(false);
@@ -142,11 +161,12 @@ export default function HeaderBar({
   }, [searchActive]);
 
   useEffect(() => {
-    if (!shopOpen && !searchActive && !localeOpen) return undefined;
+    if (!shopOpen && !searchActive && !localeOpen && !menuOpen) return undefined;
 
     const onPointer = (event: PointerEvent) => {
       if (!rootRef.current?.contains(event.target as Node)) {
         setShopOpen(false);
+        setMenuOpen(false);
         closeSearch();
         closeLocale();
         setBarHover(false);
@@ -155,6 +175,7 @@ export default function HeaderBar({
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setShopOpen(false);
+        setMenuOpen(false);
         closeSearch();
         closeLocale();
       }
@@ -166,7 +187,7 @@ export default function HeaderBar({
       document.removeEventListener('pointerdown', onPointer);
       document.removeEventListener('keydown', onKey);
     };
-  }, [shopOpen, searchActive, localeOpen, locale]);
+  }, [shopOpen, searchActive, localeOpen, menuOpen, locale]);
 
   useEffect(
     () => () => {
@@ -176,14 +197,21 @@ export default function HeaderBar({
     [],
   );
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
+
   return (
     <header
       ref={rootRef}
-      className={`site-header ${chrome}${shopOpen ? ' is-open' : ''}${onWhite ? ' has-edge' : ''}${localeOpen ? ' is-locale-open' : ''}`}
+      className={`site-header ${chrome}${shopOpen ? ' is-open' : ''}${menuOpen ? ' is-menu' : ''}${onWhite ? ' has-edge' : ''}${localeOpen ? ' is-locale-open' : ''}`}
       onMouseEnter={() => setBarHover(true)}
       onMouseLeave={() => {
         setBarHover(false);
-        setShopOpen(false);
+        if (!menuOpen) setShopOpen(false);
         if (!searchActive) setSearchHover(false);
         window.clearTimeout(shopCloseTimer.current);
       }}
@@ -201,6 +229,15 @@ export default function HeaderBar({
           <Link href="/" className="nav-logo">
             3DThinkPro
           </Link>
+          <span className="nav-menu-wrap">
+            <IconButton
+              label={menuOpen ? 'Close menu' : 'Menu'}
+              expanded={menuOpen}
+              onClick={toggleMenu}
+            >
+              <Icon name={menuOpen ? 'x' : 'menu'} size={20} />
+            </IconButton>
+          </span>
           <nav className="nav-links">
             <Link
               href="/shop"
@@ -252,6 +289,7 @@ export default function HeaderBar({
                 onClick={() => {
                   if (!searchOpen) {
                     if (localeOpen) closeLocale();
+                    closeMenu();
                     setSearchActive(true);
                   }
                 }}
@@ -346,6 +384,73 @@ export default function HeaderBar({
           </IconButton>
         </div>
       </div>
+      {searchActive ? (
+        <form
+          className="nav-search-sheet"
+          action="/shop"
+          method="get"
+          onSubmit={(event) => {
+            if (suggestions[0] && query.trim()) {
+              event.preventDefault();
+              router.push(`/products/${encodeURIComponent(suggestions[0].handle)}`);
+              closeSearch();
+            }
+          }}
+        >
+          <input
+            type="text"
+            name="q"
+            value={query}
+            placeholder="Search your bike model"
+            aria-label="Search"
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck={false}
+            inputMode="search"
+            onChange={(event) => setQuery(event.target.value)}
+          />
+        </form>
+      ) : null}
+      <nav className="nav-mobile" aria-label="Menu">
+        <div className="nav-mobile-item">
+          <div className="nav-mobile-row">
+            <Link href="/shop" className="nav-mobile-link" onClick={closeMenu}>
+              Shop
+            </Link>
+            <button
+              type="button"
+              className={`nav-mobile-more${shopOpen ? ' is-on' : ''}`}
+              aria-expanded={shopOpen}
+              aria-label={shopOpen ? 'Hide brands' : 'Show brands'}
+              onClick={() => setShopOpen((open) => !open)}
+            >
+              <Icon name="chevron-down" size={16} />
+            </button>
+          </div>
+          {shopOpen ? (
+            <div className="nav-mobile-brands">
+              {SHOP_BRANDS.map((brand) => (
+                <Link
+                  key={brand.name}
+                  href={`/shop?brand=${brand.name}`}
+                  className="nav-brand"
+                  onClick={closeMenu}
+                >
+                  <img src={brand.src} alt="" width={20} height={20} />
+                  <span>{brand.name}</span>
+                </Link>
+              ))}
+            </div>
+          ) : null}
+        </div>
+        <Link href="/community" className="nav-mobile-link" onClick={closeMenu}>
+          Community
+        </Link>
+        <Link href="/technology" className="nav-mobile-link" onClick={closeMenu}>
+          Tech
+        </Link>
+      </nav>
       <div
         className="nav-shop-panel"
         onMouseEnter={() => {
