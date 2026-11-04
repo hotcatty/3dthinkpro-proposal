@@ -22,6 +22,12 @@ function withRobots(response: NextResponse) {
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  if (/ninjia/i.test(pathname)) {
+    const url = request.nextUrl.clone();
+    url.pathname = pathname.replace(/ninjia/gi, 'ninja');
+    return NextResponse.redirect(url, 301);
+  }
+
   if (pathname.startsWith('/admin') || pathname.startsWith('/api/cms')) {
     const publicCms = pathname === '/admin/login' || pathname === '/api/cms/login';
     if (publicCms) return withRobots(NextResponse.next());
