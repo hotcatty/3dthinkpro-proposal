@@ -13,6 +13,16 @@ body {
 }
 a { color: inherit; text-decoration: none; }
 button, input, textarea { font-family: inherit; }
+/*
+  Tailwind preflight sets `b, strong { font-weight: bolder }`. `bolder` is
+  relative to the parent, so a hover that shifts the parent weight (or a
+  browser synthesizing a heavier face) makes the label jump. Lock a fixed
+  weight, and stop weight synthesis on interactive text.
+*/
+b, strong { font-weight: var(--fw-bold); }
+a, button, .btn, .product-window, .bike-card, .nav-link, .shop-chip {
+  font-synthesis: none;
+}
 img { max-width: 100%; display: block; }
 
 /* ——— type utilities: size / weight / case — not semantic roles ——— */
@@ -60,13 +70,20 @@ img { max-width: 100%; display: block; }
   -webkit-backdrop-filter: blur(4px);
 }
 .btn-outline-white:hover,
-.btn-outline-white:active {
+.btn-outline-white:active,
+.btn-outline-white:focus-visible {
   /* Figma 428:6150 — 点击后: accent fill, black text */
   background: var(--color-accent);
   color: var(--color-black);
   border-color: var(--color-accent);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  font-weight: var(--fw-regular);
+}
+.btn-accent:hover,
+.btn-accent:active,
+.btn-accent:focus-visible {
+  font-weight: var(--fw-regular);
 }
 .btn-accent {
   background: var(--color-accent);
@@ -93,6 +110,15 @@ img { max-width: 100%; display: block; }
   background: var(--color-accent);
   color: var(--color-black);
   outline: none;
+  font-weight: var(--fw-bold);
+}
+.btn-solid:hover,
+.btn-solid:active,
+.btn-solid:focus-visible,
+.btn-shop:hover,
+.btn-shop:active,
+.btn-shop:focus-visible {
+  font-weight: var(--fw-bold);
 }
 .btn-solid,
 .btn-shop {
@@ -210,6 +236,14 @@ img { max-width: 100%; display: block; }
 .site-header.pinned .nav-link:hover { background: var(--color-white-8); }
 .site-header.scrolled .nav-link:hover,
 .nav-link.is-on { background: var(--color-black-8); }
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link:active,
+.shop-chip:hover,
+.shop-chip:focus-visible,
+.shop-chip:active {
+  font-weight: 500;
+}
 .nav-search-wrap {
   position: relative;
   flex: 0 0 auto;
@@ -643,6 +677,25 @@ img { max-width: 100%; display: block; }
 .product-window-meta { display: flex; gap: 4px; padding: 0 8px; font-size: var(--fs-14); margin: 0; }
 .product-window-brand { color: var(--color-accent); font-weight: var(--fw-bold); }
 .product-window-model { color: var(--color-black-60); font-weight: var(--fw-medium); }
+.product-window:hover,
+.product-window:focus-visible,
+.product-window:active,
+.bike-card:hover,
+.bike-card:focus-visible,
+.bike-card:active {
+  font-weight: var(--fw-regular);
+}
+.product-window:is(:hover, :focus-visible, :active) .product-window-brand {
+  font-weight: var(--fw-bold);
+}
+.product-window:is(:hover, :focus-visible, :active) .product-window-model {
+  font-weight: var(--fw-medium);
+}
+.product-window:is(:hover, :focus-visible, :active) .product-window-sku,
+.product-window:is(:hover, :focus-visible, :active) .product-window-price,
+.bike-card:is(:hover, :focus-visible, :active) .bike-card-title {
+  font-weight: var(--fw-regular);
+}
 .product-window-info { padding: 4px 8px 16px; display: flex; flex-direction: column; gap: 6px; }
 .product-window-sku,
 .product-window-price {
@@ -666,6 +719,11 @@ img { max-width: 100%; display: block; }
 }
 .product-window.is-shop .product-window-brand,
 .product-window.is-shop .product-window-model { color: var(--color-black); font-weight: 500; }
+.product-window.is-shop:is(:hover, :focus-visible, :active) .product-window-brand,
+.product-window.is-shop:is(:hover, :focus-visible, :active) .product-window-model {
+  font-weight: 500;
+  color: var(--color-black);
+}
 .product-window-rule { width: 1px; height: 14px; background: var(--color-black); }
 .product-window.is-shop .product-window-info { padding: 0; }
 .product-stock {
@@ -724,45 +782,18 @@ img { max-width: 100%; display: block; }
 .feature-banner.is-empty .feature-copy .fs-16 { color: var(--color-black-60); }
 
 .site-footer {
-  /* Figma 400:4656 — VERTICAL, gap 20, items END, pad 60 / 120 / 45 / 120 */
+  /* Figma 400:4656 — VERTICAL, gap 48, pad 60 / 120 / 45 / 120. Children FILL. */
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 20px;
+  align-items: stretch;
+  gap: 48px;
   background: var(--color-black);
   color: var(--color-white);
   padding: 60px var(--gutter-wide) 45px;
 }
-.footer-main {
-  /* 557:5107 — HORIZONTAL SPACE_BETWEEN, FILL, align MIN */
-  display: flex; justify-content: space-between; align-items: flex-start;
-  gap: 56px; width: 100%;
-}
-.footer-legal {
-  /* 588:2413 — HORIZONTAL, gap 20, items CENTER, HUG */
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-shrink: 0;
-}
-.footer-legal-mark {
-  display: block;
-  width: 47.16px;
-  height: 54.07px;
-  flex-shrink: 0;
-}
-.footer-legal-mark img { width: 100%; height: 100%; object-fit: contain; }
-.footer-legal-copy {
-  margin: 0;
-  color: var(--color-white-80);
-  white-space: nowrap;
-}
-.footer-brand {
-  display: flex; flex-direction: column; align-items: flex-start;
-  flex-shrink: 0;
-}
 .footer-subscribe { width: 416px; max-width: 100%; display: flex; flex-direction: column; gap: 48px; }
-.footer-subscribe-title { margin: 0; padding: 0 4px; width: 408px; max-width: 100%; }
+.footer-subscribe-title { margin: 0; padding: 0 4px; width: 100%; }
+.footer-subscribe-title p { margin: 0; width: 408px; max-width: 100%; white-space: nowrap; }
 .footer-form-block { display: flex; flex-direction: column; gap: 12px; }
 .email-form { display: flex; align-items: stretch; width: 100%; max-width: 409px; }
 .email-field-wrap {
@@ -804,27 +835,143 @@ img { max-width: 100%; display: block; }
   z-index: 5;
 }
 .footer-terms { margin: 0; padding: 0 4px; color: var(--color-white-60); }
-.footer-terms a { text-decoration: underline; text-underline-offset: 2px; }
-.footer-links {
-  /* Links container 400:4635 — HORIZONTAL SPACE_BETWEEN, FIXED 617 */
-  display: flex; justify-content: space-between; align-items: flex-start;
-  width: 617px; max-width: 100%; flex-shrink: 0;
+.footer-terms a { text-decoration: underline; text-underline-offset: 2px; font-weight: var(--fw-regular); }
+.footer-terms a:hover,
+.footer-terms a:focus-visible,
+.footer-terms a:active {
+  color: var(--color-white);
+  font-weight: var(--fw-regular);
 }
-.footer-col { display: flex; flex-direction: column; gap: 36px; flex-shrink: 0; }
-.footer-col-explore { width: max-content; min-width: 107px; }
+.footer-lower {
+  /* 844:3974 — VERTICAL, gap 16, FILL */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+.footer-links {
+  /* 844:2662 — HORIZONTAL SPACE_BETWEEN, FILL */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 24px;
+}
+.footer-col { display: flex; flex-direction: column; gap: 24px; flex-shrink: 0; }
+.footer-col-shop { width: 107px; }
+.footer-col-contact { width: 407px; max-width: 42%; flex-shrink: 1; }
 .footer-col-title { margin: 0; }
-.footer-col-list { display: flex; flex-direction: column; gap: 24px; }
+.footer-contact-title { color: var(--color-white); }
+.footer-col-list { display: flex; flex-direction: column; gap: 16px; }
 .footer-col-list a {
   display: block;
-  font-size: var(--type-body-2); font-weight: var(--fw-medium);
-  color: var(--color-white-80); white-space: nowrap;
-}
-.footer-col-contact a {
-  font-size: var(--type-body-1); font-weight: var(--fw-medium);
+  font-size: var(--type-body-2);
+  font-weight: var(--fw-medium);
+  letter-spacing: normal;
+  line-height: var(--leading);
   color: var(--color-white-80);
+  white-space: nowrap;
 }
-.footer-social { display: flex; align-items: center; gap: 18px; }
+.footer-col-list a:hover,
+.footer-col-list a:focus-visible,
+.footer-col-list a:active {
+  color: var(--color-white);
+  font-weight: var(--fw-medium);
+}
+.footer-contact { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+.footer-contact p { margin: 0; color: var(--color-white-80); }
+.footer-contact .footer-contact-name { color: var(--color-white); }
+.footer-contact a {
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
+.footer-contact a:hover,
+.footer-contact a:focus-visible,
+.footer-contact a:active {
+  color: var(--color-white);
+  font-weight: var(--fw-medium);
+}
+.footer-social { display: flex; align-items: center; gap: 18.333px; }
 .footer-social a { display: flex; flex-shrink: 0; }
+.footer-social img { width: 20px; height: 20px; }
+.footer-meta {
+  /* 828:2321 — VERTICAL, gap 32, FILL */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+}
+.footer-payments { display: flex; align-items: center; gap: 6px; }
+.pay-mark {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 25.608px;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.pay-mark img { position: absolute; max-width: none; display: block; }
+.pay-mark-amex { background: var(--pay-amex); }
+.pay-mark-amex img { left: 9px; top: -3px; width: 31px; height: 31px; }
+.pay-mark-apple {
+  background: var(--color-white);
+  border: 0.5px solid color-mix(in srgb, var(--overlay-100) 30%, transparent);
+}
+.pay-mark-apple img:first-child { left: 0; top: 0; }
+.pay-apple-border { left: 0.852px; top: 0.853px; }
+.pay-apple-logo { left: 5.42px; top: 7.02px; }
+.pay-apple-word { left: 15.112px; top: 7.718px; }
+.pay-mark-shop,
+.pay-mark-mastercard,
+.pay-mark-visa { background: var(--pay-shop); }
+.pay-mark-shop img,
+.pay-mark-visa img {
+  left: 50%;
+  top: calc(50% + 0.2px);
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+}
+.pay-mark-mastercard img {
+  left: calc(50% - 0.5px);
+  top: calc(50% - 0.11px);
+  width: 55px;
+  height: 41.379px;
+  transform: translate(-50%, -50%);
+}
+.pay-mark-gpay { width: 48.147px; height: 25.61px; border-radius: 0; background: transparent; }
+.pay-mark-gpay img { inset: 0; width: 48.147px; height: 25.61px; }
+.pay-mark-unionpay img {
+  left: calc(50% + 0.5px);
+  top: 50%;
+  width: 40px;
+  height: 24.991px;
+  transform: translate(-50%, -50%);
+}
+.footer-legal {
+  /* 588:2413 — HORIZONTAL, gap 20, items CENTER, HUG */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+.footer-legal-mark {
+  display: block;
+  width: 28px;
+  height: 32px;
+  flex-shrink: 0;
+}
+.footer-legal-mark img { width: 28px; height: 32px; max-width: none; }
+.footer-legal-copy {
+  margin: 0;
+  color: var(--color-white-80);
+  white-space: pre;
+}
 
 /* Same 180 side inset as vehicle-request; type roles from tokens / Figma 486:749 */
 .policy-page {
@@ -1022,6 +1169,9 @@ img { max-width: 100%; display: block; }
   line-height: var(--leading);
   cursor: pointer;
 }
+.vehicle-send:hover,
+.vehicle-send:focus-visible,
+.vehicle-send:active { font-weight: var(--fw-bold); }
 .vehicle-send:disabled { opacity: 0.45; cursor: wait; }
 .vehicle-request-error {
   margin: 0;
@@ -1528,6 +1678,12 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
   flex-shrink: 0;
 }
+.pdp-reviews-btn:hover,
+.pdp-reviews-btn:focus-visible,
+.pdp-reviews-btn:active {
+  color: var(--color-black-80);
+  font-weight: 700;
+}
 .pdp-key,
 .pdp-reviews {
   padding: 0 32px;
@@ -2012,23 +2168,17 @@ img { max-width: 100%; display: block; }
     aspect-ratio: 440 / 600;
   }
   .bike-card-title { left: 16px; bottom: 16px; font-size: var(--type-body-2); }
-  .footer-main {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 40px;
-  }
   .site-footer {
     align-items: stretch;
+    gap: 32px;
     padding: 48px var(--gutter) 32px;
     overflow: hidden;
   }
-  .footer-brand,
   .footer-subscribe,
   .footer-subscribe-title,
   .footer-form-block { width: 100%; max-width: none; }
   .footer-subscribe { gap: 24px; }
-  .footer-subscribe-title { font-size: var(--type-title-1); }
+  .footer-subscribe-title p { width: 100%; font-size: var(--type-title-1); white-space: normal; }
   .footer-legal {
     width: 100%;
     flex-wrap: wrap;
@@ -2047,8 +2197,10 @@ img { max-width: 100%; display: block; }
     gap: 32px;
   }
   .footer-col { gap: 16px; }
-  .footer-col-explore { width: auto; }
+  .footer-col-shop,
+  .footer-col-contact { width: auto; max-width: none; }
   .footer-col-list { gap: 16px; }
+  .footer-payments { flex-wrap: wrap; }
   .footer-form-block .email-form {
     width: 100%;
     max-width: none;

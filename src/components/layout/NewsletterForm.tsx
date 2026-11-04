@@ -84,7 +84,7 @@ export default function NewsletterForm() {
           type="text"
           name="email"
           value={value}
-          placeholder="your@email.com"
+          placeholder="Your email please."
           required
           autoComplete="off"
           autoCorrect="off"

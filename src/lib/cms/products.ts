@@ -13,7 +13,7 @@ const SEED: Seed[] = [
   ['yamaha-mt-09', 'YAMAHA', 'MT-09', '2024-present', '3dthinkpro-Y001', '54800'],
   ['yamaha-yzf-r3', 'YAMAHA', 'YZF-R3', '2026-present', '3dthinkpro-Y002', '39800'],
   ['yamaha-mt-07', 'YAMAHA', 'MT-07', '2025-present', '3dthinkpro-Y003', '45800'],
-  ['kawasaki-ninjia500', 'Kawasaki', 'Ninjia500', '2024-present', '3dthinkpro-K001', '42800'],
+  ['kawasaki-ninja500', 'Kawasaki', 'Ninja500', '2024-present', '3dthinkpro-K001', '42800'],
   ['kawasaki-z900', 'Kawasaki', 'Z900', '2025-present', '3dthinkpro-K002', '59800'],
   ['suzuki-gsx1300r', 'SUZUKI', 'GSX1300R', '2025-present', '3dthinkpro-S001', '64800'],
   ['bmw-gs1300', 'BMW', 'GS1300', 'All years', '3dthinkpro-B001', '69800'],

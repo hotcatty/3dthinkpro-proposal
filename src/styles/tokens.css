@@ -40,9 +40,13 @@
   --fill-link: #115d95;
   --fill-danger: #de001a;
 
+  --radius-xs: 2px;
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-pill: 30px;
+  /* Figma 828:2121 / 828:2135 payment-mark fills */
+  --pay-amex: #016fd0;
+  --pay-shop: #5333eb;
   --page-max: 1440px;
   --gutter: 48px;
   --gutter-wide: 120px;
