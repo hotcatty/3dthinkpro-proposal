@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getShopPolicies, getShopPolicy } from '@/lib/shopify/policies';
+import { withReturnWarehouse } from '@/lib/policies/returnWarehouse';
 
 export const revalidate = 300;
 
@@ -54,7 +55,10 @@ export default async function PolicyPage({
           <div className="policy-intro">
             <h1 className="fs-32 fw-regular policy-title">{policy.title}</h1>
           </div>
-          <div className="policy-body" dangerouslySetInnerHTML={{ __html: policy.body }} />
+          <div
+            className="policy-body"
+            dangerouslySetInnerHTML={{ __html: withReturnWarehouse(policy.handle, policy.title, policy.body) }}
+          />
         </>
       )}
     </div>
